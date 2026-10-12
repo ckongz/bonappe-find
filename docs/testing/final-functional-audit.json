@@ -1,0 +1,217 @@
+{
+  "checks": [
+    {
+      "route": "/collections/6ac851a30d16cd69a6af4312",
+      "width": 1440,
+      "title": "Design review shortlist"
+    },
+    {
+      "route": "/account/reviews",
+      "width": 1440,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "route": "/account/reviews",
+      "width": 768,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "route": "/account/reviews",
+      "width": 390,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "route": "/account/notifications",
+      "width": 1440,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "route": "/account/notifications",
+      "width": 768,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "route": "/account/notifications",
+      "width": 390,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "route": "/account/search-history",
+      "width": 1440,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "route": "/account/search-history",
+      "width": 768,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "route": "/account/search-history",
+      "width": 390,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "newRestaurantId": "6ac851bb0d16cd69a6af456b"
+    },
+    {
+      "name": "SPA navigation",
+      "pages": 52
+    },
+    {
+      "route": "/",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/about",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/faqs",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/restaurants",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/photo-credits",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/about",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/faqs",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/restaurants",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/photo-credits",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/about",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/faqs",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/restaurants",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/photo-credits",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/about",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/faqs",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/restaurants",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/photo-credits",
+      "width": 1024,
+      "overflow": false
+    }
+  ],
+  "interactions": [
+    {
+      "name": "Hero search, font loading, preserved waves and immediate visibility",
+      "pass": true
+    },
+    {
+      "name": "Contact valid submission reaches thank-you page",
+      "pass": true
+    },
+    {
+      "name": "Newsletter subscription gives success feedback",
+      "pass": true
+    },
+    {
+      "name": "Account tabs navigate, profile saves and collections publish/open/delete",
+      "pass": true
+    },
+    {
+      "name": "Customer review posts with feedback",
+      "pass": true
+    },
+    {
+      "name": "Gallery upload, lightbox Escape, close button and focus return",
+      "pass": true
+    },
+    {
+      "name": "Owner claim submits and returns to dashboard",
+      "pass": true
+    },
+    {
+      "name": "Restaurant form controls add/remove grades, hours, menu rows and save",
+      "pass": true
+    },
+    {
+      "name": "All visible header/footer local links resolve to defined routes",
+      "pass": true
+    },
+    {
+      "name": "SPA navigation renders every public page rather than a blank transition",
+      "pass": true
+    },
+    {
+      "name": "Login/logout uses the UI and protected routes render login",
+      "pass": true
+    }
+  ],
+  "runtimeErrors": []
+}

@@ -1,0 +1,2253 @@
+{
+  "info": {
+    "name": "BonAppé Find",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET /health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/health",
+        "description": "Server and database status"
+      }
+    },
+    {
+      "name": "POST /auth/register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/auth/register",
+        "description": "Customer registration",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"password\": \"Testing123\",\n  \"confirmPassword\": \"Testing123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "POST /owners/register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/owners/register",
+        "description": "Owner registration",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"password\": \"Testing123\",\n  \"confirmPassword\": \"Testing123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "POST /auth/login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/auth/login",
+        "description": "Login",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"Testing123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "POST /auth/forgot-password",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "{{baseUrl}}/auth/forgot-password",
+        "description": "Send reset link"
+      }
+    },
+    {
+      "name": "POST /auth/reset-password",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "{{baseUrl}}/auth/reset-password",
+        "description": "Reset password"
+      }
+    },
+    {
+      "name": "POST /auth/verify-email",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/auth/verify-email",
+        "description": "Validate a six-digit verification code for this logged-in account.",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"code\": \"123456\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "GET /auth/me",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/auth/me",
+        "description": "Current user Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /auth/logout",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "{{baseUrl}}/auth/logout",
+        "description": "Logout and invalidate tokens Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /auth/resend-verification",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "{{baseUrl}}/auth/resend-verification",
+        "description": "Resend verification Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "PATCH /me",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": "{{baseUrl}}/me",
+        "description": "Update profile Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /me/data",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/me/data",
+        "description": "Download own data Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "DELETE /me",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/me",
+        "description": "Delete own account Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /restaurants",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants",
+        "description": "Paginated restaurant list"
+      }
+    },
+    {
+      "name": "GET /restaurants/meta/filters",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/meta/filters",
+        "description": "Distinct filters"
+      }
+    },
+    {
+      "name": "GET /restaurants/random",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/random",
+        "description": "Random open restaurant"
+      }
+    },
+    {
+      "name": "GET /restaurants/compare",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/compare",
+        "description": "Compare two or three IDs"
+      }
+    },
+    {
+      "name": "GET /restaurants/by-ids",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/by-ids",
+        "description": "Saved or recent records"
+      }
+    },
+    {
+      "name": "GET /restaurants/suggest",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/suggest",
+        "description": "Search suggestions"
+      }
+    },
+    {
+      "name": "GET /restaurants/featured",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/featured",
+        "description": "Discovery: featured"
+      }
+    },
+    {
+      "name": "GET /restaurants/new",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/new",
+        "description": "Discovery: new"
+      }
+    },
+    {
+      "name": "GET /restaurants/trending",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/trending",
+        "description": "Discovery: trending"
+      }
+    },
+    {
+      "name": "GET /restaurants/top-rated",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/top-rated",
+        "description": "Discovery: top-rated"
+      }
+    },
+    {
+      "name": "GET /restaurants/most-viewed",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/most-viewed",
+        "description": "Discovery: most-viewed"
+      }
+    },
+    {
+      "name": "GET /restaurants/stats/by-borough",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/stats/by-borough",
+        "description": "MongoDB aggregation: by-borough"
+      }
+    },
+    {
+      "name": "GET /restaurants/stats/by-cuisine",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/stats/by-cuisine",
+        "description": "MongoDB aggregation: by-cuisine"
+      }
+    },
+    {
+      "name": "GET /restaurants/stats/by-country",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/stats/by-country",
+        "description": "MongoDB aggregation: by-country"
+      }
+    },
+    {
+      "name": "GET /restaurants/stats/top-quality",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/stats/top-quality",
+        "description": "MongoDB aggregation: top-quality"
+      }
+    },
+    {
+      "name": "POST /restaurants",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/restaurants",
+        "description": "Create restaurant Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Kusina ni Lola Pacing\",\n  \"cuisine\": \"Filipino\",\n  \"country\": \"Philippines\",\n  \"countrySlug\": \"philippines\",\n  \"borough\": \"Pampanga\",\n  \"city\": \"San Fernando\",\n  \"address\": {\n    \"building\": \"18\",\n    \"street\": \"Dolores Street\",\n    \"zipcode\": \"2000\"\n  },\n  \"grades\": [\n    {\n      \"date\": \"2025-03-12\",\n      \"grade\": \"A\",\n      \"score\": 34\n    },\n    {\n      \"date\": \"2025-09-20\",\n      \"grade\": \"A\",\n      \"score\": 36\n    },\n    {\n      \"date\": \"2026-02-08\",\n      \"grade\": \"A\",\n      \"score\": 33\n    }\n  ],\n  \"profile\": {\n    \"tagline\": \"Grandma's Pampanga recipes, served sizzling.\",\n    \"story\": \"Lola Pacing began cooking for her neighbors on a single charcoal grill, and the line outside her kitchen grew every weekend. Today her grandchildren run the dining room and keep her recipes exactly as she wrote them, from the crisp-edged sisig to the sour, tamarind-rich sinigang.\",\n    \"funFact\": \"The sisig plate arrives so hot that the sizzle can still be heard at the next table.\",\n    \"priceRange\": \"$$\",\n    \"openingHours\": \"Daily, 10:00 to 21:00\",\n    \"dressCode\": \"Casual\",\n    \"reservations\": \"Recommended for groups of six or more\",\n    \"signatureDishes\": [\n      \"Sizzling sisig\",\n      \"Sinigang na baboy\",\n      \"Turon with langka\"\n    ],\n    \"dietaryOptions\": [\n      \"Vegetarian kare-kare available\",\n      \"ask for no shrimp paste\"\n    ],\n    \"tags\": [\n      \"family friendly\",\n      \"rice meals\",\n      \"local favorite\"\n    ],\n    \"imageUrl\": \"/images/photos/grill.jpg\"\n  },\n  \"isFeatured\": true,\n  \"priceLevel\": 2,\n  \"timezone\": \"Asia/Manila\",\n  \"status\": \"open\",\n  \"approvalStatus\": \"approved\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "GET /restaurants/{id}",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/{{restaurantId}}",
+        "description": "Read restaurant"
+      }
+    },
+    {
+      "name": "PUT /restaurants/{id}",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/restaurants/{{restaurantId}}",
+        "description": "Update restaurant Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Kusina ni Lola Pacing\",\n  \"cuisine\": \"Filipino\",\n  \"country\": \"Philippines\",\n  \"countrySlug\": \"philippines\",\n  \"borough\": \"Pampanga\",\n  \"city\": \"San Fernando\",\n  \"address\": {\n    \"building\": \"18\",\n    \"street\": \"Dolores Street\",\n    \"zipcode\": \"2000\"\n  },\n  \"grades\": [\n    {\n      \"date\": \"2025-03-12\",\n      \"grade\": \"A\",\n      \"score\": 34\n    },\n    {\n      \"date\": \"2025-09-20\",\n      \"grade\": \"A\",\n      \"score\": 36\n    },\n    {\n      \"date\": \"2026-02-08\",\n      \"grade\": \"A\",\n      \"score\": 33\n    }\n  ],\n  \"profile\": {\n    \"tagline\": \"Grandma's Pampanga recipes, served sizzling.\",\n    \"story\": \"Lola Pacing began cooking for her neighbors on a single charcoal grill, and the line outside her kitchen grew every weekend. Today her grandchildren run the dining room and keep her recipes exactly as she wrote them, from the crisp-edged sisig to the sour, tamarind-rich sinigang.\",\n    \"funFact\": \"The sisig plate arrives so hot that the sizzle can still be heard at the next table.\",\n    \"priceRange\": \"$$\",\n    \"openingHours\": \"Daily, 10:00 to 21:00\",\n    \"dressCode\": \"Casual\",\n    \"reservations\": \"Recommended for groups of six or more\",\n    \"signatureDishes\": [\n      \"Sizzling sisig\",\n      \"Sinigang na baboy\",\n      \"Turon with langka\"\n    ],\n    \"dietaryOptions\": [\n      \"Vegetarian kare-kare available\",\n      \"ask for no shrimp paste\"\n    ],\n    \"tags\": [\n      \"family friendly\",\n      \"rice meals\",\n      \"local favorite\"\n    ],\n    \"imageUrl\": \"/images/photos/grill.jpg\"\n  },\n  \"isFeatured\": true,\n  \"priceLevel\": 2,\n  \"timezone\": \"Asia/Manila\",\n  \"status\": \"open\",\n  \"approvalStatus\": \"approved\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "DELETE /restaurants/{id}",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/{{restaurantId}}",
+        "description": "Soft delete restaurant Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /restaurants/{id}/restore",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/{{restaurantId}}/restore",
+        "description": "Restore restaurant Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "PATCH /restaurants/{id}/status",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/restaurants/{{restaurantId}}/status",
+        "description": "Change status Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"open\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "PATCH /restaurants/{id}/approval",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/restaurants/{{restaurantId}}/approval",
+        "description": "Approve restaurant Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"approvalStatus\": \"approved\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "POST /restaurants/{id}/claim",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/restaurants/{{restaurantId}}/claim",
+        "description": "Claim restaurant Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"evidenceType\": \"business_email\",\n  \"note\": \"Please verify my business email.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "POST /restaurants/{id}/reports",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/restaurants/{{restaurantId}}/reports",
+        "description": "Report wrong data Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"reason\": \"Incorrect opening hours\",\n  \"type\": \"restaurant_info\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "GET /restaurants/{id}/similar",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/{{restaurantId}}/similar",
+        "description": "Similar restaurants"
+      }
+    },
+    {
+      "name": "POST /restaurants/{id}/view",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/restaurants/{{restaurantId}}/view",
+        "description": "Record session view",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"sessionId\": \"example-session-id\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "POST /restaurants/{id}/contact-owner",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/restaurants/{{restaurantId}}/contact-owner",
+        "description": "Message owner Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"message\": \"Please confirm the current opening hours.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "POST /restaurants/{id}/images",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/{{restaurantId}}/images",
+        "description": "Upload gallery image Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /restaurants/{id}/suggestions",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/{{restaurantId}}/suggestions",
+        "description": "Suggested edits Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /restaurants/{id}/suggestions",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/restaurants/{{restaurantId}}/suggestions",
+        "description": "Suggested edits Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"field\": \"profile.openingHours\",\n  \"proposedValue\": \"Daily 10:00 to 21:00\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "PATCH /restaurants/{id}/suggestions",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/{{restaurantId}}/suggestions",
+        "description": "Suggested edits Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /restaurants/{id}/reviews",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/restaurants/{{restaurantId}}/reviews",
+        "description": "Published reviews"
+      }
+    },
+    {
+      "name": "POST /restaurants/{id}/reviews",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/restaurants/{{restaurantId}}/reviews",
+        "description": "Write review Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"rating\": 5,\n  \"comment\": \"A sample review for the fictional project.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "PATCH /reviews/{id}",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/reviews/{{restaurantId}}",
+        "description": "Edit own review or moderate Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"rating\": 4,\n  \"comment\": \"Updated review.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "DELETE /reviews/{id}",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/reviews/{{restaurantId}}",
+        "description": "Remove review Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /reviews/{id}/helpful",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "{{baseUrl}}/reviews/{{restaurantId}}/helpful",
+        "description": "Helpful vote Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /reviews/{id}/reply",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/reviews/{{restaurantId}}/reply",
+        "description": "Owner reply Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"Thank you for visiting.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "POST /reviews/{id}/report",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/reviews/{{restaurantId}}/report",
+        "description": "Report review Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"reason\": \"Spam\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "GET /countries",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/countries",
+        "description": "List countries"
+      }
+    },
+    {
+      "name": "GET /countries/{slug}",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/countries/{{slug}}",
+        "description": "Read countries"
+      }
+    },
+    {
+      "name": "POST /countries",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "{{baseUrl}}/countries",
+        "description": "Create countries Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "PUT /countries/{slug}",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": "{{baseUrl}}/countries/{{slug}}",
+        "description": "Update countries Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "DELETE /countries/{slug}",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/countries/{{slug}}",
+        "description": "Delete countries Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /guides",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/guides",
+        "description": "List guides"
+      }
+    },
+    {
+      "name": "GET /guides/{slug}",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/guides/{{slug}}",
+        "description": "Read guides"
+      }
+    },
+    {
+      "name": "POST /guides",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "{{baseUrl}}/guides",
+        "description": "Create guides Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "PUT /guides/{slug}",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": "{{baseUrl}}/guides/{{slug}}",
+        "description": "Update guides Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "DELETE /guides/{slug}",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/guides/{{slug}}",
+        "description": "Delete guides Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /countries/{slug}/restaurants",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/countries/{{slug}}/restaurants",
+        "description": "Restaurants in country"
+      }
+    },
+    {
+      "name": "GET /faqs",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/faqs",
+        "description": "Frequently asked questions"
+      }
+    },
+    {
+      "name": "POST /contact",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/contact",
+        "description": "Submit message",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test\",\n  \"email\": \"test@example.com\",\n  \"subject\": \"General question\",\n  \"message\": \"Please send me more project information.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "GET /contact",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/contact",
+        "description": "Manage contact messages Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "PATCH /contact/{id}",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": "{{baseUrl}}/contact/{{restaurantId}}",
+        "description": "Manage contact messages Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "DELETE /contact/{id}",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/contact/{{restaurantId}}",
+        "description": "Manage contact messages Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /newsletter",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/newsletter",
+        "description": "Subscribe or unsubscribe",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"test@example.com\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "DELETE /newsletter",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/newsletter",
+        "description": "Subscribe or unsubscribe",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"test@example.com\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "GET /me/favorites",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/me/favorites",
+        "description": "Own favorites Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /me/favorites",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/me/favorites",
+        "description": "Own favorites Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"restaurant\": \"{{restaurantId}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "DELETE /me/favorites",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/me/favorites",
+        "description": "Own favorites Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"restaurant\": \"{{restaurantId}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "GET /me/collections",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/me/collections",
+        "description": "Own collections Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /me/collections",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "{{baseUrl}}/me/collections",
+        "description": "Own collections Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "PUT /me/collections/{id}",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": "{{baseUrl}}/me/collections/{{restaurantId}}",
+        "description": "Own collections Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "DELETE /me/collections/{id}",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/me/collections/{{restaurantId}}",
+        "description": "Own collections Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /collections/{id}",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/collections/{{restaurantId}}",
+        "description": "Public collection"
+      }
+    },
+    {
+      "name": "GET /me/reviews",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/me/reviews",
+        "description": "Own reviews Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /me/search-history",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/me/search-history",
+        "description": "Own search history Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /me/search-history",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "{{baseUrl}}/me/search-history",
+        "description": "Own search history Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "DELETE /me/search-history",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/me/search-history",
+        "description": "Own search history Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /notifications",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/notifications",
+        "description": "Own notifications Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "PATCH /notifications/{id}/read",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": "{{baseUrl}}/notifications/{{restaurantId}}/read",
+        "description": "Mark notification read Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /owner/restaurants",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/owner/restaurants",
+        "description": "Owner data Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /owner/reviews",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/owner/reviews",
+        "description": "Owner data Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /owner/messages",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/owner/messages",
+        "description": "Owner data Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /owner/stats",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/owner/stats",
+        "description": "Owner data Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "PATCH /owner/messages/{id}",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": "{{baseUrl}}/owner/messages/{{restaurantId}}",
+        "description": "Mark owner message read Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /admin/stats/summary",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/admin/stats/summary",
+        "description": "Staff management data Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /admin/stats/reviews",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/admin/stats/reviews",
+        "description": "Staff management data Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /admin/restaurants",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/admin/restaurants",
+        "description": "Staff management data Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /admin/logs",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/admin/logs",
+        "description": "Staff management data Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /admin/login-history",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/admin/login-history",
+        "description": "Staff management data Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /admin/users",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/admin/users",
+        "description": "Staff management data Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /admin/reviews",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/admin/reviews",
+        "description": "Staff management data Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /admin/subscribers",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/admin/subscribers",
+        "description": "Staff management data Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /admin/quality-report",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/admin/quality-report",
+        "description": "Staff management data Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /admin/restaurants/export",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/admin/restaurants/export",
+        "description": "Staff management data Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /claims",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/claims",
+        "description": "Staff management data Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /reports",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/reports",
+        "description": "Staff management data Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /suggestions",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/suggestions",
+        "description": "Staff management data Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "PATCH /claims/{id}",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/claims/{{restaurantId}}",
+        "description": "Approve or reject claim Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"approved\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "PATCH /reports/{id}",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/reports/{{restaurantId}}",
+        "description": "Resolve or dismiss report Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"resolved\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "POST /admin/users",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "{{baseUrl}}/admin/users",
+        "description": "Create user Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "PATCH /admin/users/{id}",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": "{{baseUrl}}/admin/users/{{restaurantId}}",
+        "description": "Change user role/status Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "PATCH /admin/users/{id}/status",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/admin/users/{{restaurantId}}/status",
+        "description": "Suspend or reactivate Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"suspended\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "POST /admin/restaurants/import",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "{{baseUrl}}/admin/restaurants/import",
+        "description": "Validated bulk JSON import Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /settings",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/settings",
+        "description": "Public settings"
+      }
+    },
+    {
+      "name": "PUT /settings",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/settings",
+        "description": "Update settings Requires an authorized account.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"banner\": \"Welcome to the table.\",\n  \"maintenance\": false\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "POST /auth/correct-email",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/auth/correct-email",
+        "description": "Correct an unverified email address; current password required.",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"corrected@example.test\",\n  \"password\": \"YOUR_CURRENT_PASSWORD\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "POST /restaurant-suggestions",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/restaurant-suggestions",
+        "description": "Verified regular-user submission.",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"New restaurant\",\n  \"cuisine\": \"Filipino\",\n  \"address\": \"Angeles City\",\n  \"contact\": \"09123456789\",\n  \"openingHours\": \"9am to 9pm\",\n  \"description\": \"Local restaurant\",\n  \"website\": \"\",\n  \"photo\": \"\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "GET /me/restaurant-suggestions",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/me/restaurant-suggestions",
+        "description": "Track your own restaurant submissions.",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /admin/restaurant-suggestions",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/admin/restaurant-suggestions",
+        "description": "Administrator review list.",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "PATCH /admin/restaurant-suggestions/{{suggestionId}}",
+      "request": {
+        "method": "PATCH",
+        "url": "{{baseUrl}}/admin/restaurant-suggestions/{{suggestionId}}",
+        "description": "Administrator decision; required reason for rejection.",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"approved\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "PATCH /admin/owners/{{ownerId}}",
+      "request": {
+        "method": "PATCH",
+        "url": "{{baseUrl}}/admin/owners/{{ownerId}}",
+        "description": "Administrator owner decision; email verification stays separate.",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"approved\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

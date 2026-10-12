@@ -1,0 +1,12 @@
+BonAppé Find demo-mode fix
+
+This build fixes the Windows previewDemo.js path problem and restores automatic demo seeding.
+
+Run from the project root:
+  npm install
+  npm run demo
+
+Then open:
+  http://127.0.0.1:5173/
+
+The demo startup now seeds restaurants, countries, guides, FAQs, and the three sample accounts.

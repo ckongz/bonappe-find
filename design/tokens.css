@@ -1,0 +1,26 @@
+/* BonAppé Find design tokens (blueprint Part 2.4) plus motion and elevation tokens */
+:root{
+  /* Palette 1 */
+  --baby-bear:#6a5745;--bistre:#3b2c20;--black-raspberry:#14130a;--forestry:#2f3d20;--moss-gardens:#758956;
+  /* Palette 2 */
+  --bow:#7e2625;--warm-wood:#3c1b0f;--candle:#f1ecdb;--leaf:#868859;--juniper:#292f17;
+  /* Derived accents (tints of the palette) */
+  --star:#c9953c;--bow-soft:#f3dedb;--moss-soft:#e3e9d4;--leaf-soft:#ecebd2;
+  /* Semantic roles */
+  --color-bg:var(--candle);--color-surface:#fbf8ee;--color-text:var(--black-raspberry);--color-heading:var(--warm-wood);
+  --color-muted:var(--baby-bear);--color-border:#d9d2b8;--color-chip:#ebe5cf;--color-header-bg:var(--forestry);
+  /* Type */
+  --font-heading:'Black Mango','Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --font-body:Lato,Arial,Helvetica,sans-serif;
+  /* Shape, elevation and motion */
+  --radius:12px;--radius-lg:20px;--radius-pill:999px;
+  --shadow:0 6px 20px rgba(20,19,10,.08);--shadow-lg:0 18px 40px rgba(20,19,10,.18);
+  --ease:cubic-bezier(.22,.8,.3,1);--ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --container:1200px;
+  --space-1:4px;--space-2:8px;--space-3:16px;--space-4:24px;--space-5:40px;--space-6:64px;
+}
+:root[data-theme=dark]{
+  --color-bg:#14130a;--color-surface:#22271a;--color-text:#f1ecdb;--color-heading:#f1ecdb;--color-muted:#c9c3b0;
+  --color-border:#4b4030;--color-chip:#2f3524;--bow-soft:#4a2220;--moss-soft:#2f3d20;--leaf-soft:#33361f;
+  --shadow:0 6px 20px rgba(0,0,0,.35);--shadow-lg:0 18px 40px rgba(0,0,0,.5);
+}

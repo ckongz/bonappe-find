@@ -1,0 +1,11 @@
+import axios from 'axios';
+export const api=axios.create({baseURL:import.meta.env.VITE_API_URL||'/api',timeout:20000});
+api.interceptors.request.use(c=>{const token=localStorage.getItem('bonappefind_token');if(token)c.headers.Authorization='Bearer '+token;return c;});
+api.interceptors.response.use(r=>r,e=>{if(e.response?.status===401){localStorage.removeItem('bonappefind_token');window.dispatchEvent(new Event('session-ended'));}return Promise.reject(e);});
+export const get=async(url,params)=> (await api.get(url,{params})).data;
+export const post=async(url,data)=> (await api.post(url,data)).data;
+export const put=async(url,data)=> (await api.put(url,data)).data;
+export const patch=async(url,data)=> (await api.patch(url,data)).data;
+export const del=async(url,data)=> (await api.delete(url,{data})).data;
+export const message=e=>e.response?.data?.message||'We could not connect. Check your connection and try again.';
+export const imageUrl=url=>url?.startsWith('/uploads/')?api.defaults.baseURL.replace(/\/api\/?$/,'')+url:url;

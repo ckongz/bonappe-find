@@ -1,0 +1,204 @@
+{
+  "errors": [],
+  "report": [
+    {
+      "route": "/",
+      "title": "Great dining startswith a great find.",
+      "overflow": false
+    },
+    {
+      "route": "/restaurants",
+      "title": "Restaurants",
+      "overflow": false
+    },
+    {
+      "route": "/best-quality",
+      "title": "Best Quality Restaurants",
+      "overflow": false
+    },
+    {
+      "route": "/countries",
+      "title": "Eat your way around the world",
+      "overflow": false
+    },
+    {
+      "route": "/countries/japan",
+      "title": "Japan Food Guide",
+      "overflow": false
+    },
+    {
+      "route": "/guides",
+      "title": "Read before you eat",
+      "overflow": false
+    },
+    {
+      "route": "/guides/how-to-read-grades-and-scores",
+      "title": "How to Read Grades and Scores",
+      "overflow": false
+    },
+    {
+      "route": "/insights",
+      "title": "Insights",
+      "overflow": false
+    },
+    {
+      "route": "/about",
+      "title": "About BonAppé Find",
+      "overflow": false
+    },
+    {
+      "route": "/features",
+      "title": "Features",
+      "overflow": false
+    },
+    {
+      "route": "/how-it-works",
+      "title": "How It Works",
+      "overflow": false
+    },
+    {
+      "route": "/faqs",
+      "title": "Frequently asked questions",
+      "overflow": false
+    },
+    {
+      "route": "/contact",
+      "title": "Say hello",
+      "overflow": false
+    },
+    {
+      "route": "/team",
+      "title": "Meet the Team",
+      "overflow": false
+    },
+    {
+      "route": "/terms",
+      "title": "Terms of Use",
+      "overflow": false
+    },
+    {
+      "route": "/privacy",
+      "title": "Privacy Policy",
+      "overflow": false
+    },
+    {
+      "route": "/cookies",
+      "title": "Cookie Policy",
+      "overflow": false
+    },
+    {
+      "route": "/accessibility",
+      "title": "Accessibility Statement",
+      "overflow": false
+    },
+    {
+      "route": "/sitemap",
+      "title": "Find your way around",
+      "overflow": false
+    },
+    {
+      "route": "/login",
+      "title": "Welcome back",
+      "overflow": false
+    },
+    {
+      "route": "/register",
+      "title": "Create your account",
+      "overflow": false
+    },
+    {
+      "route": "/register/owner",
+      "title": "Register as a restaurant owner",
+      "overflow": false
+    },
+    {
+      "route": "/forgot-password",
+      "title": "Forgot your password?",
+      "overflow": false
+    },
+    {
+      "route": "/surprise",
+      "title": "Let us pick your next table",
+      "overflow": false
+    },
+    {
+      "route": "/saved",
+      "title": "Your saved restaurants",
+      "overflow": false
+    },
+    {
+      "route": "/compare",
+      "title": "Compare restaurants",
+      "overflow": false
+    },
+    {
+      "route": "/cuisines",
+      "title": "Find a cuisine you love",
+      "overflow": false
+    },
+    {
+      "route": "/trending",
+      "title": "Trending this week",
+      "overflow": false
+    },
+    {
+      "route": "/new",
+      "title": "Newly added restaurants",
+      "overflow": false
+    },
+    {
+      "route": "/top-rated",
+      "title": "Top rated by diners",
+      "overflow": false
+    },
+    {
+      "route": "/dishes",
+      "title": "Dish glossary",
+      "overflow": false
+    },
+    {
+      "route": "/festivals",
+      "title": "Food festival calendar",
+      "overflow": false
+    },
+    {
+      "route": "/thank-you",
+      "title": "Thank you!",
+      "overflow": false
+    },
+    {
+      "route": "/does-not-exist",
+      "title": "Page Not Found",
+      "overflow": false
+    },
+    {
+      "flow": "Browser add/edit/delete",
+      "passed": true
+    },
+    {
+      "route": "/",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/restaurants",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/countries",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/login",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/restaurants/6ac77a8a87704385f2682d0a",
+      "width": 360,
+      "overflow": false
+    }
+  ]
+}

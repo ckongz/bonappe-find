@@ -1,0 +1,6 @@
+import bcrypt from 'bcryptjs';
+import readline from 'node:readline/promises';
+import mongoose from 'mongoose';
+import {User} from '../models/index.js';
+import {connectDB} from '../config/db.js';
+const prompt=readline.createInterface({input:process.stdin,output:process.stdout});try{await connectDB();const email=(await prompt.question('Admin email: ')).trim().toLowerCase();const name=(await prompt.question('Admin name: ')).trim();const password=process.env.ADMIN_INITIAL_PASSWORD||await prompt.question('Initial password (visible in this terminal; use a private session): ');if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||!name||password.length<8||!/[A-Za-z]/.test(password)||!/[0-9]/.test(password))throw new Error('Use a valid email, name, and password with 8+ characters, a letter and number.');if(await User.exists({email}))throw new Error('An account with this email already exists. Use Admin > Users to change its role.');await User.create({email,name,passwordHash:await bcrypt.hash(password,12),role:'admin',emailVerified:true});console.log('Admin created. Log in through the website.');}catch(e){console.error(e.message);process.exitCode=1;}finally{prompt.close();await mongoose.disconnect();}

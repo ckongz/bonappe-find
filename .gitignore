@@ -1,0 +1,12 @@
+node_modules/
+**/.env
+**/.env.*
+!**/.env.example
+client/dist/
+server/uploads/
+coverage/
+.DS_Store
+**/.test-mongo-*/
+**/.preview-mongo-*/
+
+.local-demo-db/

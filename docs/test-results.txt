@@ -1,0 +1,60 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> bonappe-find@1.3.0 test
+> npm test -w server
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> @bonappe-find/server@1.3.0 test
+> node --test tests/*.test.js
+
+✔ health, exact seeded data and content endpoints (576.893651ms)
+✔ public CRUD blocked, customer cannot create, valid admin create persisted (40.771802ms)
+✔ name and cuisine search, borough filter, grouped counts (26.487511ms)
+✔ aggregate strictly excludes 90 and sorts descending; closed hidden (25.737516ms)
+✔ update, duplicate, validation, bad id and unknown id statuses (25.721351ms)
+✔ soft delete hides records and restore preserves them; audit logs written (27.321382ms)
+✔ owner-created restaurant is pending, unauthorized owner edit denied; approval publishes (38.186573ms)
+✔ reviews require verified account, unique review and moderation updates rating (41.251071ms)
+✔ claim approval grants owner access and favorites cannot leak between accounts (35.556452ms)
+✔ contact validation, newsletter duplicate and protected dashboards (18.358624ms)
+[DEV MAIL — SIMULATED, NO EMAIL SENT] To: new@example.test
+Your BonAppé Find verification code
+Your verification code is 591944. It expires in 10 minutes. Do not share it.
+✔ login, logout revocation and public registration cannot grant admin role (344.217751ms)
+[DEV MAIL — SIMULATED, NO EMAIL SENT] To: recipient@example.test
+Simulated
+Code: 654321
+✔ SMTP delivery submits a real message before reporting delivery; errors do not report delivery (76.111093ms)
+✔ visitor browsing and all write restrictions hold even when legacy bypass is false (645.99148ms)
+✔ unverified users can login and save favorites but cannot review (39.195867ms)
+✔ code expiry, attempt limit, account binding, single use and secret redaction (66.409097ms)
+[DEV MAIL — SIMULATED, NO EMAIL SENT] To: pending@example.test
+Your BonAppé Find verification code
+Your verification code is 660637. It expires in 10 minutes. Do not share it.
+[DEV MAIL — SIMULATED, NO EMAIL SENT] To: corrected@example.test
+Your BonAppé Find verification code
+Your verification code is 566269. It expires in 10 minutes. Do not share it.
+✔ resend is simulated without SMTP and has a server cooldown; correcting email invalidates old code (50.611721ms)
+✔ administrator owner decisions persist independently, require rejection reason and notify (30.451162ms)
+✔ owners manage own listings only and revoked approval takes effect immediately (55.244317ms)
+✔ restaurant suggestions validate, flag duplicates, publish once and grant no ownership (94.820804ms)
+✔ photo uploads require verified regular users and validate content (24.644506ms)
+[DEV MAIL — SIMULATED, NO EMAIL SENT] To: registered@example.test
+Your BonAppé Find verification code
+Your verification code is 854918. It expires in 10 minutes. Do not share it.
+✔ registration cannot grant permissions; notification opens code page and legacy link API is gone (347.703957ms)
+✔ status and public listing remain after reconnecting to the persisted database (47.333647ms)
+✔ empty restaurant name returns the exact blueprint validation message (1.980361ms)
+✔ rejects invalid grade, coordinates, URL, timezone and owner-injected permissions (18.177983ms)
+✔ search escapes regular expressions and supports name, cuisine and dish (1.510616ms)
+✔ strict greater-than threshold and recorded totals (0.563575ms)
+✔ opening hours use local timezone and overnight carryover (1.587442ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1928.686238

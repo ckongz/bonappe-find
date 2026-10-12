@@ -1,0 +1,21 @@
+{
+  "name": "bonappe-find",
+  "private": true,
+  "version": "1.3.0",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w client",
+    "start": "npm start -w server",
+    "seed": "npm run seed -w server",
+    "import:db": "npm run import:db -w server",
+    "test": "npm test -w server",
+    "demo": "concurrently \"npm run demo -w server\" \"npm run dev -w client\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

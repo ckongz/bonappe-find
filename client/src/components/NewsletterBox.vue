@@ -1,0 +1,8 @@
+<script setup>
+import {ref} from 'vue';import {post,message} from '../services/api.js';import {useUi} from '../stores/index.js';
+const email=ref(''),busy=ref(false),status=ref(''),ok=ref(false),err=ref('');
+function check(){const v=email.value.trim();err.value=!v?'Enter your email address to subscribe.':/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)?'':'Enter an email address like name@example.com.';return !err.value;}
+async function submit(){status.value='';ok.value=false;if(!check())return;busy.value=true;try{const r=await post('/newsletter',{email:email.value.trim()});status.value=r.data.message;ok.value=true;useUi().toast(status.value);email.value='';err.value='';}catch(e){err.value=message(e);}finally{busy.value=false;}}
+</script>
+<template><form novalidate @submit.prevent="submit"><label for="newsletter-email">Get one tasty story a month</label><div class="row nl-row"><input id="newsletter-email" v-model="email" type="email" autocomplete="email" placeholder="Your email address" :aria-invalid="!!err" aria-describedby="newsletter-msg" @blur="email&&check()" @input="err&&check()"><button class="cta" :class="{'is-loading':busy,'is-success':ok}" :disabled="busy"><span>{{ok?'Subscribed':'Subscribe'}}</span></button></div><p id="newsletter-msg" class="small nl-msg" :class="{err:!!err,ok}" role="status" aria-live="polite">{{err||status}}</p></form></template>
+<style scoped>.nl-row{flex-wrap:nowrap;align-items:stretch}.nl-row input{flex:1;min-width:0}.nl-row button{flex:none}.nl-msg{min-height:22px;margin:8px 0 0}.nl-msg.err{color:#f0b3b0;font-weight:700}.nl-msg.ok{color:#c7cb9f;font-weight:700}@media(max-width:420px){.nl-row{flex-wrap:wrap}.nl-row button{width:100%}}</style>

@@ -1,0 +1,39 @@
+[
+  {
+    "slug": "how-to-read-grades-and-scores",
+    "title": "How to Read Grades and Scores",
+    "excerpt": "A quick explanation of letter grades, scores and the Quality Score.",
+    "readTimeMinutes": 2,
+    "tags": [
+      "grades",
+      "score",
+      "quality"
+    ],
+    "body": "Every restaurant in BonAppé Find carries a list of grades. Each entry has three parts: a date, a letter grade and a score. The letter (A, B, C or Z) is the label recorded on that date. The score is the number of points recorded with it. On a restaurant profile you will see every entry in a table.\n\nThe Quality Score is simple: we add up all of the scores for a restaurant. A restaurant with several strong entries builds a higher total, and any restaurant above 90 points appears on the Best Quality page.\n\nKeep two things in mind. First, totals grow as more grades are recorded, so also look at the Grades recorded column. Second, grades describe the records in our database, not a promise about your meal. Use them as a starting point, then read the story and the country guide."
+  },
+  {
+    "slug": "meal-times-around-the-world",
+    "title": "Eat Like a Local: Meal Times Around the World",
+    "excerpt": "Arrive at the right hour and your meal will be much better.",
+    "readTimeMinutes": 3,
+    "tags": [
+      "meal times",
+      "culture",
+      "travel"
+    ],
+    "countrySlug": "italy",
+    "body": "Arriving at the wrong time is the easiest way to find a closed kitchen. Meal times change from country to country, so here is a quick tour.\n\nIn Italy, dinner rarely starts before 8 pm. In the United States, many restaurants are busy by 6 pm. In Mexico, the main meal, the comida, is served between 2 and 4 pm. In France and Japan, many restaurants close between lunch and dinner service, so check the hours. In the Philippines, merienda is a beloved afternoon snack, and in India, chai time in the late afternoon comes with small bites. In Thailand, you can eat almost any hour, and night markets come alive after sunset.\n\nCheck the opening hours on each restaurant profile, then read the country guide to learn the full rhythm of the day."
+  },
+  {
+    "slug": "tipping-around-the-world",
+    "title": "Tipping Around the World: A Quick Guide",
+    "excerpt": "How much to leave, and when to leave nothing at all.",
+    "readTimeMinutes": 3,
+    "tags": [
+      "tipping",
+      "etiquette",
+      "travel"
+    ],
+    "body": "Tipping customs can feel confusing, so here is a simple overview. Remember to check the bill first, because a service charge may already be included.\n\nUnited States: 15 to 20 percent is typical in sit-down restaurants. Mexico: 10 to 15 percent. Philippines: a 10 percent service charge is often added; if not, 5 to 10 percent is appreciated. India: 5 to 10 percent if no service charge is added. Italy: a cover charge (coperto) is common, and a few extra euros for great service is plenty. France: service is included by law, so a small extra is optional. Thailand: not required, but rounding up is appreciated. Japan: do not tip; it can cause confusion, and a polite thank you is best.\n\nWhen in doubt, ask the staff or follow what locals do."
+  }
+]

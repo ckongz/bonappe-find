@@ -1,0 +1,107 @@
+/* Enhancement layer: loaded last. Cross-page polish for spacing, readability, touch targets and mobile layout. */
+
+/* ---------- All screens ---------- */
+html{scroll-padding-top:150px}
+main{padding-bottom:24px}
+h1,h2,h3{text-wrap:balance}
+p,li{text-wrap:pretty}
+.page-head{max-width:none}
+.page-head h1{line-height:1.12}
+.card{transition:box-shadow .35s var(--ease),transform .35s var(--ease),border-color .25s}
+.card:hover{border-color:var(--moss-gardens)}
+a.card:focus-visible{outline:3px solid var(--moss-gardens);outline-offset:4px}
+.btn,button{-webkit-user-select:none;user-select:none}
+.btn.small,button.small{min-height:44px}
+input,select,textarea{font-size:16px}               /* stops iOS zoom-on-focus */
+label{line-height:1.4}
+.field-msg{color:var(--bow);font-size:13px;font-weight:700;margin:6px 0 0}
+.badge{white-space:nowrap}
+table{font-variant-numeric:tabular-nums}
+.table-wrap{-webkit-overflow-scrolling:touch;border-radius:var(--radius-lg)}
+.table-wrap table{min-width:520px}
+img{height:auto}
+.eyebrow{line-height:1.4}
+.empty,.empty-results{padding:56px 24px;text-align:center}
+.empty-results .row{justify-content:center}
+
+/* ---------- Tablet and below ---------- */
+@media(max-width:900px){
+  html{scroll-padding-top:90px}
+  .section{padding:48px 0}
+  .split{gap:24px}
+  .page-head.row.between{align-items:flex-start;gap:20px}
+  .page-head.row.between>.btn,.page-head.row.between>.row{width:100%}
+}
+
+/* ---------- Phones ---------- */
+@media(max-width:600px){
+  body{font-size:16px;line-height:1.65}
+  .container{width:calc(100% - 32px)}
+  .section{padding:32px 0 40px}
+  h1{font-size:clamp(30px,9vw,38px);line-height:1.12}
+  h2,.card h2{font-size:clamp(23px,6.6vw,27px);line-height:1.2}
+  h3{font-size:19px}
+  .page-head{padding:20px 0 24px;margin-bottom:24px}
+  .page-head p{font-size:16px;line-height:1.65}
+  .pad{padding:20px}
+  .stack{gap:20px}
+  .grid,.grid.two{gap:20px}
+
+  /* buttons and button rows */
+  .row{gap:10px}
+  .btn,button{min-height:48px}
+  .row>.btn,.row>button:not(.icon-link):not(.small){flex:1 1 auto}
+  .page-head .btn.cta{width:100%}
+
+  /* forms */
+  .form-grid{gap:16px}
+  .field{margin-bottom:18px}
+  input,select,textarea{min-height:50px;padding:13px 14px}
+  textarea{min-height:130px}
+  input[type=checkbox],input[type=radio]{width:22px;min-height:22px}
+  label:has(>input[type=checkbox]),label:has(>input[type=radio]){display:inline-flex;align-items:center;gap:10px;min-height:44px;font-weight:600}
+  /* inline-width rows (opening hours, grades, menu items) stack cleanly */
+  .row>[style*="width:"],.row>input[style],.row>select[style]{flex:1 1 100%!important;width:100%!important}
+  .qf-actions{display:flex;gap:10px}.qf-actions>*{flex:1}
+
+  /* tables scroll inside their own card and keep a hint of the edge */
+  .table-wrap{margin-inline:-2px;box-shadow:inset -14px 0 12px -14px rgba(20,19,10,.25)}
+  th,td{padding:12px 12px}
+  .table-wrap table{min-width:480px}
+
+  /* detail pages */
+  .bread{margin:12px 0;line-height:1.7}
+  .hero-meta{flex-wrap:wrap}
+  .review{padding:16px 0;border-bottom:1px solid var(--color-border)}
+  .review .row{gap:8px}
+  dl{margin:0}dt{margin-top:12px}dd{margin:2px 0 0}
+
+  /* cards and toolbars */
+  .toolbar{flex-direction:column;align-items:stretch;gap:12px}
+  .meta-count{text-align:left}
+  .section-head{flex-direction:column;align-items:flex-start;gap:12px}
+  .lightbox{width:calc(100% - 24px);max-width:none}
+  .lightbox img{max-height:70dvh;object-fit:contain}
+  .podium{grid-template-columns:1fr!important}
+}
+
+/* ---------- Very small phones ---------- */
+@media(max-width:380px){
+  .container{width:calc(100% - 24px)}
+  .pad{padding:16px}
+  .wordmark{font-size:26px!important}
+}
+
+/* ---------- Touch devices: no hover lift sticking after a tap ---------- */
+@media(hover:none){
+  .btn:hover,button:hover,a.card:hover{transform:none;box-shadow:none}
+  .card:hover>.editorial-photo{transform:none}
+}
+
+/* ---------- Dark mode touch-ups ---------- */
+:root[data-theme=dark] .card:hover{border-color:var(--moss-gardens)}
+:root[data-theme=dark] .table-wrap{box-shadow:none}
+:root[data-theme=dark] .field-msg{color:#f3a7a2}
+
+/* ---------- Motion preferences ---------- */
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

@@ -1,0 +1,33 @@
+import crypto from 'node:crypto';
+import fs from 'node:fs/promises';
+import {RestaurantSuggestion,Restaurant,User} from '../models/index.js';
+import {ok,id,clean,safeUser} from '../utils/http.js';
+import ApiError from '../utils/ApiError.js';
+import {notify,notifyStaff,audit} from '../utils/audit.js';
+const text=(b,k,max=2000)=>clean(String(b[k]||'')).slice(0,max);
+function details(b){const d={};for(const k of ['name','cuisine','address','contact','website','openingHours','description','photo'])d[k]=text(b,k,k==='description'?600:k==='name'?120:500);for(const k of ['name','cuisine','address','contact','openingHours','description'])if(!d[k])throw new ApiError(422,`Please enter ${k==='openingHours'?'opening hours':k}.`);for(const k of ['website','photo'])if(d[k]&&!(k==='photo'&&(/^\/images\/photos\/(bakery|bistro|burger|coffee|curry|dining|grill|pasta|pizza|ramen|salad|sushi|table|taco)\.jpg$/.test(d[k])||/^\/uploads\/[a-f0-9-]+\.(jpg|png|webp)$/.test(d[k])))){try{const u=new URL(d[k]);if(!['https:','http:'].includes(u.protocol))throw Error();}catch{throw new ApiError(422,`${k} must be an http or https URL.`);}}return d;}
+export async function submit(req,res){const d=details(req.body);const escape=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');const name=new RegExp('^'+escape(d.name)+'$','i');const existing=await Restaurant.exists({name,isDeleted:{$ne:true}});const other=await RestaurantSuggestion.exists({'details.name':name,status:'pending'});if(await RestaurantSuggestion.exists({user:req.user._id,'details.name':name,'details.address':d.address,status:'pending'}))throw new ApiError(409,'You already have a pending suggestion for this restaurant.');const warning=existing||other?'Possible duplicate: a listing or suggestion with this name already exists. An administrator will check it.':'';const x=await RestaurantSuggestion.create({user:req.user._id,details:d,duplicateWarning:warning});await notifyStaff('New restaurant suggestion',d.name,'/admin/suggestions');ok(res,{suggestion:x,duplicateWarning:warning,message:'Your restaurant suggestion has been submitted. It will appear publicly once approved by an administrator.'},{},201);}
+export async function list(req,res){ok(res,await RestaurantSuggestion.find(req.user.role==='admin'?{}:{user:req.user._id}).populate('user','name email').sort({createdAt:-1}).limit(100));}
+export async function decide(req,res){let x=await RestaurantSuggestion.findById(id(req.params.id));if(!x)throw new ApiError(404,'Suggestion not found.');if(x.status!=='pending')throw new ApiError(409,'This suggestion has already been reviewed.');const status=req.body.status;if(!['approved','rejected'].includes(status))throw new ApiError(422,'Choose approved or rejected.');const reason=text(req.body,'reason',1000);if(status==='rejected'&&!reason)throw new ApiError(422,'Please provide a rejection reason.');const d=status==='approved'?details(req.body.details||x.details):x.details;
+ // Keep the submission pending until publication completes; leases recover interrupted decisions.
+ const lock=crypto.randomUUID();
+ x=await RestaurantSuggestion.findOneAndUpdate({_id:x._id,status:'pending',$or:[{reviewLockUntil:null},{reviewLockUntil:{$lt:new Date()}}]},{$set:{reviewLock:lock,reviewLockUntil:new Date(Date.now()+60000)}},{new:true});
+ if(!x)throw new ApiError(409,'Another administrator is reviewing this suggestion. Please try again shortly.');
+ try{
+  const existing=await Restaurant.findOne({restaurant_id:'SUG-'+x._id});
+  if(existing&&status==='rejected')throw new ApiError(409,'Publication already started. Approve to finish this decision, then manage the public listing separately.');
+  let listing=existing;
+  if(status==='approved'&&!listing)listing=await Restaurant.findOneAndUpdate({restaurant_id:'SUG-'+x._id},{$setOnInsert:{name:d.name,cuisine:d.cuisine,borough:'Not specified',country:'Philippines',countrySlug:'philippines',address:{street:d.address},profile:{phone:d.contact,website:d.website,openingHours:d.openingHours,story:d.description,imageUrl:d.photo||'/images/photos/dining.jpg'},approvalStatus:'approved',createdBy:req.user._id}},{upsert:true,new:true,runValidators:true});
+  x=await RestaurantSuggestion.findOneAndUpdate({_id:x._id,reviewLock:lock},{$set:{status,details:listing?{...d,name:listing.name,cuisine:listing.cuisine,address:listing.address.street,description:listing.profile.story}:d,rejectReason:reason,listing:listing?._id,reviewedBy:req.user._id,reviewedAt:new Date()},$unset:{reviewLock:1,reviewLockUntil:1}},{new:true});
+  if(!x)throw new ApiError(409,'The review lease expired. Refresh and try again.');
+ }catch(e){await RestaurantSuggestion.updateOne({_id:req.params.id,reviewLock:lock},{$unset:{reviewLock:1,reviewLockUntil:1}});throw e;}
+ await notify(x.user,'Restaurant suggestion '+status,status==='approved'?`Your suggestion for ${d.name} was approved and is now public.`:`Your suggestion for ${d.name} was rejected: ${reason}`,'/account/suggestions');await audit(req,'restaurant-suggestion-decision','suggestion',x._id,null,x.toObject());ok(res,x);}
+export async function ownerDecision(req,res){const u=await User.findOne({_id:id(req.params.id),role:'owner'});if(!u)throw new ApiError(404,'Owner application not found.');const status=req.body.status,reason=text(req.body,'reason',1000);if(!['approved','rejected','pending'].includes(status))throw new ApiError(422,'Choose a valid application status.');if(status==='rejected'&&!reason)throw new ApiError(422,'Please provide a rejection reason.');u.set('ownerProfile.verificationStatus',status);u.set('ownerProfile.rejectionReason',status==='rejected'?reason:'');await u.save();await notify(u._id,'Owner application '+status,status==='approved'?'Your owner account has been approved. You can now add and manage your restaurant listings.':status==='rejected'?'Your owner application was rejected: '+reason:'Your owner application is pending administrator review.','/owner');await audit(req,'owner-decision','user',u._id,null,safeUser(u));ok(res,safeUser(u));}
+
+export async function photo(req,res){
+ if(!req.file)throw new ApiError(422,'Choose a JPEG, PNG or WebP photo.');
+ const bytes=await fs.readFile(req.file.path);
+ const valid=req.file.mimetype==='image/jpeg'?bytes[0]===255&&bytes[1]===216&&bytes[2]===255:req.file.mimetype==='image/png'?bytes.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])):bytes.toString('ascii',0,4)==='RIFF'&&bytes.toString('ascii',8,12)==='WEBP';
+ if(!valid){await fs.unlink(req.file.path);throw new ApiError(422,'The photo content must match its file type.');}
+ ok(res,{url:'/uploads/'+req.file.filename},{},201);
+}

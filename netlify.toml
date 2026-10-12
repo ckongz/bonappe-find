@@ -1,0 +1,8 @@
+[build]
+command = "npm run build"
+publish = "client/dist"
+# Set VITE_API_URL in Netlify to your externally hosted API /api URL.
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200

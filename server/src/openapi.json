@@ -1,0 +1,4179 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "BonApp\u00e9 Find API",
+    "version": "1.3.0",
+    "description": "MongoDB restaurant discovery API. JWT roles and ownership are checked on the server. Use a test DB for mutating examples."
+  },
+  "servers": [
+    {
+      "url": "/api"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Server and database status",
+        "tags": [
+          "health"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        }
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "summary": "Customer registration",
+        "tags": [
+          "auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "name": "Test User",
+                "email": "test@example.com",
+                "password": "Testing123",
+                "confirmPassword": "Testing123"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/owners/register": {
+      "post": {
+        "summary": "Owner registration",
+        "tags": [
+          "owners"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "name": "Test User",
+                "email": "test@example.com",
+                "password": "Testing123",
+                "confirmPassword": "Testing123"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Login",
+        "tags": [
+          "auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "email": "test@example.com",
+                "password": "Testing123"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/forgot-password": {
+      "post": {
+        "summary": "Request a six-digit password reset code",
+        "tags": [
+          "auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  }
+                },
+                "required": [
+                  "email"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/reset-password": {
+      "post": {
+        "summary": "Reset password with email and six-digit code",
+        "tags": [
+          "auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "code": {
+                    "type": "string",
+                    "pattern": "^[0-9]{6}$"
+                  },
+                  "password": {
+                    "type": "string",
+                    "minLength": 8
+                  },
+                  "confirmPassword": {
+                    "type": "string",
+                    "minLength": 8
+                  }
+                },
+                "required": [
+                  "email",
+                  "code",
+                  "password",
+                  "confirmPassword"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/me": {
+      "get": {
+        "summary": "Current user",
+        "tags": [
+          "auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "summary": "Logout and invalidate tokens",
+        "tags": [
+          "auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/auth/resend-verification": {
+      "post": {
+        "summary": "Resend a code; 60 second cooldown; delivery flag distinguishes simulation",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid or expired code"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation failure"
+          },
+          "429": {
+            "description": "Cooldown or attempt limit"
+          }
+        }
+      }
+    },
+    "/me": {
+      "patch": {
+        "summary": "Update profile",
+        "tags": [
+          "me"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Delete own account",
+        "tags": [
+          "me"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/me/data": {
+      "get": {
+        "summary": "Download own data",
+        "tags": [
+          "me"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/restaurants": {
+      "get": {
+        "summary": "Paginated restaurant list",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Keyword"
+          },
+          {
+            "name": "field",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "name, cuisine, all or dish"
+          },
+          {
+            "name": "borough",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Region"
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Country name"
+          },
+          {
+            "name": "cuisine",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Cuisine"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Page default 1"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "20 by default, max 100"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "name, name-desc, rating, rating-asc, newest, views, saves"
+          },
+          {
+            "name": "price",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "1\u20134"
+          },
+          {
+            "name": "dietary",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Comma-separated dietary tags"
+          },
+          {
+            "name": "minRating",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Minimum average stars"
+          },
+          {
+            "name": "open",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "now"
+          },
+          {
+            "name": "grade",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "A, B, C or Z"
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create restaurant",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "name": "Kusina ni Lola Pacing",
+                "cuisine": "Filipino",
+                "country": "Philippines",
+                "countrySlug": "philippines",
+                "borough": "Pampanga",
+                "city": "San Fernando",
+                "address": {
+                  "building": "18",
+                  "street": "Dolores Street",
+                  "zipcode": "2000"
+                },
+                "grades": [
+                  {
+                    "date": "2025-03-12",
+                    "grade": "A",
+                    "score": 34
+                  },
+                  {
+                    "date": "2025-09-20",
+                    "grade": "A",
+                    "score": 36
+                  },
+                  {
+                    "date": "2026-02-08",
+                    "grade": "A",
+                    "score": 33
+                  }
+                ],
+                "profile": {
+                  "tagline": "Grandma's Pampanga recipes, served sizzling.",
+                  "story": "Lola Pacing began cooking for her neighbors on a single charcoal grill, and the line outside her kitchen grew every weekend. Today her grandchildren run the dining room and keep her recipes exactly as she wrote them, from the crisp-edged sisig to the sour, tamarind-rich sinigang.",
+                  "funFact": "The sisig plate arrives so hot that the sizzle can still be heard at the next table.",
+                  "priceRange": "$$",
+                  "openingHours": "Daily, 10:00 to 21:00",
+                  "dressCode": "Casual",
+                  "reservations": "Recommended for groups of six or more",
+                  "signatureDishes": [
+                    "Sizzling sisig",
+                    "Sinigang na baboy",
+                    "Turon with langka"
+                  ],
+                  "dietaryOptions": [
+                    "Vegetarian kare-kare available",
+                    "ask for no shrimp paste"
+                  ],
+                  "tags": [
+                    "family friendly",
+                    "rice meals",
+                    "local favorite"
+                  ],
+                  "imageUrl": "/images/photos/grill.jpg"
+                },
+                "isFeatured": true,
+                "priceLevel": 2,
+                "timezone": "Asia/Manila",
+                "status": "open",
+                "approvalStatus": "approved"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/restaurants/meta/filters": {
+      "get": {
+        "summary": "Distinct filters",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        }
+      }
+    },
+    "/restaurants/random": {
+      "get": {
+        "summary": "Random open restaurant",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        }
+      }
+    },
+    "/restaurants/compare": {
+      "get": {
+        "summary": "Compare two or three IDs",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        }
+      }
+    },
+    "/restaurants/by-ids": {
+      "get": {
+        "summary": "Saved or recent records",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        }
+      }
+    },
+    "/restaurants/suggest": {
+      "get": {
+        "summary": "Search suggestions",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        }
+      }
+    },
+    "/restaurants/featured": {
+      "get": {
+        "summary": "Discovery: featured",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        }
+      }
+    },
+    "/restaurants/new": {
+      "get": {
+        "summary": "Discovery: new",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        }
+      }
+    },
+    "/restaurants/trending": {
+      "get": {
+        "summary": "Discovery: trending",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        }
+      }
+    },
+    "/restaurants/top-rated": {
+      "get": {
+        "summary": "Discovery: top-rated",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        }
+      }
+    },
+    "/restaurants/most-viewed": {
+      "get": {
+        "summary": "Discovery: most-viewed",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        }
+      }
+    },
+    "/restaurants/stats/by-borough": {
+      "get": {
+        "summary": "MongoDB aggregation: by-borough",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        }
+      }
+    },
+    "/restaurants/stats/by-cuisine": {
+      "get": {
+        "summary": "MongoDB aggregation: by-cuisine",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        }
+      }
+    },
+    "/restaurants/stats/by-country": {
+      "get": {
+        "summary": "MongoDB aggregation: by-country",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        }
+      }
+    },
+    "/restaurants/stats/top-quality": {
+      "get": {
+        "summary": "MongoDB aggregation: top-quality",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        }
+      }
+    },
+    "/restaurants/{id}": {
+      "get": {
+        "summary": "Read restaurant",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "summary": "Update restaurant",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "name": "Kusina ni Lola Pacing",
+                "cuisine": "Filipino",
+                "country": "Philippines",
+                "countrySlug": "philippines",
+                "borough": "Pampanga",
+                "city": "San Fernando",
+                "address": {
+                  "building": "18",
+                  "street": "Dolores Street",
+                  "zipcode": "2000"
+                },
+                "grades": [
+                  {
+                    "date": "2025-03-12",
+                    "grade": "A",
+                    "score": 34
+                  },
+                  {
+                    "date": "2025-09-20",
+                    "grade": "A",
+                    "score": 36
+                  },
+                  {
+                    "date": "2026-02-08",
+                    "grade": "A",
+                    "score": 33
+                  }
+                ],
+                "profile": {
+                  "tagline": "Grandma's Pampanga recipes, served sizzling.",
+                  "story": "Lola Pacing began cooking for her neighbors on a single charcoal grill, and the line outside her kitchen grew every weekend. Today her grandchildren run the dining room and keep her recipes exactly as she wrote them, from the crisp-edged sisig to the sour, tamarind-rich sinigang.",
+                  "funFact": "The sisig plate arrives so hot that the sizzle can still be heard at the next table.",
+                  "priceRange": "$$",
+                  "openingHours": "Daily, 10:00 to 21:00",
+                  "dressCode": "Casual",
+                  "reservations": "Recommended for groups of six or more",
+                  "signatureDishes": [
+                    "Sizzling sisig",
+                    "Sinigang na baboy",
+                    "Turon with langka"
+                  ],
+                  "dietaryOptions": [
+                    "Vegetarian kare-kare available",
+                    "ask for no shrimp paste"
+                  ],
+                  "tags": [
+                    "family friendly",
+                    "rice meals",
+                    "local favorite"
+                  ],
+                  "imageUrl": "/images/photos/grill.jpg"
+                },
+                "isFeatured": true,
+                "priceLevel": 2,
+                "timezone": "Asia/Manila",
+                "status": "open",
+                "approvalStatus": "approved"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Soft delete restaurant",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/restaurants/{id}/restore": {
+      "post": {
+        "summary": "Restore restaurant",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/restaurants/{id}/status": {
+      "patch": {
+        "summary": "Change status",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "status": "open"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/restaurants/{id}/approval": {
+      "patch": {
+        "summary": "Approve restaurant",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "approvalStatus": "approved"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/restaurants/{id}/claim": {
+      "post": {
+        "summary": "Claim restaurant",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "evidenceType": "business_email",
+                "note": "Please verify my business email."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/restaurants/{id}/reports": {
+      "post": {
+        "summary": "Report wrong data",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "reason": "Incorrect opening hours",
+                "type": "restaurant_info"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/restaurants/{id}/similar": {
+      "get": {
+        "summary": "Similar restaurants",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/restaurants/{id}/view": {
+      "post": {
+        "summary": "Record session view",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "sessionId": "example-session-id"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/restaurants/{id}/contact-owner": {
+      "post": {
+        "summary": "Message owner",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "message": "Please confirm the current opening hours."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/restaurants/{id}/images": {
+      "post": {
+        "summary": "Upload gallery image",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/restaurants/{id}/suggestions": {
+      "get": {
+        "summary": "Suggested edits",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Suggested edits",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "field": "profile.openingHours",
+                "proposedValue": "Daily 10:00 to 21:00"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Suggested edits",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/restaurants/{id}/reviews": {
+      "get": {
+        "summary": "Published reviews",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "post": {
+        "summary": "Write review",
+        "tags": [
+          "restaurants"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "rating": 5,
+                "comment": "A sample review for the fictional project."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reviews/{id}": {
+      "patch": {
+        "summary": "Edit own review or moderate",
+        "tags": [
+          "reviews"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "rating": 4,
+                "comment": "Updated review."
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove review",
+        "tags": [
+          "reviews"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/reviews/{id}/helpful": {
+      "post": {
+        "summary": "Helpful vote",
+        "tags": [
+          "reviews"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/reviews/{id}/reply": {
+      "post": {
+        "summary": "Owner reply",
+        "tags": [
+          "reviews"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "text": "Thank you for visiting."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reviews/{id}/report": {
+      "post": {
+        "summary": "Report review",
+        "tags": [
+          "reviews"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "reason": "Spam"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries": {
+      "get": {
+        "summary": "List countries",
+        "tags": [
+          "countries"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create countries",
+        "tags": [
+          "countries"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/countries/{slug}": {
+      "get": {
+        "summary": "Read countries",
+        "tags": [
+          "countries"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "summary": "Update countries",
+        "tags": [
+          "countries"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Delete countries",
+        "tags": [
+          "countries"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/guides": {
+      "get": {
+        "summary": "List guides",
+        "tags": [
+          "guides"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create guides",
+        "tags": [
+          "guides"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/guides/{slug}": {
+      "get": {
+        "summary": "Read guides",
+        "tags": [
+          "guides"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "summary": "Update guides",
+        "tags": [
+          "guides"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Delete guides",
+        "tags": [
+          "guides"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/countries/{slug}/restaurants": {
+      "get": {
+        "summary": "Restaurants in country",
+        "tags": [
+          "countries"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/faqs": {
+      "get": {
+        "summary": "Frequently asked questions",
+        "tags": [
+          "faqs"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        }
+      }
+    },
+    "/contact": {
+      "post": {
+        "summary": "Submit message",
+        "tags": [
+          "contact"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "name": "Test",
+                "email": "test@example.com",
+                "subject": "General question",
+                "message": "Please send me more project information."
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Manage contact messages",
+        "tags": [
+          "contact"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/contact/{id}": {
+      "patch": {
+        "summary": "Manage contact messages",
+        "tags": [
+          "contact"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Manage contact messages",
+        "tags": [
+          "contact"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/newsletter": {
+      "post": {
+        "summary": "Subscribe or unsubscribe",
+        "tags": [
+          "newsletter"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "email": "test@example.com"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Subscribe or unsubscribe",
+        "tags": [
+          "newsletter"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "email": "test@example.com"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/me/favorites": {
+      "get": {
+        "summary": "Own favorites",
+        "tags": [
+          "me"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Own favorites",
+        "tags": [
+          "me"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "restaurant": "{{restaurantId}}"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Own favorites",
+        "tags": [
+          "me"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "restaurant": "{{restaurantId}}"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/me/collections": {
+      "get": {
+        "summary": "Own collections",
+        "tags": [
+          "me"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Own collections",
+        "tags": [
+          "me"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/me/collections/{id}": {
+      "put": {
+        "summary": "Own collections",
+        "tags": [
+          "me"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Own collections",
+        "tags": [
+          "me"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/collections/{id}": {
+      "get": {
+        "summary": "Public collection",
+        "tags": [
+          "collections"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/me/reviews": {
+      "get": {
+        "summary": "Own reviews",
+        "tags": [
+          "me"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/me/search-history": {
+      "get": {
+        "summary": "Own search history",
+        "tags": [
+          "me"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Own search history",
+        "tags": [
+          "me"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Own search history",
+        "tags": [
+          "me"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/notifications": {
+      "get": {
+        "summary": "Own notifications",
+        "tags": [
+          "notifications"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/notifications/{id}/read": {
+      "patch": {
+        "summary": "Mark notification read",
+        "tags": [
+          "notifications"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/owner/restaurants": {
+      "get": {
+        "summary": "Owner data",
+        "tags": [
+          "owner"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/owner/reviews": {
+      "get": {
+        "summary": "Owner data",
+        "tags": [
+          "owner"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/owner/messages": {
+      "get": {
+        "summary": "Owner data",
+        "tags": [
+          "owner"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/owner/stats": {
+      "get": {
+        "summary": "Owner data",
+        "tags": [
+          "owner"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/owner/messages/{id}": {
+      "patch": {
+        "summary": "Mark owner message read",
+        "tags": [
+          "owner"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/stats/summary": {
+      "get": {
+        "summary": "Staff management data",
+        "tags": [
+          "admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/stats/reviews": {
+      "get": {
+        "summary": "Staff management data",
+        "tags": [
+          "admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/restaurants": {
+      "get": {
+        "summary": "Staff management data",
+        "tags": [
+          "admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/logs": {
+      "get": {
+        "summary": "Staff management data",
+        "tags": [
+          "admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/login-history": {
+      "get": {
+        "summary": "Staff management data",
+        "tags": [
+          "admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/users": {
+      "get": {
+        "summary": "Staff management data",
+        "tags": [
+          "admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create user",
+        "tags": [
+          "admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/reviews": {
+      "get": {
+        "summary": "Staff management data",
+        "tags": [
+          "admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/subscribers": {
+      "get": {
+        "summary": "Staff management data",
+        "tags": [
+          "admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/quality-report": {
+      "get": {
+        "summary": "Staff management data",
+        "tags": [
+          "admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/restaurants/export": {
+      "get": {
+        "summary": "Staff management data",
+        "tags": [
+          "admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/claims": {
+      "get": {
+        "summary": "Staff management data",
+        "tags": [
+          "claims"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/reports": {
+      "get": {
+        "summary": "Staff management data",
+        "tags": [
+          "reports"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/suggestions": {
+      "get": {
+        "summary": "Staff management data",
+        "tags": [
+          "suggestions"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/claims/{id}": {
+      "patch": {
+        "summary": "Approve or reject claim",
+        "tags": [
+          "claims"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "status": "approved"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reports/{id}": {
+      "patch": {
+        "summary": "Resolve or dismiss report",
+        "tags": [
+          "reports"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "status": "resolved"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/users/{id}": {
+      "patch": {
+        "summary": "Change user role/status",
+        "tags": [
+          "admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/users/{id}/status": {
+      "patch": {
+        "summary": "Suspend or reactivate",
+        "tags": [
+          "admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "status": "suspended"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/restaurants/import": {
+      "post": {
+        "summary": "Validated bulk JSON import",
+        "tags": [
+          "admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/settings": {
+      "get": {
+        "summary": "Public settings",
+        "tags": [
+          "settings"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update settings",
+        "tags": [
+          "settings"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success envelope: success, data, meta"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": {
+                "banner": "Welcome to the table.",
+                "maintenance": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/verify-email": {
+      "post": {
+        "summary": "Validate a six-digit code for the authenticated account",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid or expired code"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation failure"
+          },
+          "429": {
+            "description": "Cooldown or attempt limit"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string",
+                    "pattern": "^[0-9]{6}$"
+                  }
+                },
+                "required": [
+                  "code"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/correct-email": {
+      "post": {
+        "summary": "Correct an unverified email using the current password and issue a new code",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid or expired code"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation failure"
+          },
+          "429": {
+            "description": "Cooldown or attempt limit"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "email",
+                  "password"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/restaurant-suggestions": {
+      "post": {
+        "summary": "Submit a restaurant suggestion; verified regular users only",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid or expired code"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation failure"
+          },
+          "429": {
+            "description": "Cooldown or attempt limit"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "cuisine": {
+                    "type": "string"
+                  },
+                  "address": {
+                    "type": "string"
+                  },
+                  "contact": {
+                    "type": "string"
+                  },
+                  "website": {
+                    "type": "string"
+                  },
+                  "openingHours": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "photo": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "cuisine",
+                  "address",
+                  "contact",
+                  "openingHours",
+                  "description"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/me/restaurant-suggestions": {
+      "get": {
+        "summary": "List the authenticated user's suggestions",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid or expired code"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation failure"
+          },
+          "429": {
+            "description": "Cooldown or attempt limit"
+          }
+        }
+      }
+    },
+    "/admin/restaurant-suggestions": {
+      "get": {
+        "summary": "List restaurant suggestions; administrators only",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid or expired code"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation failure"
+          },
+          "429": {
+            "description": "Cooldown or attempt limit"
+          }
+        }
+      }
+    },
+    "/admin/restaurant-suggestions/{id}": {
+      "patch": {
+        "summary": "Edit and approve a suggestion or reject with a reason; approval assigns no ownership",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid or expired code"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation failure"
+          },
+          "429": {
+            "description": "Cooldown or attempt limit"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "approved",
+                      "rejected"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string"
+                  },
+                  "details": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "cuisine": {
+                        "type": "string"
+                      },
+                      "address": {
+                        "type": "string"
+                      },
+                      "contact": {
+                        "type": "string"
+                      },
+                      "website": {
+                        "type": "string"
+                      },
+                      "openingHours": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "photo": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "cuisine",
+                      "address",
+                      "contact",
+                      "openingHours",
+                      "description"
+                    ]
+                  }
+                },
+                "required": [
+                  "status"
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/admin/owners/{id}": {
+      "patch": {
+        "summary": "Decide an owner application independently of email verification",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid or expired code"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation failure"
+          },
+          "429": {
+            "description": "Cooldown or attempt limit"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "pending",
+                      "approved",
+                      "rejected"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "status"
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/restaurant-suggestions/photo": {
+      "post": {
+        "summary": "Upload an optional JPEG, PNG or WebP photo up to 5 MB; verified regular users only",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid or expired code"
+          },
+          "401": {
+            "description": "Login required"
+          },
+          "403": {
+            "description": "Permission denied"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation failure"
+          },
+          "429": {
+            "description": "Cooldown or attempt limit"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "image"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

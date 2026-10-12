@@ -1,0 +1,30 @@
+{
+  "method": "Browser script assertions recorded in console before a long-page screenshot timeout.",
+  "interactions": [
+    {
+      "name": "Footer newsletter success and duplicate feedback",
+      "pass": true
+    },
+    {
+      "name": "Desktop navigation, brand links, dropdown and footer credits",
+      "pass": true
+    },
+    {
+      "name": "Mobile menu content and close-after-navigation",
+      "pass": true
+    },
+    {
+      "name": "Theme switching and reduced-motion content visibility",
+      "pass": true
+    },
+    {
+      "name": "FAQ search, categories and accordion",
+      "pass": true
+    },
+    {
+      "name": "Restaurant filters, grid/table/map, save and compare",
+      "pass": true
+    }
+  ],
+  "capture_limit": "Final long-page screenshot timed out. Previously successful final snapshots are included."
+}

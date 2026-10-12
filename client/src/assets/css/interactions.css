@@ -1,0 +1,108 @@
+/* Interaction layer: hover transitions, reveal, ripple, spotlight, scroll-spy. Loaded last. */
+
+/* ---------- Auto scroll-reveal (added/removed by utils/interactions.js) ---------- */
+.fx-reveal{opacity:0;transform:translateY(26px) scale(.985);animation:none!important;
+  transition:opacity .7s var(--ease) var(--fx-delay,0ms),transform .7s var(--ease) var(--fx-delay,0ms)!important}
+:where(.fx-reveal.fx-in){opacity:1;transform:none}
+.fx-reveal.fx-in{opacity:1}
+
+/* ---------- Buttons: ripple and press ---------- */
+.btn,button{position:relative}
+.btn.secondary,button.secondary{transition:background .25s,color .25s,border-color .25s,transform .25s var(--ease),box-shadow .25s}
+.fx-ripple{position:absolute;border-radius:50%;pointer-events:none;background:rgba(255,255,255,.4);transform:scale(0);animation:fx-ripple .6s ease-out forwards}
+.btn.secondary .fx-ripple,button.secondary .fx-ripple,button.ghost .fx-ripple{background:rgba(117,137,86,.35)}
+@keyframes fx-ripple{to{transform:scale(1);opacity:0}}
+
+/* ---------- Links: animated underline in prose and footer ---------- */
+.prose a,.reading a:not(.btn),.bread a,.faq-count a,.legal-text a{
+  text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 2px no-repeat;
+  transition:background-size .35s var(--ease),color .2s;padding-bottom:2px}
+.prose a:hover,.reading a:not(.btn):hover,.bread a:hover{background-size:100% 2px}
+footer a{transition:color .2s,transform .25s var(--ease),opacity .2s}
+footer a:hover{transform:translateX(4px)}
+
+/* ---------- Header nav: sliding underline dot ---------- */
+@media(min-width:1061px){
+  .nav-links>a:not(.active)::after{content:"";position:absolute;left:50%;bottom:3px;width:0;height:2px;border-radius:2px;
+    background:var(--leaf);transform:translateX(-50%);transition:width .3s var(--ease)}
+  .nav-links>a:not(.active):hover::after{width:44%}
+}
+.wordmark{transition:transform .35s var(--ease),letter-spacing .35s var(--ease)}
+.wordmark:hover{transform:scale(1.03) rotate(-.6deg)}
+.icon-link{transition:background .2s,transform .25s var(--ease)}
+.icon-link:hover{transform:scale(1.1)}
+.icon-link:active{transform:scale(.92)}
+.saved-link:hover svg{animation:fx-beat .6s var(--ease)}
+.theme:hover svg{animation:fx-spin .6s var(--ease)}
+@keyframes fx-beat{30%{transform:scale(1.3)}60%{transform:scale(.95)}}
+@keyframes fx-spin{to{transform:rotate(360deg)}}
+
+/* ---------- Cards: lift, image zoom, cursor spotlight ---------- */
+.card,.rcard{position:relative}
+a.card,.rcard,.guide-card,.country-card{transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .3s}
+.rcard:hover,.guide-card:hover,.country-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.rcard:hover img,.guide-card:hover img,.country-card:hover img,a.card:hover img{transform:scale(1.06)}
+.rcard img,.guide-card img,.country-card img,a.card img,.editorial-photo{transition:transform .8s var(--ease)}
+.rcard-media,.guide-card,.country-card{overflow:hidden}
+.fx-spot::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;opacity:0;border-radius:inherit;
+  background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(117,137,86,.2),transparent 70%);
+  transition:opacity .3s}
+.fx-spot:hover::before{opacity:1}
+.rcard .heart,.rcard-actions button{transition:transform .25s var(--ease-spring,var(--ease)),background .2s,color .2s}
+.rcard .heart:hover,.heart-btn:hover{transform:scale(1.12)}
+.heart-btn.saved svg,.rcard .heart.saved svg{animation:fx-beat .5s var(--ease)}
+.chip,.badge{transition:transform .25s var(--ease),box-shadow .25s,background .2s}
+.chip:hover,.badge:hover{transform:translateY(-2px)}
+
+/* ---------- Static / info pages ---------- */
+.info-section{transition:box-shadow .35s var(--ease),transform .35s var(--ease),border-color .3s}
+.info-section:hover{transform:translateX(4px);border-color:var(--moss-gardens)}
+.info-sidebar nav a{transition:background .25s,color .25s,border-color .25s,transform .25s var(--ease),padding .25s var(--ease)}
+.info-sidebar nav a:hover{border-color:var(--moss-gardens);transform:translateX(4px)}
+.info-sidebar nav a.current{background:var(--forestry);color:var(--candle);border-color:var(--forestry)}
+.info-sidebar nav a.current::after{opacity:1;transform:translateX(3px)}
+.info-sidebar nav a::after{transition:transform .25s var(--ease),opacity .25s}
+.info-sidebar nav a:hover::after{transform:translateX(3px);opacity:1}
+.avatar{transition:transform .4s var(--ease-spring,var(--ease)),box-shadow .3s}
+.card:hover>.avatar{transform:scale(1.08) rotate(-4deg);box-shadow:0 8px 20px rgba(20,19,10,.25)}
+.stat{transition:transform .3s var(--ease),color .3s}
+.card:hover .stat{transform:scale(1.08);color:var(--bow)}
+
+/* ---------- Forms: focus-in glow and label nudge ---------- */
+.field,form>div{transition:transform .25s var(--ease)}
+.field:focus-within label{color:var(--moss-gardens)}
+.field label,.field:focus-within label{transition:color .2s}
+input,select,textarea{transition:border-color .2s,box-shadow .25s,background .2s,transform .2s var(--ease)}
+input:focus,select:focus,textarea:focus{transform:translateY(-1px)}
+input[type=checkbox],input[type=radio]{transition:transform .2s var(--ease-spring,var(--ease))}
+input[type=checkbox]:active,input[type=radio]:active{transform:scale(.85)}
+
+/* ---------- Tables and lists ---------- */
+tbody tr{transition:background .2s,box-shadow .25s}
+tbody tr:hover{box-shadow:inset 4px 0 0 var(--moss-gardens)}
+.acc-head{transition:background .25s,padding-left .25s var(--ease)}
+.acc-head:hover{padding-left:calc(var(--acc-pad,20px) + 6px)}
+.list li{transition:transform .25s var(--ease)}.list li:hover{transform:translateX(4px)}
+.review{transition:background .25s,padding .25s var(--ease)}
+@media(hover:hover){.review:hover{background:var(--moss-soft);padding-left:12px}}
+
+/* ---------- Page transition and back-to-top ---------- */
+.page-enter-active,.page-leave-active{transition:opacity .35s var(--ease),transform .35s var(--ease),filter .35s}
+.page-enter-from{opacity:0;transform:translateY(14px);filter:blur(3px)}
+.page-leave-to{opacity:0;transform:translateY(-6px);filter:blur(2px)}
+.top{transition:transform .3s var(--ease-spring,var(--ease)),background .2s}
+.top:hover{transform:translateY(-4px) scale(1.08)}
+
+/* ---------- Touch: keep tap feedback, drop sticky hover ---------- */
+@media(hover:none){
+  .info-section:hover,.rcard:hover,.guide-card:hover,.country-card:hover,.list li:hover,footer a:hover,.wordmark:hover,.icon-link:hover{transform:none}
+  .review:hover{background:transparent;padding-left:0}
+  .btn:active,button:active,a.card:active,.rcard:active,.info-sidebar nav a:active{transform:scale(.97)}
+}
+
+/* ---------- Reduced motion: switch it all off ---------- */
+@media(prefers-reduced-motion:reduce){
+  .fx-reveal{opacity:1!important;transform:none!important}
+  .fx-ripple,.fx-spot::before{display:none!important}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}

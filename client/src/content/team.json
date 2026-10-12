@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Abygale Santos",
+    "role": "UI and UX designer (Figma)",
+    "bio": "Designed the look and flow of BonAppé Find in Figma, turning the color palette into pages and components."
+  },
+  {
+    "name": "Casey Ong",
+    "role": "Documentation lead, Group Representative, and frontend and backend developer",
+    "bio": "Also built the frontend and backend of BonAppé Find. Contributes to and helps write the entire project documentation, finalizes all frontend, backend and mockup deliverables, oversees the final GitHub upload and submits the PDF documentation."
+  },
+  {
+    "name": "Ayenne Wage",
+    "role": "UI and UX designer (Figma)",
+    "bio": "Designed pages, components and the social media and email mockups in Figma."
+  },
+  {
+    "name": "Prince Pangilinan",
+    "role": "Backend and frontend developer",
+    "bio": "Built the REST API, the MongoDB Atlas database connection and the user interface."
+  }
+]

@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: bonappe-find
+    runtime: node
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: VITE_API_URL
+        value: /api
+      - key: REQUIRE_AUTH_FOR_WRITES
+        value: "true"
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CLIENT_ORIGIN
+        sync: false
+      - key: APP_URL
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+# Edit for your hosting account; no deployment is created by this file.
+# Gallery uploads need persistent storage or an object-storage adaptation.

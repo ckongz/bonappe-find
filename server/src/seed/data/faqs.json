@@ -1,0 +1,98 @@
+[
+  {
+    "category": "General",
+    "question": "What is BonAppé Find?",
+    "answer": "BonAppé Find is a restaurant discovery web application. You can search restaurants, filter by borough, region or country, see a Quality Score, and read static guides about food culture in eight countries.",
+    "order": 0
+  },
+  {
+    "category": "General",
+    "question": "Is BonAppé Find free?",
+    "answer": "Yes. BonAppé Find is free to use and you do not need an account to search, browse or read the guides.",
+    "order": 1
+  },
+  {
+    "category": "General",
+    "question": "Who built BonAppé Find?",
+    "answer": "Four students built it for the 6ADDBASE course: Abygale Santos and Ayenne Wage (design), Prince Pangilinan and Casey Ong (backend and frontend; Casey also handled documentation and project finalization).",
+    "order": 2
+  },
+  {
+    "category": "Data",
+    "question": "Is the restaurant data real?",
+    "answer": "Most restaurants come from the dbRestaurants dataset provided in our course. The sixteen curated restaurants with full stories are fictional examples created for this project. Always confirm details with a restaurant before you visit.",
+    "order": 3
+  },
+  {
+    "category": "Data",
+    "question": "What do the letter grades mean?",
+    "answer": "Each grade entry has a date, a letter (A, B, C or Z) and a score. The letter is the label recorded on that date. We show the records exactly as they are stored in the database.",
+    "order": 4
+  },
+  {
+    "category": "Data",
+    "question": "How does the Best Quality ranking work?",
+    "answer": "We add up every score recorded for a restaurant to get its Quality Score. Restaurants with a total greater than 90 appear on the Best Quality page, from highest to lowest.",
+    "order": 5
+  },
+  {
+    "category": "Data",
+    "question": "Why do restaurants outside New York have a borough?",
+    "answer": "The borough field is used as a general region field. For New York it holds the borough. For other countries it holds the district, province or region.",
+    "order": 6
+  },
+  {
+    "category": "Data",
+    "question": "How are the country guides written?",
+    "answer": "Each guide is hand-written by our team using common cultural knowledge about food, meal times, etiquette and festivals. Customs vary by place and by family, so treat the guides as a friendly introduction, not strict rules.",
+    "order": 7
+  },
+  {
+    "category": "Using the site",
+    "question": "How do I search?",
+    "answer": "Type a keyword in the search box, choose Name or Cuisine, and press Filter. You can also tap a borough button or choose a country to narrow the results.",
+    "order": 8
+  },
+  {
+    "category": "Using the site",
+    "question": "Can I add a restaurant?",
+    "answer": "Regular users can suggest a restaurant after verifying their email. Administrators review suggestions before publication. Approved owners with verified email can add and manage their own listings; administrators can manage all listings.",
+    "order": 9
+  },
+  {
+    "category": "Using the site",
+    "question": "Can I edit or delete a restaurant?",
+    "answer": "Owners edit the listings they own. Staff can edit, move restaurants to Trash, and restore them. Deleting asks for confirmation and hides the listing from public results.",
+    "order": 10
+  },
+  {
+    "category": "Using the site",
+    "question": "Can I save my favorite restaurants?",
+    "answer": "Yes. Tap the heart on any restaurant. Your saved list is kept in your own browser and does not need an account.",
+    "order": 11
+  },
+  {
+    "category": "Using the site",
+    "question": "Which browsers does BonAppé Find support?",
+    "answer": "The latest two versions of Chrome, Edge, Firefox and Safari on desktop, tablet and mobile.",
+    "order": 12
+  },
+  {
+    "category": "Using the site",
+    "question": "I found wrong information. What should I do?",
+    "answer": "Log in to suggest an edit or report incorrect information on the restaurant profile, or use the Contact page.",
+    "order": 13
+  },
+  {
+    "category": "Privacy",
+    "question": "Do I need an account?",
+    "answer": "No account is needed to browse, search, save locally or read guides. Accounts are required for reviews, owner tools and administration.",
+    "order": 14
+  },
+  {
+    "category": "Privacy",
+    "question": "What data do you collect?",
+    "answer": "We collect only what you send us, such as a contact message, a newsletter email or a review, plus basic technical data. Read the Privacy Policy for the full details.",
+    "order": 15
+  }
+]

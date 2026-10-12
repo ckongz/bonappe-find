@@ -1,0 +1,546 @@
+[
+  {
+    "tagline": "Sour, salty and sweet. Home of adobo, sinigang and halo-halo.",
+    "overview": "Filipino cooking is a story of islands and visitors. Malay roots, Chinese noodles, Spanish stews and American snacks all meet at one table, and the result is food that loves a bold balance of sour, salty and sweet. Meals are made for sharing, and rice is almost always the center of the plate. Regional pride runs deep, from the coconut dishes of Bicol to the sizzling sisig of Pampanga, often called the culinary capital of the Philippines.",
+    "signatureDishes": [
+      {
+        "name": "Adobo",
+        "description": "Chicken or pork simmered in vinegar, soy sauce, garlic and pepper, often called the unofficial national dish."
+      },
+      {
+        "name": "Sinigang",
+        "description": "A sour soup, usually soured with tamarind, with pork, shrimp or fish and vegetables."
+      },
+      {
+        "name": "Kare-kare",
+        "description": "Oxtail and vegetables in a rich peanut sauce, served with shrimp paste."
+      },
+      {
+        "name": "Lechon",
+        "description": "Whole roast pig with crackling skin, the star of every fiesta."
+      },
+      {
+        "name": "Sisig",
+        "description": "Chopped pork served sizzling on a hot plate, a famous dish from Pampanga."
+      },
+      {
+        "name": "Halo-halo",
+        "description": "Shaved ice dessert mixed with sweet beans, fruit, leche flan and ice cream."
+      }
+    ],
+    "mealRhythm": "Filipinos enjoy up to five meals: almusal (breakfast), tanghalian (lunch), merienda (afternoon snack), hapunan (dinner) and sometimes a late snack. Merienda is a beloved break with noodles, turon or bibingka.",
+    "etiquette": [
+      "Use a spoon and fork. The fork pushes food onto the spoon, which goes to your mouth.",
+      "Kamayan, eating by hand, is common at feasts and boodle fights. Wash your hands first and use your right hand.",
+      "Hosts often say \"Kain tayo!\" (Let us eat!). Accept at least a small serving to be polite.",
+      "Dishes are placed in the middle for sharing. Take a modest portion first, and when dining with family, let the eldest start."
+    ],
+    "tipping": "A 10 percent service charge is often added to the bill in restaurants. If it is not included, leaving 5 to 10 percent is appreciated.",
+    "bestSeason": "The dry season, from November to April, is best for fiesta feasts and fresh seafood. Mango season, from March to June, is the time for sweet mangoes.",
+    "festivals": [
+      {
+        "name": "Pahiyas Festival",
+        "when": "May, Lucban, Quezon",
+        "description": "Houses are decorated with colorful rice wafers called kiping, fruits and vegetables to give thanks for a good harvest."
+      },
+      {
+        "name": "Sinulog",
+        "when": "January, Cebu",
+        "description": "A grand festival honoring the Santo Niño with street dancing and feasts."
+      },
+      {
+        "name": "Noche Buena",
+        "when": "December 24",
+        "description": "A midnight family feast after Christmas Eve Mass, with ham, queso de bola and sweet treats."
+      }
+    ],
+    "phrase": {
+      "local": "Kain tayo!",
+      "meaning": "Let us eat!",
+      "language": "Filipino"
+    },
+    "funFact": "Filipinos celebrate one of the longest Christmas seasons in the world, and the \"ber\" months, September to December, already bring out holiday food.",
+    "isFeatured": true,
+    "name": "Philippines",
+    "slug": "philippines",
+    "isoCode": "PH",
+    "continent": "Asia",
+    "capital": "Manila"
+  },
+  {
+    "tagline": "Precision and seasonality, from sushi counters to ramen lanterns.",
+    "overview": "Japanese cuisine, called washoku, values seasonal ingredients, clean flavors and beautiful presentation. A meal can be a quiet sushi counter, a lively izakaya with small plates and drinks, or a steaming bowl of ramen eaten in minutes. Rice, fish, soy sauce, miso and dashi are the foundation, and chefs spend years mastering a single craft. Washoku was added to the UNESCO Intangible Cultural Heritage list in 2013.",
+    "signatureDishes": [
+      {
+        "name": "Sushi",
+        "description": "Vinegared rice topped or rolled with fresh fish and other ingredients."
+      },
+      {
+        "name": "Ramen",
+        "description": "Wheat noodles in a rich broth with toppings such as pork, egg and scallions; every region has its own style."
+      },
+      {
+        "name": "Tempura",
+        "description": "Seafood and vegetables lightly battered and fried until crisp."
+      },
+      {
+        "name": "Okonomiyaki",
+        "description": "A savory cabbage pancake topped with sauce, mayonnaise and bonito flakes, famous in Osaka and Hiroshima."
+      },
+      {
+        "name": "Kaiseki",
+        "description": "A multi-course meal that celebrates the season, served with great care."
+      },
+      {
+        "name": "Takoyaki",
+        "description": "Octopus balls cooked in a special pan and topped with sauce, a street food of Osaka."
+      }
+    ],
+    "mealRhythm": "Breakfast is often rice, miso soup and fish. Lunch is quick and good value, with set meals called teishoku. Dinner is when izakayas fill up. Many restaurants close between lunch and dinner service.",
+    "etiquette": [
+      "Say \"itadakimasu\" before eating and \"gochisousama deshita\" when you finish.",
+      "Never stick chopsticks upright in rice or pass food from chopstick to chopstick, as both are linked to funerals.",
+      "Slurping noodles is normal and shows you are enjoying them.",
+      "Use the warm towel (oshibori) to clean your hands only, not your face."
+    ],
+    "tipping": "Tipping is not customary in Japan and can cause confusion. Good service is already included in the price. A sincere \"gochisousama deshita\" is the best thanks.",
+    "bestSeason": "Spring, from March to May, for cherry blossom picnics and bamboo shoots. Autumn, from September to November, for mushrooms, chestnuts and sanma fish.",
+    "festivals": [
+      {
+        "name": "Hanami season",
+        "when": "Late March to April",
+        "description": "Friends and families picnic under cherry blossoms with bento boxes and sweets such as hanami dango."
+      },
+      {
+        "name": "Setsubun",
+        "when": "February 3",
+        "description": "People eat ehomaki, a long uncut sushi roll, facing the lucky direction of the year."
+      },
+      {
+        "name": "Oshogatsu",
+        "when": "January 1 to 3",
+        "description": "The New Year is celebrated with osechi ryori, special dishes packed in tiered boxes, and ozoni soup."
+      }
+    ],
+    "phrase": {
+      "local": "Itadakimasu",
+      "meaning": "I humbly receive this food",
+      "language": "Japanese"
+    },
+    "funFact": "Tokyo is often counted among the cities with the most Michelin-starred restaurants in the world, yet many beloved meals there cost only a few hundred yen at a standing noodle bar.",
+    "isFeatured": true,
+    "name": "Japan",
+    "slug": "japan",
+    "isoCode": "JP",
+    "continent": "Asia",
+    "capital": "Tokyo"
+  },
+  {
+    "tagline": "Simple ingredients, regional pride and long lunches.",
+    "overview": "Italian food is not one cuisine but twenty regional ones. Northern kitchens lean on butter, rice and polenta, while the south loves olive oil, tomatoes and seafood. The golden rule is simple: use a few excellent ingredients and do not hide them. Meals are slow social events, and families gather for them every Sunday. The Neapolitan art of the pizza maker was added to the UNESCO Intangible Cultural Heritage list in 2017.",
+    "signatureDishes": [
+      {
+        "name": "Pizza Napoletana",
+        "description": "Soft, blistered dough baked in a wood-fired oven with tomato, mozzarella and basil."
+      },
+      {
+        "name": "Carbonara",
+        "description": "Spaghetti with egg, pecorino cheese, cured pork cheek and black pepper, never cream."
+      },
+      {
+        "name": "Risotto alla milanese",
+        "description": "Creamy rice flavored and colored with saffron, from Milan."
+      },
+      {
+        "name": "Osso buco",
+        "description": "Braised veal shanks served with gremolata, a Milanese classic."
+      },
+      {
+        "name": "Tiramisù",
+        "description": "Coffee-soaked biscuits layered with mascarpone cream and cocoa."
+      },
+      {
+        "name": "Gelato",
+        "description": "Dense, silky Italian ice cream served in small tubs or cones."
+      }
+    ],
+    "mealRhythm": "Breakfast (colazione) is small, often a cappuccino and a pastry. Lunch (pranzo) is the main meal in many areas. Dinner (cena) starts late, often after 8 pm. A full meal can include antipasto, primo, secondo, contorno and dolce.",
+    "etiquette": [
+      "Cappuccino is a morning drink. After a meal, Italians usually order an espresso.",
+      "Do not cut pasta with a knife or twirl it with a spoon. Use a fork only.",
+      "Cheese is not traditionally served on seafood pasta, so avoid asking for it.",
+      "Expect a relaxed pace. The bill arrives only when you ask for it (\"Il conto, per favore\")."
+    ],
+    "tipping": "A cover charge (coperto) is common and appears on the bill. A service charge (servizio) is sometimes included. Tipping is small: rounding up or leaving a few euros for good service is plenty.",
+    "bestSeason": "Autumn, from October to November, for truffles, mushrooms and chestnuts. Summer for gelato and fresh tomatoes.",
+    "festivals": [
+      {
+        "name": "Sagre",
+        "when": "Summer and autumn, across Italy",
+        "description": "Local food festivals that each celebrate one dish, such as chestnuts, porcini mushrooms or gnocchi."
+      },
+      {
+        "name": "Alba White Truffle Fair",
+        "when": "October to November, Piedmont",
+        "description": "A famous market and festival for white truffles."
+      },
+      {
+        "name": "Ferragosto",
+        "when": "August 15",
+        "description": "A national holiday marked with long family lunches."
+      }
+    ],
+    "phrase": {
+      "local": "Buon appetito!",
+      "meaning": "Enjoy your meal!",
+      "language": "Italian"
+    },
+    "funFact": "Spaghetti with meatballs is rarely served the way many visitors expect. In Italy, meatballs (polpette) are usually a separate dish.",
+    "isFeatured": true,
+    "name": "Italy",
+    "slug": "italy",
+    "isoCode": "IT",
+    "continent": "Europe",
+    "capital": "Rome"
+  },
+  {
+    "tagline": "Corn, chile and centuries of flavor, recognized by UNESCO.",
+    "overview": "Mexican cuisine grows from corn, beans and chile, and from the knowledge of Indigenous peoples combined with Spanish influences. Traditional Mexican cuisine was added to the UNESCO Intangible Cultural Heritage list in 2010. Every region has its own character: moles in Oaxaca and Puebla, seafood in Veracruz, cochinita pibil in Yucatan, and tacos everywhere. Food is a celebration, shared with family and street vendors alike.",
+    "signatureDishes": [
+      {
+        "name": "Tacos al pastor",
+        "description": "Marinated pork cooked on a vertical spit, served with pineapple, onion and cilantro in a small corn tortilla."
+      },
+      {
+        "name": "Mole poblano",
+        "description": "A deep, complex sauce of chiles, spices and chocolate poured over turkey or chicken."
+      },
+      {
+        "name": "Pozole",
+        "description": "A hominy stew with pork or chicken, served with lime, radish and oregano."
+      },
+      {
+        "name": "Tamales",
+        "description": "Corn dough with fillings, steamed in corn husks or banana leaves."
+      },
+      {
+        "name": "Chiles en nogada",
+        "description": "Stuffed poblano chiles in a walnut cream sauce with pomegranate seeds, in the colors of the Mexican flag."
+      },
+      {
+        "name": "Elote",
+        "description": "Grilled corn on the cob with mayonnaise, cheese, chile and lime."
+      }
+    ],
+    "mealRhythm": "Desayuno is early, almuerzo is a late morning meal, and comida, the main meal, is served between 2 and 4 pm. Cena is light. Street snacks (antojitos) fill the gaps.",
+    "etiquette": [
+      "Tacos are eaten by hand, folded in the tortilla.",
+      "Say \"¡Buen provecho!\" to people at nearby tables as you pass during a meal.",
+      "Salsas are served alongside. Start with a small amount, as heat levels vary.",
+      "The bill is usually brought only when you ask for it (\"La cuenta, por favor\")."
+    ],
+    "tipping": "Tipping 10 to 15 percent (propina) is customary in restaurants. Check whether a service charge is already on the bill.",
+    "bestSeason": "Chiles en nogada appear in late summer, from August to September. The dry months, from November to April, are comfortable for street food tours.",
+    "festivals": [
+      {
+        "name": "Día de Muertos",
+        "when": "November 1 and 2",
+        "description": "Families build altars with favorite foods, pan de muerto, marigolds and candles to welcome the souls of loved ones."
+      },
+      {
+        "name": "Independence Day",
+        "when": "September 15 and 16",
+        "description": "Pozole, chiles en nogada and festive street food mark the holiday."
+      },
+      {
+        "name": "Guelaguetza",
+        "when": "July, Oaxaca",
+        "description": "A celebration of Oaxacan culture with dance, music and regional food."
+      }
+    ],
+    "phrase": {
+      "local": "¡Buen provecho!",
+      "meaning": "Enjoy your meal!",
+      "language": "Spanish"
+    },
+    "funFact": "Chocolate was first prepared as a bitter, spiced drink in ancient Mesoamerica, and it still appears in savory sauces such as mole today.",
+    "isFeatured": true,
+    "name": "Mexico",
+    "slug": "mexico",
+    "isoCode": "MX",
+    "continent": "North America",
+    "capital": "Mexico City"
+  },
+  {
+    "tagline": "Bread, butter and bistro culture, one course at a time.",
+    "overview": "French cuisine is built on technique, regional pride and respect for the table. From the butter and cream of Normandy to the olive oil and herbs of Provence, each region has a signature. Meals are structured: a starter (entrée), a main course (plat), cheese and dessert. The gastronomic meal of the French was added to the UNESCO Intangible Cultural Heritage list in 2010. Daily life revolves around the boulangerie, the market and the bistro.",
+    "signatureDishes": [
+      {
+        "name": "Baguette",
+        "description": "The daily bread, crisp outside and soft inside; the know-how behind it was added to the UNESCO list in 2022."
+      },
+      {
+        "name": "Coq au vin",
+        "description": "Chicken braised slowly in red wine with mushrooms, onions and bacon."
+      },
+      {
+        "name": "Ratatouille",
+        "description": "A Provençal vegetable stew of eggplant, zucchini, peppers and tomatoes."
+      },
+      {
+        "name": "Bouillabaisse",
+        "description": "A Marseille fish stew with saffron, served with rouille and bread."
+      },
+      {
+        "name": "Crêpes",
+        "description": "Thin pancakes from Brittany, sweet or savory (galettes are made with buckwheat)."
+      },
+      {
+        "name": "Croissant",
+        "description": "A buttery, flaky pastry and the icon of the French breakfast."
+      }
+    ],
+    "mealRhythm": "Petit déjeuner is light. Déjeuner (lunch) is often a set menu called a formule. Dinner (dîner) usually starts after 7:30 pm. Many restaurants close between lunch and dinner.",
+    "etiquette": [
+      "Say \"Bonjour\" when you enter a shop or restaurant. It is considered polite.",
+      "Bread goes on the table beside your plate, not on a bread plate, and is torn by hand.",
+      "Keep your hands visible and rest your wrists near the table edge. Do not rush; meals are meant to be enjoyed.",
+      "Ask for tap water by requesting \"une carafe d'eau\"."
+    ],
+    "tipping": "Service is included by law (service compris). Leaving a few extra euros for excellent service is appreciated but not expected.",
+    "bestSeason": "Spring for asparagus, summer for markets and Provençal vegetables, autumn for mushrooms and new wine.",
+    "festivals": [
+      {
+        "name": "Fête de la Gastronomie",
+        "when": "September",
+        "description": "Restaurants, markets and producers across France offer tastings and special menus."
+      },
+      {
+        "name": "Beaujolais Nouveau Day",
+        "when": "Third Thursday of November",
+        "description": "The first wine of the harvest is released and celebrated."
+      },
+      {
+        "name": "La Chandeleur",
+        "when": "February 2",
+        "description": "Families make crêpes and flip them with a coin in hand for good luck."
+      }
+    ],
+    "phrase": {
+      "local": "Bon appétit !",
+      "meaning": "Enjoy your meal!",
+      "language": "French"
+    },
+    "funFact": "France produces hundreds of cheeses, so many that it is often said there is a different cheese for every day of the year.",
+    "isFeatured": true,
+    "name": "France",
+    "slug": "france",
+    "isoCode": "FR",
+    "continent": "Europe",
+    "capital": "Paris"
+  },
+  {
+    "tagline": "Regional spice, vegetarian traditions and food shared by hand.",
+    "overview": "Indian food is a collection of regional cuisines, each with its own spices, grains and cooking methods. The north favors breads and creamy gravies, the south loves rice, lentils and coconut, the west brings bold street snacks, and the east is famous for fish and sweets. Many people follow vegetarian traditions, so plant-based dishes are creative and widely available. Meals are often served as a thali, a platter with many small bowls.",
+    "signatureDishes": [
+      {
+        "name": "Biryani",
+        "description": "Fragrant rice layered with spiced meat or vegetables and cooked slowly."
+      },
+      {
+        "name": "Butter chicken",
+        "description": "Tandoori chicken in a smooth tomato and butter sauce, from Delhi."
+      },
+      {
+        "name": "Masala dosa",
+        "description": "A crisp fermented rice and lentil crêpe filled with spiced potatoes, from South India."
+      },
+      {
+        "name": "Chaat",
+        "description": "Tangy street snacks such as pani puri and bhel puri."
+      },
+      {
+        "name": "Dal",
+        "description": "Lentils simmered with spices, a daily staple across the country."
+      },
+      {
+        "name": "Samosa",
+        "description": "A fried pastry filled with spiced potatoes and peas."
+      }
+    ],
+    "mealRhythm": "Breakfast may be paratha, idli or poha. Lunch is the main meal for many. Chai time in the late afternoon comes with snacks. Dinner is often late, around 8 or 9 pm.",
+    "etiquette": [
+      "Eat with your right hand. The left hand is traditionally not used for eating or passing food.",
+      "Wash your hands before and after the meal. Many restaurants have a sink for this.",
+      "Hosts may keep offering more food. Say \"bas\" (enough) politely when you are full.",
+      "Many restaurants are fully vegetarian, so ask if you want to be sure what is on the menu."
+    ],
+    "tipping": "Check whether a service charge is added to the bill. If not, 5 to 10 percent is a common tip in sit-down restaurants. Small change is fine at casual places.",
+    "bestSeason": "Winter, from November to February, for comfortable travel and seasonal dishes. The monsoon, from June to September, is the time for hot pakoras and chai.",
+    "festivals": [
+      {
+        "name": "Diwali",
+        "when": "October or November",
+        "description": "The festival of lights is celebrated with sweets (mithai) shared among family and friends."
+      },
+      {
+        "name": "Pongal",
+        "when": "January",
+        "description": "A South Indian harvest festival named after a sweet rice dish cooked until it overflows."
+      },
+      {
+        "name": "Holi",
+        "when": "March",
+        "description": "The festival of colors comes with gujiya sweets and thandai drinks."
+      }
+    ],
+    "phrase": {
+      "local": "Khaana taiyaar hai!",
+      "meaning": "The food is ready!",
+      "language": "Hindi"
+    },
+    "funFact": "Outside India, \"curry\" is used for many saucy dishes, but in India most dishes have their own names, such as dal, korma or sabzi.",
+    "isFeatured": true,
+    "name": "India",
+    "slug": "india",
+    "isoCode": "IN",
+    "continent": "Asia",
+    "capital": "New Delhi"
+  },
+  {
+    "tagline": "A balance of sweet, sour, salty and spicy in every bite.",
+    "overview": "Thai cooking aims for balance: sweet, sour, salty, spicy and often bitter, sometimes all in a single bite. Fresh herbs such as lemongrass, galangal, Thai basil and kaffir lime leaves give the food its perfume. Rice sits at the center of the table, and the Thai phrase for eating, \"kin khao\", literally means \"eat rice\". Street food is a way of life, and some of the best meals are cooked at a roadside stall.",
+    "signatureDishes": [
+      {
+        "name": "Pad Thai",
+        "description": "Stir-fried rice noodles with egg, tofu or shrimp, peanuts and lime."
+      },
+      {
+        "name": "Tom yum",
+        "description": "A hot and sour soup with lemongrass, galangal, lime leaves, chile and shrimp."
+      },
+      {
+        "name": "Green curry",
+        "description": "A coconut curry with green chiles, Thai basil and chicken or fish balls."
+      },
+      {
+        "name": "Som tam",
+        "description": "A crunchy green papaya salad pounded in a mortar with chile, lime and peanuts."
+      },
+      {
+        "name": "Mango sticky rice",
+        "description": "Sweet coconut sticky rice served with ripe mango."
+      },
+      {
+        "name": "Khao soi",
+        "description": "A northern curry noodle soup topped with crispy noodles, a specialty of Chiang Mai."
+      }
+    ],
+    "mealRhythm": "Thais eat several times a day, often small meals or snacks. Dishes arrive together and are shared with rice. Night markets come alive after sunset.",
+    "etiquette": [
+      "Use a spoon in your right hand and a fork in your left. The fork pushes food onto the spoon. Chopsticks are mainly for noodle soups.",
+      "Dishes are shared. Take a little of each onto your rice plate.",
+      "Do not point your feet at people or food, and do not touch anyone's head.",
+      "Say \"mai phet\" (not spicy) if you prefer less heat."
+    ],
+    "tipping": "Tipping is not required. In sit-down restaurants, rounding up or leaving 20 to 50 baht is appreciated. Check for a service charge on the bill.",
+    "bestSeason": "The cool and dry season, from November to February, for outdoor dining. Mango season, from March to June, for mango sticky rice.",
+    "festivals": [
+      {
+        "name": "Songkran",
+        "when": "April 13 to 15",
+        "description": "Thai New Year is celebrated with water fights and special foods offered at temples."
+      },
+      {
+        "name": "Loy Krathong",
+        "when": "November",
+        "description": "Floating lanterns and offerings on rivers, with street food all around."
+      },
+      {
+        "name": "Vegetarian Festival",
+        "when": "Around October, Phuket",
+        "description": "Nine days of meat-free food from stalls marked with yellow flags."
+      }
+    ],
+    "phrase": {
+      "local": "Kin khao!",
+      "meaning": "Let us eat!",
+      "language": "Thai"
+    },
+    "funFact": "Some Bangkok street food stalls have earned recognition in the Michelin Guide.",
+    "isFeatured": true,
+    "name": "Thailand",
+    "slug": "thailand",
+    "isoCode": "TH",
+    "continent": "Asia",
+    "capital": "Bangkok"
+  },
+  {
+    "tagline": "From New York slices and bagels to Southern barbecue.",
+    "overview": "American food is a mix of the cultures that arrived and settled. In New York City, immigrant communities created pizza slices, bagels, pastrami sandwiches and countless neighborhood restaurants across five boroughs. Elsewhere, regional traditions include Southern barbecue, Tex-Mex, Cajun and Creole cooking, and fresh seafood in New England. Portions are generous, brunch is a weekend ritual, and almost every restaurant is happy to customize a dish.",
+    "signatureDishes": [
+      {
+        "name": "New York-style pizza",
+        "description": "A large, thin, foldable slice with a crisp edge, sold by the slice or as a whole pie."
+      },
+      {
+        "name": "Bagel with lox",
+        "description": "A chewy boiled-and-baked bagel with cream cheese, smoked salmon, onion and capers."
+      },
+      {
+        "name": "Pastrami on rye",
+        "description": "Hand-sliced, peppery smoked beef piled high on rye bread with mustard."
+      },
+      {
+        "name": "Hot dog",
+        "description": "A grilled or steamed sausage in a bun, a classic street cart snack."
+      },
+      {
+        "name": "Cheesecake",
+        "description": "A dense, creamy dessert famously associated with New York."
+      },
+      {
+        "name": "Southern barbecue",
+        "description": "Slow-smoked ribs, brisket or pulled pork with regional sauces."
+      }
+    ],
+    "mealRhythm": "Breakfast is quick, lunch is casual, and dinner is the main meal, usually between 6 and 8 pm. Brunch is a social late-morning meal on weekends.",
+    "etiquette": [
+      "At sit-down restaurants with a host stand, wait to be seated.",
+      "Servers check in often. This is normal service, not an attempt to rush you.",
+      "Splitting the bill is common. You can ask for separate checks.",
+      "Tell your server about allergies. Menus are expected to be adaptable."
+    ],
+    "tipping": "Tipping is customary. 15 to 20 percent of the bill is typical in sit-down restaurants because servers rely on tips as part of their pay.",
+    "bestSeason": "Fall for harvest menus and farmers markets, summer for barbecues and seafood shacks.",
+    "festivals": [
+      {
+        "name": "Thanksgiving",
+        "when": "Fourth Thursday of November",
+        "description": "Families share turkey, stuffing, cranberry sauce and pumpkin pie."
+      },
+      {
+        "name": "NYC Restaurant Week",
+        "when": "Winter and summer",
+        "description": "Participating New York City restaurants offer set-price menus."
+      },
+      {
+        "name": "Fourth of July",
+        "when": "July 4",
+        "description": "Barbecues, hot dogs and watermelon mark Independence Day."
+      }
+    ],
+    "phrase": {
+      "local": "Dig in!",
+      "meaning": "Start eating!",
+      "language": "English"
+    },
+    "funFact": "New York City has thousands of restaurants across its five boroughs, which makes it a perfect starting point for our dataset.",
+    "isFeatured": true,
+    "name": "United States",
+    "slug": "united-states",
+    "isoCode": "US",
+    "continent": "North America",
+    "capital": "Washington, D.C."
+  }
+]

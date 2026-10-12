@@ -1,0 +1,1757 @@
+{
+  "project": "BonApp\u00e9 Find",
+  "blueprintVersion": "1.3",
+  "packageVersion": "1.3.1",
+  "files": [
+    {
+      "path": ".gitignore",
+      "size": 137,
+      "sha256": "9d593ca8649a5fe4d6d56168a041d7ed43320a7f88c866e3466945f159576c8e"
+    },
+    {
+      "path": "README.md",
+      "size": 8353,
+      "sha256": "948cf84f86549e1e4ac248250a269f6ef733a0f084395853f45f25a3e86272fa"
+    },
+    {
+      "path": "START_HERE.md",
+      "size": 1066,
+      "sha256": "ccccb8d33050504a1658b9ef3e9a6463ff76cb6a13a3c34f032bba402a44c5b1"
+    },
+    {
+      "path": "client/.env.example",
+      "size": 39,
+      "sha256": "756e26b073ad7ed9da6a444d262f61ef222183cd19d57d1cda533c8af76544f2"
+    },
+    {
+      "path": "client/dist/_redirects",
+      "size": 19,
+      "sha256": "6036983e5fc00f0169c9e939b1816ed771eee00e27f2fcc517b819041460b9ef"
+    },
+    {
+      "path": "client/dist/assets/AccountView-4uBL8PJP.js",
+      "size": 6630,
+      "sha256": "8f4e6083c487adeb4b1bb9f6b91f2bb07c965c23e0cd8639a033de8aec43ebd1"
+    },
+    {
+      "path": "client/dist/assets/AuthView-C1zSLJOG.js",
+      "size": 5189,
+      "sha256": "504db8de69a57ad7032327746e4326c7ae0da30b9a9103eceef3211dd63a1dc8"
+    },
+    {
+      "path": "client/dist/assets/BestQualityView-Bt6hdhi8.js",
+      "size": 4343,
+      "sha256": "9a9b1f6e460a76bdfa45303b6866c7f34ff0cb8f94c63d49891c90b1ed3d1d08"
+    },
+    {
+      "path": "client/dist/assets/BestQualityView-NMfEQGz_.css",
+      "size": 1357,
+      "sha256": "ed5a35f0e7940ba8f5c4a785da4cc9c54ff863cc7a78f6c734f5b82a697df94f"
+    },
+    {
+      "path": "client/dist/assets/ClaimView-GYxT_ZTU.js",
+      "size": 2134,
+      "sha256": "0ee0fa178c46610664a381755ec4e5704292eb5ad4a1b8a74e4b4844a3cde340"
+    },
+    {
+      "path": "client/dist/assets/CollectionView-ChMvCZqp.js",
+      "size": 3696,
+      "sha256": "761ea1cf35e7271240f17e44e14f77816c19f3690ce308c19039955629af933a"
+    },
+    {
+      "path": "client/dist/assets/ConfirmDialog-9GLzDwrr.js",
+      "size": 775,
+      "sha256": "fe035b41249fb19b1f45f581a4198d49c44a6b8becf0e81c30b5933430e5db57"
+    },
+    {
+      "path": "client/dist/assets/ConfirmDialog-BEslziBK.css",
+      "size": 245,
+      "sha256": "50e24d5e52fa1a6e2765bd8eae6051425cd6c66307e72e69051648c0d2fcf771"
+    },
+    {
+      "path": "client/dist/assets/ContactView-C6lVFcn0.css",
+      "size": 60,
+      "sha256": "723252a28324edbc4de3405957bc6a7dd972fb7e22b823541d52770243d72c6b"
+    },
+    {
+      "path": "client/dist/assets/ContactView-H_pfLdCv.js",
+      "size": 3427,
+      "sha256": "2b056eba260e88034b60447763171b589a5d1a4c3107377402379a950be9eee2"
+    },
+    {
+      "path": "client/dist/assets/CountriesView-DIynM41l.css",
+      "size": 490,
+      "sha256": "bb1225330064869317c120a92f258717c6469487929f0213c0e81fcb9b10f7a5"
+    },
+    {
+      "path": "client/dist/assets/CountriesView-DOxmzchT.js",
+      "size": 1536,
+      "sha256": "3c97983da742f472e2be4c6d8a57592ae5e989c9ecf505d60cffc969d6fc2087"
+    },
+    {
+      "path": "client/dist/assets/CountryCard-Cw7iZM8I.css",
+      "size": 1273,
+      "sha256": "383995ccbc5174d048d69ede7f8898651c997f45589671ce9746f57e3c753132"
+    },
+    {
+      "path": "client/dist/assets/CountryCard-R5eXmlxZ.js",
+      "size": 930,
+      "sha256": "9f31f36f2d1b6976068bda8ee1af377db93c59e2daabe748caace057b14b8af2"
+    },
+    {
+      "path": "client/dist/assets/CountryDetailView-Cdz_k9pu.js",
+      "size": 3355,
+      "sha256": "819420cc1d779aaab1d7f361ab2eb3e2137c22b3d0348043532526ef9c8ccfe7"
+    },
+    {
+      "path": "client/dist/assets/DashboardView-D0kILzdt.js",
+      "size": 17972,
+      "sha256": "cded4a4a9361e745ba9747d098a08b07d25d0e0083400077d558feb1d738bf16"
+    },
+    {
+      "path": "client/dist/assets/ExploreView-DQpHmZck.js",
+      "size": 2751,
+      "sha256": "e101827d7bd04fb1c6d3f448b6f9034e18c96e64a79d7fa4de184c1996b4c2b2"
+    },
+    {
+      "path": "client/dist/assets/ExploreView-GZz1fnqC.css",
+      "size": 1804,
+      "sha256": "0e1990e783bb473df3a3f7c16d7a135e13bea959734520c54e53e2c1901482a8"
+    },
+    {
+      "path": "client/dist/assets/FaqView-Cnsyo_XR.js",
+      "size": 1721,
+      "sha256": "bb00a3ec4249830dd958d75e34a2b9621fd264d4c7145d8da9c0397283dd856d"
+    },
+    {
+      "path": "client/dist/assets/GuidesView-DEL7l79U.js",
+      "size": 1799,
+      "sha256": "4873ff65d6ae18efabf040ea13633128477fe869c7a3c1783f18d460658cac25"
+    },
+    {
+      "path": "client/dist/assets/HomeView-CD8k3Zwr.css",
+      "size": 7069,
+      "sha256": "9e012d632e2b416206f5e37ca04a77cd95b9e7b7775b9df579b3fcdc32663f59"
+    },
+    {
+      "path": "client/dist/assets/HomeView-CmSmWfMm.js",
+      "size": 10831,
+      "sha256": "ed07bc4a4ee70024a8015e297fa828460198d8b824ae756dd52a0985093ca2d3"
+    },
+    {
+      "path": "client/dist/assets/InsightsView-DuFpUSoY.js",
+      "size": 899,
+      "sha256": "cfc02fe42c1bdb39fc181c2a5c3e41485d05a4dd07c0d59e21ec433cb4da91e4"
+    },
+    {
+      "path": "client/dist/assets/RestaurantCard-BtpWCzcs.js",
+      "size": 3879,
+      "sha256": "5077c0cd2deb76e2e909bfa75f650f4d96db382580fb2b1e4416a496dd359107"
+    },
+    {
+      "path": "client/dist/assets/RestaurantCard-CtqaDovz.css",
+      "size": 4022,
+      "sha256": "d6e7a131711be152697c040fed6024fbdfa023e3b8525b41cc53adf9cf3e2b41"
+    },
+    {
+      "path": "client/dist/assets/RestaurantDetailView-C4bv6I9W.css",
+      "size": 1093,
+      "sha256": "cfb61526a2cd1d4c12ef245d4d591c51a8a4eaa986449975cf4fe5200d291bee"
+    },
+    {
+      "path": "client/dist/assets/RestaurantDetailView-WVJLw7Xm.js",
+      "size": 44126,
+      "sha256": "53d1e959dbd2e424f94f49226d62914d11b1b8805167547a9264bf0c3ea7c99c"
+    },
+    {
+      "path": "client/dist/assets/RestaurantFormView-BjPpH5Rt.js",
+      "size": 14947,
+      "sha256": "0f9715759963fd77efcfc414cc37637f018869f76eaafaea72a3ad18d1167095"
+    },
+    {
+      "path": "client/dist/assets/RestaurantsView-BEyBaDEZ.css",
+      "size": 16170,
+      "sha256": "af678aebf1c5ca196dd9fe5d79eef05e0bb9cc8913e1e243f645a4d80a7da91c"
+    },
+    {
+      "path": "client/dist/assets/RestaurantsView-C69tyGur.js",
+      "size": 162734,
+      "sha256": "1b87045aa5b4e5747bcc10a704e347ce04044593f6ea51d08183f938b8df0648"
+    },
+    {
+      "path": "client/dist/assets/StatChart-DhFV4yk4.js",
+      "size": 993,
+      "sha256": "e70fb6cd4264b622d0e3ef6c3283df973f32bf1807fc81fa619c01a6d008a691"
+    },
+    {
+      "path": "client/dist/assets/StaticView-6L9nupp-.css",
+      "size": 250,
+      "sha256": "8bc120af30703180bc875c9883937d821274d43b80892400faf0a1873f90ed7f"
+    },
+    {
+      "path": "client/dist/assets/StaticView-BZ-0Hjb9.js",
+      "size": 55981,
+      "sha256": "6ffbbaf015d8abfc422806a3ef34eb5daed5303c68aa98f0e779b65ddcba7136"
+    },
+    {
+      "path": "client/dist/assets/_commonjsHelpers-BXMSORYw.js",
+      "size": 640,
+      "sha256": "d747f67ab3f3f811ea2aab8f64928d05eddb4a2abe4bfdfb9cac4fc920569769"
+    },
+    {
+      "path": "client/dist/assets/_commonjsHelpers-C0g4gpp4.css",
+      "size": 355,
+      "sha256": "9ad67021cc3f52b99a7a5efe2da47c5af5484f98fd537250132f811bbf5f1c5e"
+    },
+    {
+      "path": "client/dist/assets/formatters-RuV3rYE5.js",
+      "size": 1039,
+      "sha256": "9e40ab25fc635485674d0d9a61b3e5a2027aa6c70fe26a40ec94bc740a5f094f"
+    },
+    {
+      "path": "client/dist/assets/index-CwKCJfbC.css",
+      "size": 21221,
+      "sha256": "bedd827194284ab7f1c7c0f216e02de111f78786904c03fe8512d15b203c9bb8"
+    },
+    {
+      "path": "client/dist/assets/index-DD5hMr9D.js",
+      "size": 188143,
+      "sha256": "7b0be3e8ff645d35d2a3ff0c8ca664ee9efeba19c2f47ce676a6fe15e723fa8e"
+    },
+    {
+      "path": "client/dist/favicon.svg",
+      "size": 311,
+      "sha256": "54bbb2b5733d3f5f6cb8aa22f7823d309ec975400913c202ca361c1811edcc5b"
+    },
+    {
+      "path": "client/dist/index.html",
+      "size": 894,
+      "sha256": "1bab556abf26b7606b4a892e23fdbb16eac7f7a9a4478ddc6045496ab7a7f51d"
+    },
+    {
+      "path": "client/index.html",
+      "size": 794,
+      "sha256": "da7ea3112c4627217abcdc40f0ccd647a2d91a9479a2836de7cd9755047eb42a"
+    },
+    {
+      "path": "client/package.json",
+      "size": 482,
+      "sha256": "37f626d53c87cb9426ef6fbf713e9daf449f26b3f5a4177bda95a115fbb5182b"
+    },
+    {
+      "path": "client/public/_redirects",
+      "size": 19,
+      "sha256": "6036983e5fc00f0169c9e939b1816ed771eee00e27f2fcc517b819041460b9ef"
+    },
+    {
+      "path": "client/public/favicon.svg",
+      "size": 311,
+      "sha256": "54bbb2b5733d3f5f6cb8aa22f7823d309ec975400913c202ca361c1811edcc5b"
+    },
+    {
+      "path": "client/src/App.vue",
+      "size": 3878,
+      "sha256": "5c79c7cb9ede7b1bb1d9deb2a16594014dc4f1e141eb93ed8646baaa2aff3f33"
+    },
+    {
+      "path": "client/src/assets/css/base.css",
+      "size": 8758,
+      "sha256": "bb30d0cc754fe3980f51dfd7f720d271f130cb58e053200d3053b841360b97a3"
+    },
+    {
+      "path": "client/src/assets/css/components.css",
+      "size": 3361,
+      "sha256": "4967ad45dfea8b70b76f6300ffac2cb2b346f130314c282169de1b768f5e2f4f"
+    },
+    {
+      "path": "client/src/assets/css/tokens.css",
+      "size": 1543,
+      "sha256": "2f184685c212a4d346c99730af9497f2f7080dae22d199cbf12da94e17f11c79"
+    },
+    {
+      "path": "client/src/components/ConfirmDialog.vue",
+      "size": 864,
+      "sha256": "1a3739cfcb1e471f024e729fcec834e91b55777462aaa372a4559fa70088037d"
+    },
+    {
+      "path": "client/src/components/NewsletterBox.vue",
+      "size": 843,
+      "sha256": "1edf62be673c610a07b9446fd99e732290054a32b33fa2c427cea910fdb21026"
+    },
+    {
+      "path": "client/src/components/StatChart.vue",
+      "size": 709,
+      "sha256": "908227b5c3ede5d5ad722cd87fb8f2838bc99fb5ff4c1ae0ff0ab4694f01b5fd"
+    },
+    {
+      "path": "client/src/components/common/EmptyState.vue",
+      "size": 570,
+      "sha256": "af2d2a55ce1a054e019c1656a45bc67a283265c305b508321da6b4a8933d86df"
+    },
+    {
+      "path": "client/src/components/common/Icon.vue",
+      "size": 4954,
+      "sha256": "bcb50ea00babd0d62608b4a6b0e81fbb6dde98e244d8c823db07cd255a401173"
+    },
+    {
+      "path": "client/src/components/common/LoadingSpinner.vue",
+      "size": 325,
+      "sha256": "f051561a30c870fb46dc8fdc8013d27fb0d975119eb3ec1bb2a7bdd3b7e29027"
+    },
+    {
+      "path": "client/src/components/common/Pagination.vue",
+      "size": 1238,
+      "sha256": "1caf4050f1e2ae064998bc0b7a2ccfea2800a4bccbd6edf2b4f25596256f2b22"
+    },
+    {
+      "path": "client/src/components/common/StarRating.vue",
+      "size": 787,
+      "sha256": "50f369c5bf0d3c7cfeee0df0aedd6072164db71b5ef6506c18c1e0448e3e7499"
+    },
+    {
+      "path": "client/src/components/common/StatCard.vue",
+      "size": 1177,
+      "sha256": "9c715858ad9e0aa5a2824a4765e1b43c9a5b85f2d8cc98ef513e7df7cca8504c"
+    },
+    {
+      "path": "client/src/components/countries/CountryCard.vue",
+      "size": 1804,
+      "sha256": "58b5190b8e1699e89bfa097c8bfae843fb61fac01672d865fe7421c82c5f3e03"
+    },
+    {
+      "path": "client/src/components/layout/AppFooter.vue",
+      "size": 2984,
+      "sha256": "2a494d9733a008f15f79ed461b9d814db147eb45e6e1cfa1bfa814acd85f8f67"
+    },
+    {
+      "path": "client/src/components/layout/AppHeader.vue",
+      "size": 9648,
+      "sha256": "dc88d669f6b94e076ea89852f3ffbe5816c9056f0cef075dad59c33f637968d0"
+    },
+    {
+      "path": "client/src/components/layout/Breadcrumbs.vue",
+      "size": 388,
+      "sha256": "29562a9527a324ac30083e62e12383f625048f138e86b89375cdb290a6760be0"
+    },
+    {
+      "path": "client/src/components/layout/ToastHost.vue",
+      "size": 1207,
+      "sha256": "6886348b308c11456fd42258793db86529088ef728e6965add4e4b3fe8e248ec"
+    },
+    {
+      "path": "client/src/components/restaurants/BoroughFilter.vue",
+      "size": 462,
+      "sha256": "70904a51cc00c913a834c4834ed0b95364b9577fb6fa222931bb90f23e8e5379"
+    },
+    {
+      "path": "client/src/components/restaurants/GradeBadge.vue",
+      "size": 696,
+      "sha256": "6f1e592704a2369e8d8b8bfee31a9076f52b605ac553a24c8cf859e8f39909b6"
+    },
+    {
+      "path": "client/src/components/restaurants/RestaurantCard.vue",
+      "size": 6102,
+      "sha256": "1a35813a872073ca6f8c8e101e4cf50ef162f2740ecee936d28087ed464c9f03"
+    },
+    {
+      "path": "client/src/components/restaurants/SearchBar.vue",
+      "size": 677,
+      "sha256": "b2123d5c747f8c30c949e597fcbe834c1a7f0e0a084a53ececa776ce1f218793"
+    },
+    {
+      "path": "client/src/composables/useCountUp.js",
+      "size": 766,
+      "sha256": "32490bb8110e000e33f2ba8bac8f0b7cf384be3b0e3801465f04523675140ae7"
+    },
+    {
+      "path": "client/src/composables/useDebounce.js",
+      "size": 239,
+      "sha256": "2c0dc377964c6a9e6069f0254f53d24f2c2a9797544d64aedd4f6216d898158d"
+    },
+    {
+      "path": "client/src/composables/usePagination.js",
+      "size": 535,
+      "sha256": "27874f71bfc2f2fb912579185fae74a1417a68aa48d0a0a2fdfd6d5de1f950af"
+    },
+    {
+      "path": "client/src/composables/useToast.js",
+      "size": 280,
+      "sha256": "d1f4e3250fbe22bcc0ebc374fe74d5d520deba6d5d206e6d2110edee0980022b"
+    },
+    {
+      "path": "client/src/content/blueprint-pages.json",
+      "size": 51997,
+      "sha256": "29b2cf729396be41e4081b5ef463a7354f0ec741eef0d3716c676a9d1bdfcad9"
+    },
+    {
+      "path": "client/src/content/team.json",
+      "size": 850,
+      "sha256": "663755486a22fa18a25eea84a2b2c108453bd2d044089cc5ec7ec2c850959a1b"
+    },
+    {
+      "path": "client/src/directives/reveal.js",
+      "size": 1030,
+      "sha256": "3a2f47e77bb4ba4136f27117feef6c0bb885feaf063ddac7de3886e769c81e6a"
+    },
+    {
+      "path": "client/src/main.js",
+      "size": 567,
+      "sha256": "e50da6a9fd68533a0435477b9659b18c6118352bbc68228c8eda935713dbfe7d"
+    },
+    {
+      "path": "client/src/router/index.js",
+      "size": 4128,
+      "sha256": "6f0d2f37a164bfe9e21e5f3ebeee1b10852ee3615ae7bbe0dbdbdca10f05c3fe"
+    },
+    {
+      "path": "client/src/services/api.js",
+      "size": 1036,
+      "sha256": "70c2740784d780a4c6a68907fb272b67ddec3d3b0a7503f92bc3ccfa3949957b"
+    },
+    {
+      "path": "client/src/stores/index.js",
+      "size": 2729,
+      "sha256": "13596003e35ea01f6a2c743631bf3e9a12cfbc31a8f2f444744238680d8a9e76"
+    },
+    {
+      "path": "client/src/utils/constants.js",
+      "size": 1175,
+      "sha256": "6b09d18f687fb71cf419827d101159b53ed540e76737616eceb4f6442930be5b"
+    },
+    {
+      "path": "client/src/utils/formatters.js",
+      "size": 2678,
+      "sha256": "dc3928d650a982c5687c3dc133c2eb34bc42443474bc7f84e72225047009cbd4"
+    },
+    {
+      "path": "client/src/views/AccountView.vue",
+      "size": 5760,
+      "sha256": "b1ccc58c92392f7a40c59777610080aaecc9e9712b413b444174700901c6a94c"
+    },
+    {
+      "path": "client/src/views/AuthView.vue",
+      "size": 4506,
+      "sha256": "b1bf7e44e79031e7bd43f40bbe9835f8a5d1d46f1e0ee8330bb25963dd9c45f8"
+    },
+    {
+      "path": "client/src/views/BestQualityView.vue",
+      "size": 4555,
+      "sha256": "578810e41281768eeac8c1d4b5b97c6a8abc5841b2ad12f297b199429ef8e6a5"
+    },
+    {
+      "path": "client/src/views/ClaimView.vue",
+      "size": 1789,
+      "sha256": "d18ce280c83994a6ce9acdb76e5ab48af22bb806533b3967de9e77dc46bb80e6"
+    },
+    {
+      "path": "client/src/views/CollectionView.vue",
+      "size": 3297,
+      "sha256": "3fc2e40d2415b9610dd952b95a3e9b71ae14d796eb0609b438bcd1d6338164e9"
+    },
+    {
+      "path": "client/src/views/ContactView.vue",
+      "size": 2588,
+      "sha256": "5c5f6fa1c149a0c9ece8968a669e0f516e8febdeba8de8bdb92fe127686e1539"
+    },
+    {
+      "path": "client/src/views/CountriesView.vue",
+      "size": 1848,
+      "sha256": "a333fc9f53fe3daee16c0f7dbea3253c990ce29f790d324e8ebdb4bb8a74897c"
+    },
+    {
+      "path": "client/src/views/CountryDetailView.vue",
+      "size": 2667,
+      "sha256": "ee45a186905e0e6f8a44b78b5e13aa1f9b88a6d0fa4f41a0a18abc3dac1d2d99"
+    },
+    {
+      "path": "client/src/views/DashboardView.vue",
+      "size": 15372,
+      "sha256": "854d9df66adebd72719dec161f380a84c49a051e50a4fe17af496912ccb3f5d0"
+    },
+    {
+      "path": "client/src/views/ExploreView.vue",
+      "size": 3995,
+      "sha256": "529b13a883d8c7e122bf6492cc6439dec1fdb2773b8d2477ee72296c937ab291"
+    },
+    {
+      "path": "client/src/views/FaqView.vue",
+      "size": 1402,
+      "sha256": "8e58b019cd9f2b36d3c821e675ea999198904b3c5f0d0cea7940fc2393030a18"
+    },
+    {
+      "path": "client/src/views/GuidesView.vue",
+      "size": 1516,
+      "sha256": "3e4c60a2be3baddf2469de10bdc200953c3f2c6145feff4a483ffd0b686961b3"
+    },
+    {
+      "path": "client/src/views/HomeView.vue",
+      "size": 14149,
+      "sha256": "16e1208752a6e0a6d7a606b5f19748cc19fe80e09802c29dc35c805de10c671e"
+    },
+    {
+      "path": "client/src/views/InsightsView.vue",
+      "size": 774,
+      "sha256": "8f5e5f5cfb4ae814ca1c89d9dd1b7a3fe4a26043794907a5f059196a5bc86b02"
+    },
+    {
+      "path": "client/src/views/RestaurantDetailView.vue",
+      "size": 16426,
+      "sha256": "29e28864b000b27cbdf6ca47f838b5b29a593993c2a9fd38b1aaa33c9b186ca9"
+    },
+    {
+      "path": "client/src/views/RestaurantFormView.vue",
+      "size": 11356,
+      "sha256": "9c636b982da33ed3b4c738a09397833d2788b86d5dda76ec3eca0acc613217a6"
+    },
+    {
+      "path": "client/src/views/RestaurantsView.vue",
+      "size": 9660,
+      "sha256": "8b72ad15f638a837a006eada1cbb21cc6bbc79915bffa63ddd177afc704949a7"
+    },
+    {
+      "path": "client/src/views/StaticView.vue",
+      "size": 11063,
+      "sha256": "f0537e5493d91e1514303b82f5a6dea17daa3e943b186c6d3fb3bde286c82f38"
+    },
+    {
+      "path": "client/vite.config.js",
+      "size": 214,
+      "sha256": "123bef10bb39694fe6b7abc0c64d64cb4bded8ce31dd75731a81d2d223581ac1"
+    },
+    {
+      "path": "design/README.md",
+      "size": 900,
+      "sha256": "5854c1e5be9292c55ff8a5bd2f3a5ecaff3a00e73d7a94706e5184c131f1d00b"
+    },
+    {
+      "path": "design/mockups/email-contact-confirmation.html",
+      "size": 1021,
+      "sha256": "55310f204cc0848b593b69fb1f5be4ed9213ebd2adcafe8a01d506f9d427320c"
+    },
+    {
+      "path": "design/mockups/email-newsletter.html",
+      "size": 1073,
+      "sha256": "a80a83ba58386111a7487f5311278efadb7b97d1b9232b510220a6a9ad2cab1a"
+    },
+    {
+      "path": "design/mockups/email-welcome.html",
+      "size": 1136,
+      "sha256": "3c989b489e11c7304608bf93c6415e48e1040c03d42464d99f65b9223356511a"
+    },
+    {
+      "path": "design/mockups/social-01.svg",
+      "size": 1211,
+      "sha256": "92c27963810a0171fad22cfe3bfffb4451b43950f5d012842c5005d1a984b478"
+    },
+    {
+      "path": "design/mockups/social-02.svg",
+      "size": 1199,
+      "sha256": "9372170e08ea01d0e4e834607f25eeb60e013239db102dba5b86f6f28ef4825e"
+    },
+    {
+      "path": "design/mockups/social-03.svg",
+      "size": 1086,
+      "sha256": "88a1cce5bd4739f6d58fbe4980e02d788b6a8e810d76e48f921da2ab76d37cf3"
+    },
+    {
+      "path": "design/mockups/social-04.svg",
+      "size": 1080,
+      "sha256": "649ba0926e28af9b124df1f51bf9d18be1a695a3c298d685f1b7b205fd852058"
+    },
+    {
+      "path": "design/mockups/social-05.svg",
+      "size": 968,
+      "sha256": "f2070111d8236476f80e803e10bd80b56704b184f8f1bb7f90e356aeeebaa1ab"
+    },
+    {
+      "path": "design/mockups/social-06.svg",
+      "size": 1101,
+      "sha256": "f0ce7047b4accaac9643fce8547507e5dc9197285100e390a5fe21896a565452"
+    },
+    {
+      "path": "design/mockups/social-07.svg",
+      "size": 1209,
+      "sha256": "1eabed58b98e69ee5b2050395925bb5ab9deba54c560fd228effab66594adb54"
+    },
+    {
+      "path": "design/mockups/social-08.svg",
+      "size": 1085,
+      "sha256": "4971134fa883ff21504a58d705d8555c55794d14f70741854bb5f12bb18cc2f2"
+    },
+    {
+      "path": "design/mockups/social-09.svg",
+      "size": 1083,
+      "sha256": "b7e99077c81a4be14cc9c4f7b7de4c1173214762d1665ff0b0dc39e2c4e07b64"
+    },
+    {
+      "path": "design/mockups/social-10.svg",
+      "size": 988,
+      "sha256": "b88d60449b22cd330b9b330cacccd2175f5a59fcc76c978c6575a293d23a3af9"
+    },
+    {
+      "path": "design/mockups/social-copy.json",
+      "size": 2923,
+      "sha256": "95adc73222ca41780cd0d1ab1c20ab09809f71d4a40e2e4db5fb658a676fd8b7"
+    },
+    {
+      "path": "design/tokens.css",
+      "size": 1543,
+      "sha256": "2f184685c212a4d346c99730af9497f2f7080dae22d199cbf12da94e17f11c79"
+    },
+    {
+      "path": "docs/BonAppeFind_Project_Blueprint.pdf",
+      "size": 2209658,
+      "sha256": "3fc111251603166d9a7cb1ee021bf1b00148c1e9240957c4a7146722609d72d1"
+    },
+    {
+      "path": "docs/BonAppe_Find_Project_Blueprint_v1_3.docx",
+      "size": 197436,
+      "sha256": "c0306f8e7844debd50bbd04517f4004eaa98de3fb8e78c68eac5b6cb48aef078"
+    },
+    {
+      "path": "docs/ai-use-declaration.docx",
+      "size": 37092,
+      "sha256": "12da6816da552d3f4623b5984567fbf508e7d31b9b02891939b891f662f16bcb"
+    },
+    {
+      "path": "docs/api-reference.md",
+      "size": 8812,
+      "sha256": "ca1d5b6251bcc1d12e8e85e221cd642422214c5cfd343c4b58629b871eb22638"
+    },
+    {
+      "path": "docs/blueprint-content.txt",
+      "size": 210448,
+      "sha256": "70b45f57b41098c15c13a54a8f13d3879dfd8d8c75fd35d3ccf0b1abb089b608"
+    },
+    {
+      "path": "docs/browser-check-report.json",
+      "size": 4079,
+      "sha256": "2ec0086507216a95a804c833cb9a5ec6aa1266e9d57428053d289cf6e1688b3e"
+    },
+    {
+      "path": "docs/figma-links.md",
+      "size": 337,
+      "sha256": "6cf9f83ac4021c371f51564ee0a43e1f54e5ffd41c9ad23c69b37aa4ca521c37"
+    },
+    {
+      "path": "docs/implementation-status.md",
+      "size": 19462,
+      "sha256": "8b75705fd0c9bcbb513e60c11e5d452ad96c69c6f78373dd354bfb014e743dc1"
+    },
+    {
+      "path": "docs/manual-test-plan.md",
+      "size": 2652,
+      "sha256": "40f1111ded9f9c1f9938982b0510d65bf486bd63599687d21a170c0d9ecf17f8"
+    },
+    {
+      "path": "docs/openapi.json",
+      "size": 85561,
+      "sha256": "8d6e7d78b7cac689ee0382da42f3906a4e4fac668de263d17bb8966f2e93ef6a"
+    },
+    {
+      "path": "docs/peer-evaluation.docx",
+      "size": 36910,
+      "sha256": "10715a374cc0a350c3eb305bc6aa55ccea755dda7a2397692fbbfb400e1f4c7e"
+    },
+    {
+      "path": "docs/project-documentation.html",
+      "size": 4187,
+      "sha256": "e341cb198746fa6718f88d7e4472024c654303bea98c9c4084627157729470b7"
+    },
+    {
+      "path": "docs/project-documentation.md",
+      "size": 3721,
+      "sha256": "c1bd909e7811e8f7b6b647c3ab94acc50ebffbba4e156faf652b80ea2a1bb8ad"
+    },
+    {
+      "path": "docs/redesign-notes.md",
+      "size": 2421,
+      "sha256": "dd1e2521e68a835119185c61cf048eb5699170a114c2dbd7adf74c0881e6c3bc"
+    },
+    {
+      "path": "docs/screenshots/01-home.png",
+      "size": 812270,
+      "sha256": "5428caeb648493244dc824a1159647c48ae6b7166e4edc1fdadb7b19a411573b"
+    },
+    {
+      "path": "docs/screenshots/02-restaurants.png",
+      "size": 419289,
+      "sha256": "3d96f39696b9632971bd1971d4a8f3491d69941a569c8b8a87e46b0196a2e632"
+    },
+    {
+      "path": "docs/screenshots/03-best-quality.png",
+      "size": 260184,
+      "sha256": "1f254e748b4921ebc37f5d619d489f072f6d9e5b35789659b57d6b97f3f986e0"
+    },
+    {
+      "path": "docs/screenshots/04-countries.png",
+      "size": 392593,
+      "sha256": "5520fb5873d23fc5a48e4af1ee6815df27d725e394c4e68e85e52e03fe094859"
+    },
+    {
+      "path": "docs/screenshots/05-countries-japan.png",
+      "size": 589970,
+      "sha256": "961a2acc80c192c3952afefb182b07c50a75ae44175bd018b8ad65aa4e7b72e2"
+    },
+    {
+      "path": "docs/screenshots/06-guides.png",
+      "size": 176861,
+      "sha256": "c5d6a569f2f1e1f1cb379966dafb638a66329d6051dcb32a2aa75341118d698a"
+    },
+    {
+      "path": "docs/screenshots/07-guides-how-to-read-grades-and-scores.png",
+      "size": 196054,
+      "sha256": "bf763ac773413ebdfc44b226334245b4346ec68cb1c76dcc3cb00bb199589088"
+    },
+    {
+      "path": "docs/screenshots/08-insights.png",
+      "size": 170827,
+      "sha256": "fb2c1c14115e79096cedef9f59cadfdb4c8ffa4f7cc8492c5cf0c5461877beca"
+    },
+    {
+      "path": "docs/screenshots/09-about.png",
+      "size": 410340,
+      "sha256": "0fe912d34ee94b8eb3cdb551d250fb53351fb9b1dcb0804010bae6ec795a11af"
+    },
+    {
+      "path": "docs/screenshots/10-features.png",
+      "size": 227870,
+      "sha256": "a49ec50804b8c43357b3dc16be840d8dcd0d86c6e5e91fd9430da15d01eef2cd"
+    },
+    {
+      "path": "docs/screenshots/11-how-it-works.png",
+      "size": 141071,
+      "sha256": "dfd85c4c9dac7202c45d877745d783988c9680662b15c25c5a1963944d7f7b4c"
+    },
+    {
+      "path": "docs/screenshots/12-faqs.png",
+      "size": 249210,
+      "sha256": "fbbc63e870c40b95934fc4973f53d4b1370dcbdaf141775c7a47d2200dd778d9"
+    },
+    {
+      "path": "docs/screenshots/13-contact.png",
+      "size": 170755,
+      "sha256": "c8721bf509895e3e03973dad9bccc9217e4b3f61a598039ae15e9356f897a612"
+    },
+    {
+      "path": "docs/screenshots/14-team.png",
+      "size": 207965,
+      "sha256": "5425416a399a232c785c4b4461f1b44d6bd8e57d54507976017b5524ac272612"
+    },
+    {
+      "path": "docs/screenshots/15-terms.png",
+      "size": 501696,
+      "sha256": "243a03dadaac5fd7e7fcc3b2638b5611983b537618cb42ce53730ff7208cf70e"
+    },
+    {
+      "path": "docs/screenshots/16-privacy.png",
+      "size": 543051,
+      "sha256": "2e7af58ed41aa0fab4d0f1b1f042b0921c7b321b212339fe6cb824584a89da2d"
+    },
+    {
+      "path": "docs/screenshots/17-cookies.png",
+      "size": 226795,
+      "sha256": "fadb464c55958d22d8cbe6806a0d599ded31feca7d039bfff5d5c61cd6e670d0"
+    },
+    {
+      "path": "docs/screenshots/18-accessibility.png",
+      "size": 191860,
+      "sha256": "3f7beb64d27d909bdb907f894f572330e40be8255bed5e7f40dc7d5c7cff75ea"
+    },
+    {
+      "path": "docs/screenshots/19-sitemap.png",
+      "size": 198321,
+      "sha256": "cb3839dbe1084fceac1a3f477e3492aead38396bbfb010e4709c09e65138723c"
+    },
+    {
+      "path": "docs/screenshots/20-login.png",
+      "size": 129990,
+      "sha256": "66f6c9286b779891d850f31bfd6f2754fe0dfb6bf5bf3d160bb0147be1fcf9ae"
+    },
+    {
+      "path": "docs/screenshots/21-register.png",
+      "size": 147750,
+      "sha256": "2fc3ca500e8261741eb2771c38b7cce068e30c0d3cc7a8466311dab0bc6e459c"
+    },
+    {
+      "path": "docs/screenshots/22-register-owner.png",
+      "size": 175918,
+      "sha256": "e9d63222548efe608c950afa84b3dbb26b615392bd184366351922f4ca683b88"
+    },
+    {
+      "path": "docs/screenshots/23-forgot-password.png",
+      "size": 132204,
+      "sha256": "072653de61ef01b1757383047ddb4019ea573ec323a4b1ef019cfed46a6c709c"
+    },
+    {
+      "path": "docs/screenshots/24-surprise.png",
+      "size": 166683,
+      "sha256": "49557be9f325cc616f6bae786fbfe97a5426868c7a6dccf170376c1b003d54b4"
+    },
+    {
+      "path": "docs/screenshots/25-saved.png",
+      "size": 128328,
+      "sha256": "cbf982d0c02b189636bf6b638b7c5a11ca0dcf98f0278d8cb7f9c7366bb21837"
+    },
+    {
+      "path": "docs/screenshots/26-compare.png",
+      "size": 126583,
+      "sha256": "0ce809a1bc78df6ebfedce84d2a195a2acf9d47c6b9c48b013c1da47a55ed651"
+    },
+    {
+      "path": "docs/screenshots/27-cuisines.png",
+      "size": 190151,
+      "sha256": "3cda5d6d242c07982e765677646fad10367f52886dee3f5edfadc8b88c5fd969"
+    },
+    {
+      "path": "docs/screenshots/28-trending.png",
+      "size": 515274,
+      "sha256": "99c2a89e5a01e6f7f8e466c72f045aea2eca2ac1b801883b6cd67659c28e4f67"
+    },
+    {
+      "path": "docs/screenshots/29-new.png",
+      "size": 517909,
+      "sha256": "be9481557fcb6ea8ce2bc86ddd0ab22ed38cc01db6cd9dae60532e9fa87f7cf0"
+    },
+    {
+      "path": "docs/screenshots/30-top-rated.png",
+      "size": 523874,
+      "sha256": "908ab2f466c0b2a5885e20b32133b92e7f6eaa37bf8a483aee04ca0af35b05b1"
+    },
+    {
+      "path": "docs/screenshots/31-dishes.png",
+      "size": 816001,
+      "sha256": "189c6724d81646ce3fc95b6fc4b8f767dd8f41efba9be02c0adbc5fad31a93d2"
+    },
+    {
+      "path": "docs/screenshots/32-festivals.png",
+      "size": 569487,
+      "sha256": "79821f81a57f15ae039029c3f4e3d60445c2b773a088b2b498f6f9d9031bb451"
+    },
+    {
+      "path": "docs/screenshots/33-thank-you.png",
+      "size": 115943,
+      "sha256": "964c28cd76c19711b0cc05740bbe11cd9459a99c1073af7e9fc6f2a83e53b11a"
+    },
+    {
+      "path": "docs/screenshots/34-does-not-exist.png",
+      "size": 125464,
+      "sha256": "8cbc51c6f9e6f14fa6c593668dd4c4e8cf07c1af4c75464681c86e2ac79a53e8"
+    },
+    {
+      "path": "docs/screenshots/35-admin.png",
+      "size": 80448,
+      "sha256": "c81ae4d64a3a27dc4bbd0f9f1a59c2c854406709cb69804a5381009be79417a6"
+    },
+    {
+      "path": "docs/screenshots/36-add-restaurant.png",
+      "size": 78589,
+      "sha256": "cbbf78770d0516240412159f830691d0200452fb0ec10731e8437db38df04a0f"
+    },
+    {
+      "path": "docs/screenshots/37-restaurant-detail.png",
+      "size": 104211,
+      "sha256": "8beaefa94221d0d62bb6a8c39c092ff68fb67a83898ade2960b6c332aea9ea1d"
+    },
+    {
+      "path": "docs/screenshots/38-edit-restaurant.png",
+      "size": 73348,
+      "sha256": "c9ca0c69e1b38614b386ca6a156f6e8e7abfa7b8fd8126aa0fe4db3fcb1a74c2"
+    },
+    {
+      "path": "docs/screenshots/39-filter-borough.png",
+      "size": 93335,
+      "sha256": "c40cb61f369406f8d22d38bedbf1a7725e27692c816326db37211cd05b05c83a"
+    },
+    {
+      "path": "docs/screenshots/39-search-cuisine.png",
+      "size": 89490,
+      "sha256": "c5a49906873dfad6a70ff25efefbd1ed3efe57aed98aaa4c4d4b35440d1ee01f"
+    },
+    {
+      "path": "docs/screenshots/39-search-name.png",
+      "size": 89071,
+      "sha256": "d3680bb515cf221c567801b05929eab91690d3326f5506d0a1203d80e0b16abf"
+    },
+    {
+      "path": "docs/screenshots/40-account.png",
+      "size": 143209,
+      "sha256": "5fa54feab2deae0b0aa4c2b9799e60cbc72e855f1c039c9a12c4df347ea76c52"
+    },
+    {
+      "path": "docs/screenshots/41-delete-confirmation.png",
+      "size": 129304,
+      "sha256": "df178094844229e8f4b09d60b2c99266e2b9369e62ea99e06f4fc66bbf873d09"
+    },
+    {
+      "path": "docs/screenshots/42-customer-dashboard.png",
+      "size": 142265,
+      "sha256": "3f2e54cef391942f499b178b3c3ae86ff30154342cbe3ce881571d74f2cdc069"
+    },
+    {
+      "path": "docs/screenshots/42-owner-dashboard.png",
+      "size": 180244,
+      "sha256": "d87fed9c911ac77155dcca4cc660b282c06c9786caac6bbfdc640be953c981b7"
+    },
+    {
+      "path": "docs/screenshots/README.md",
+      "size": 739,
+      "sha256": "912570cd738f6805cf2a59b8b377db65374624eef796de00187c418390e9be09"
+    },
+    {
+      "path": "docs/screenshots/mobile-countries.png",
+      "size": 62374,
+      "sha256": "1f08f40957cfe63da66ec664b296b3bb6f32f4efab8e1dcc3ec2bd9cebb3ada9"
+    },
+    {
+      "path": "docs/screenshots/mobile-home.png",
+      "size": 54920,
+      "sha256": "55c6b600ce7c8c2fd99334cfeed1b7bc3d062810f44a2e7da252b582c1e91b2a"
+    },
+    {
+      "path": "docs/screenshots/mobile-login.png",
+      "size": 39783,
+      "sha256": "d8bac20cb4966a204b8f9508bb576683b89f1270a9d35aea6ac8dd2aba4c3d6d"
+    },
+    {
+      "path": "docs/screenshots/mobile-restaurants.png",
+      "size": 60446,
+      "sha256": "35283980f3347ddd626ce2982cab8c6704821c03619c9455f169e3a000632b52"
+    },
+    {
+      "path": "docs/source-code-appendix.html",
+      "size": 520594,
+      "sha256": "b061f512e717b1f3a47a4b781cd9515d990d000642fee42d9994baad6aaf4536"
+    },
+    {
+      "path": "docs/submission-checklist.md",
+      "size": 1732,
+      "sha256": "f4db057e44921c218e5235ebda16071d819d867f09d3f8e757a7dfa6782131b1"
+    },
+    {
+      "path": "docs/test-results.txt",
+      "size": 1807,
+      "sha256": "2a7f729a59e5a26115bed5a98b887cbaa3f0ee6c21f17e7e3b6d9d7fc9ec1cc3"
+    },
+    {
+      "path": "docs/validation-report.md",
+      "size": 1910,
+      "sha256": "cb3fc14496f09c7b78a5f7ee32c1be5595feba84f2496b37d3898d8ad1f0fb77"
+    },
+    {
+      "path": "netlify.toml",
+      "size": 186,
+      "sha256": "1dc88fd37f9dbe08b1e9495344a930720852c532938ddc7c97a3187593c113c4"
+    },
+    {
+      "path": "package-lock.json",
+      "size": 143363,
+      "sha256": "ff6677efac84c6a72d0c03b4073ab6a16413f8a63e4b9a85143eecf6da96733f"
+    },
+    {
+      "path": "package.json",
+      "size": 552,
+      "sha256": "2462e84419faf610de409d82532e78babb5925273b3fc76307855c51ed2aafdf"
+    },
+    {
+      "path": "postman/BonAppeFind.postman_collection.json",
+      "size": 59652,
+      "sha256": "9ee2cbc85426301ad973678d97112501231155c8a550f59636ec3710d23e1b8d"
+    },
+    {
+      "path": "postman/Local.postman_environment.json",
+      "size": 395,
+      "sha256": "a2b8941f944a54f789db246c1ff6c4008436d4c023c06386e584fe7edc929b28"
+    },
+    {
+      "path": "render.yaml",
+      "size": 795,
+      "sha256": "c134937e117b98e110ccb3cd210e6bfbf00ee190898cd374167c0a0437024eef"
+    },
+    {
+      "path": "server/.env.example",
+      "size": 568,
+      "sha256": "b70dccee5d6b6d0cd5e6a342639304864bea46445dc7fb1eb9979efcbb6b3c55"
+    },
+    {
+      "path": "server/package.json",
+      "size": 1027,
+      "sha256": "e5e38c76bcd8ad80fbfb5eb476d07f10b979bae2f37f73fd425db5c3ec3a28ac"
+    },
+    {
+      "path": "server/src/app.js",
+      "size": 1634,
+      "sha256": "aaa46c838a2f2be3e5bc93255a115df315e2ba8bb58ca72cae68b416a9f43c0e"
+    },
+    {
+      "path": "server/src/config/db.js",
+      "size": 235,
+      "sha256": "73f4fba8447fb60ed485d2304c2ace3486f68dce4c1f369e9fd01f7aa3492e8f"
+    },
+    {
+      "path": "server/src/config/env.js",
+      "size": 965,
+      "sha256": "f3d275a7750b3a9f73b36d60ea7c90057890762bac37ef4785532d62aafa426c"
+    },
+    {
+      "path": "server/src/controllers/authController.js",
+      "size": 6367,
+      "sha256": "0304a1f50f5f2c64467b5b162cabc7e903909c80ab2ae2e58e12d12a99e4a1d7"
+    },
+    {
+      "path": "server/src/controllers/contentController.js",
+      "size": 3605,
+      "sha256": "603ab2ff053f6b8ae9bdd254422875993ab0106e40d8412b4415002774a732b9"
+    },
+    {
+      "path": "server/src/controllers/dashboardController.js",
+      "size": 11012,
+      "sha256": "d5ca4ecf4d0695caff484f3475577f5df3acd23f31a39f5261360d3d492856da"
+    },
+    {
+      "path": "server/src/controllers/restaurantController.js",
+      "size": 11908,
+      "sha256": "b7653cc075985f5aa226bc6621969c8262239002d0ff7d428d3fce9c86d9e860"
+    },
+    {
+      "path": "server/src/controllers/reviewController.js",
+      "size": 4199,
+      "sha256": "e411128e260e04db58fc2110264d869bc06b53351eddec84092f59ba84db4af9"
+    },
+    {
+      "path": "server/src/controllers/statsController.js",
+      "size": 764,
+      "sha256": "f59117a684c67e66f42671a2f28ad730b41e0655867b9c187f745798fcb4547c"
+    },
+    {
+      "path": "server/src/middleware/asyncHandler.js",
+      "size": 200,
+      "sha256": "3be246f494e99c3349e169cf97ed4adff6a953cf0b61e14e62134846e5e50dcf"
+    },
+    {
+      "path": "server/src/middleware/auth.js",
+      "size": 1266,
+      "sha256": "727515b156e9c3950bb242c7db5239a7068b9798cd1d41ae4ff1b9e10f32fbed"
+    },
+    {
+      "path": "server/src/middleware/errorHandler.js",
+      "size": 732,
+      "sha256": "1d9a86dc39f3df58ebadecfb5aef81e532cdaf3bd79cc7d25e304404b87d53ca"
+    },
+    {
+      "path": "server/src/middleware/notFound.js",
+      "size": 179,
+      "sha256": "39618ef01accaecd419b8e4293bb55f845ae147e8b17ced3b0983b8131acd88f"
+    },
+    {
+      "path": "server/src/middleware/rateLimiter.js",
+      "size": 388,
+      "sha256": "e71006559fd00d2e254665f6596307edf59e963febdfd7224ba2859e9da7c616"
+    },
+    {
+      "path": "server/src/middleware/validate.js",
+      "size": 294,
+      "sha256": "6464d548c5bac87d9d1c99c650c4caae1abe422fbf6a54be5ad929f089cf54ea"
+    },
+    {
+      "path": "server/src/models/ActivityLog.js",
+      "size": 51,
+      "sha256": "fdeca248d1fc2f99cf60092040df942b6c981c239fe9493c9e16b2378ea415e6"
+    },
+    {
+      "path": "server/src/models/Claim.js",
+      "size": 45,
+      "sha256": "a007dca4adff5c60f3dff9b3096a57779057a0c2060d789085252d2d19304cc4"
+    },
+    {
+      "path": "server/src/models/Collection.js",
+      "size": 50,
+      "sha256": "6ea5ff9456f92695ed50f517333801cae9bf94786ef678a17b0dad0ee3f148fa"
+    },
+    {
+      "path": "server/src/models/Country.js",
+      "size": 47,
+      "sha256": "d5a78af016ede7045ab07e443867eafb7905c588722bc1086a3c356634a9cbe6"
+    },
+    {
+      "path": "server/src/models/Faq.js",
+      "size": 43,
+      "sha256": "de8a6f65a479e676f8543c526c8f4f2181b7a62e5c5a4160d089da25dc2b9967"
+    },
+    {
+      "path": "server/src/models/Favorite.js",
+      "size": 48,
+      "sha256": "43785db9bcebf47a3517fb7bb5257be2ac5997663ff464f6a64169763dcea64c"
+    },
+    {
+      "path": "server/src/models/Guide.js",
+      "size": 45,
+      "sha256": "3aef6a70bbd282f519775d40d559116c2de80b06063e6f106343ba93453ba678"
+    },
+    {
+      "path": "server/src/models/LoginHistory.js",
+      "size": 52,
+      "sha256": "4bc074296646e98df208678fe3a1bb74ecc0fffdc74feabe37a76692a252c0b8"
+    },
+    {
+      "path": "server/src/models/Message.js",
+      "size": 47,
+      "sha256": "8866c07c0a7f4d2c30bdbca37fb3fe21df61538c9b3d4891ff9d5dfc292d0fba"
+    },
+    {
+      "path": "server/src/models/Notification.js",
+      "size": 52,
+      "sha256": "0a65200fd754ac26a835ec45d479294b4664a50c18bf86a3b3585c9a9c0175b4"
+    },
+    {
+      "path": "server/src/models/OwnerMessage.js",
+      "size": 52,
+      "sha256": "d182edf98c0381a12d8d3744573224e2b47675539f48b51706f25ea0197f3ef0"
+    },
+    {
+      "path": "server/src/models/Report.js",
+      "size": 46,
+      "sha256": "f73be71f1bde8b93f88259b2c11d8026a8cf00d2003c1a12ee0c008e2f374cb4"
+    },
+    {
+      "path": "server/src/models/Restaurant.js",
+      "size": 50,
+      "sha256": "7c56132e0706943630c3754acf14e38f7348b1b774fb96ecfda6990fb8064b9e"
+    },
+    {
+      "path": "server/src/models/Review.js",
+      "size": 46,
+      "sha256": "5ee1fc5e966bae40f9fdb57d9b7023289c88f8cd6e71ff7922c9cebc69224851"
+    },
+    {
+      "path": "server/src/models/SearchHistory.js",
+      "size": 53,
+      "sha256": "48ef83461511017b2b78a05a20057f9579d678f08020ee1e8f664eb52a0bef48"
+    },
+    {
+      "path": "server/src/models/Setting.js",
+      "size": 47,
+      "sha256": "410d83f7aacdfc03a8bed8f4d0e7851e1ee9401889c5e8b1fb820e486d60fa19"
+    },
+    {
+      "path": "server/src/models/Subscriber.js",
+      "size": 50,
+      "sha256": "3fd93d756a8a5afef00c6c13f62dc908b3dc14cbc04e5311950030e5facd79d9"
+    },
+    {
+      "path": "server/src/models/Suggestion.js",
+      "size": 50,
+      "sha256": "4a224883425c7b1a8cb5a4f71a2f75da273f25c3547d6aa1e349963c5f3f9642"
+    },
+    {
+      "path": "server/src/models/User.js",
+      "size": 44,
+      "sha256": "48c9131165f694fef11ae007edf15f480ca8764e6db4d9d5c08d51ec10793c0b"
+    },
+    {
+      "path": "server/src/models/ViewEvent.js",
+      "size": 49,
+      "sha256": "b3ee0285bbc1e4b3cd76b00c0d89354343a055d99f18e1b7b66791dad522d6c2"
+    },
+    {
+      "path": "server/src/models/index.js",
+      "size": 7097,
+      "sha256": "ca8b1961094493e607df9a452e54e0c1e1f19f4429705f713179896d3ea4ce73"
+    },
+    {
+      "path": "server/src/openapi.json",
+      "size": 98772,
+      "sha256": "09295c57b2a97dc64bbec0d133763783f0faabfb8928f1eb9b2f33847875638e"
+    },
+    {
+      "path": "server/src/routes/index.js",
+      "size": 7343,
+      "sha256": "48b3e0391a1d459e6ecaeb0838a28e3fd85aee8b35a0c0664e4edfd9e64e7145"
+    },
+    {
+      "path": "server/src/scripts/createAdmin.js",
+      "size": 1203,
+      "sha256": "9d91a2ced8aa1ebe15ffd4134b5a6613c84b3f4efef524d0f6a25878fd7c643a"
+    },
+    {
+      "path": "server/src/scripts/importDbRestaurants.js",
+      "size": 1329,
+      "sha256": "4dfa09e38d9e55339810ada3fa2723f3c352dbb216e8aa326837698871107991"
+    },
+    {
+      "path": "server/src/scripts/previewDemo.js",
+      "size": 2034,
+      "sha256": "8774ae58624b5a03d6d10c4402b468db2457dd9533d6b0a8bc85e1212c5c79a8"
+    },
+    {
+      "path": "server/src/seed/data/countries.json",
+      "size": 26881,
+      "sha256": "4af504365af3121589f411e3f23720275c9f4135b7d64e44fed23a5ca70cd804"
+    },
+    {
+      "path": "server/src/seed/data/faqs.json",
+      "size": 4465,
+      "sha256": "2933993b3a6f89f0ff26cd605cba97b4590a3dc90e8cfbfed2e60a22e2007ba4"
+    },
+    {
+      "path": "server/src/seed/data/guides.json",
+      "size": 3196,
+      "sha256": "dd971446d840aac93ff8a1896bc706dca58f8ffb12d4c3958f41f351a45c0aa2"
+    },
+    {
+      "path": "server/src/seed/data/restaurants.json",
+      "size": 218246,
+      "sha256": "9ff9ae4838e4857111e9485196019fb07bbf8bc2f09d16aefbcd2fb29df0ba23"
+    },
+    {
+      "path": "server/src/seed/seed.js",
+      "size": 999,
+      "sha256": "c2d2c083cedf91d0b27e696562e6c6acc97e5ec5e8334a57ed2ed7e3e81cb2f9"
+    },
+    {
+      "path": "server/src/server.js",
+      "size": 486,
+      "sha256": "0f7b2b2ae9f95bb0ed10ee8dd1bee71d70b688f099ed3bf3c337602d62fe463f"
+    },
+    {
+      "path": "server/src/utils/ApiError.js",
+      "size": 138,
+      "sha256": "94a61e854bc10685715de0eb86f28aa26a3ffc6050c88c4b33ade952ffb6c2f0"
+    },
+    {
+      "path": "server/src/utils/audit.js",
+      "size": 603,
+      "sha256": "ca43ee8ed10a082b90ed47f5c6d2f3eb08f2c9c02785249ec49c7a73ee39bdef"
+    },
+    {
+      "path": "server/src/utils/http.js",
+      "size": 892,
+      "sha256": "50bb355598a952eec0b0af01207b380ea7aef9d690542a4283c10447d4dc9614"
+    },
+    {
+      "path": "server/src/utils/mail.js",
+      "size": 631,
+      "sha256": "7ab825553e506f955c4bf3ca143820cfac2e16877a94e16a64efe4cfa84c5ea0"
+    },
+    {
+      "path": "server/src/utils/pagination.js",
+      "size": 309,
+      "sha256": "12afb0cb3e8dc4395ae69fbab7152ca79ceec6944680cc1c788b26373a8175ba"
+    },
+    {
+      "path": "server/src/utils/restaurant.js",
+      "size": 3532,
+      "sha256": "39137ddbd302245a7b8660cbaeac0ca5cdf1168c692b1ca136da49e3886e1875"
+    },
+    {
+      "path": "server/src/utils/slugify.js",
+      "size": 166,
+      "sha256": "cee322161bc64ad71d8d3b1c19442d11acb2344d5073c797534320b2efc45be9"
+    },
+    {
+      "path": "server/src/validators/restaurantValidators.js",
+      "size": 3260,
+      "sha256": "d073ee7a73f75bcab844f8c8cf4065b56ec9d1150193b271dc57b7f7e90d4785"
+    },
+    {
+      "path": "server/tests/api.test.js",
+      "size": 9727,
+      "sha256": "6b46626e21beff82bb786b726f2485bbf3f8ec3cbab689bd8dbb43ab17d9aaee"
+    },
+    {
+      "path": "server/tests/restaurant.test.js",
+      "size": 2306,
+      "sha256": "cccfeef88a63bbc5481aaf19b43013d970eaff12f80f85d9d28872da09ab319b"
+    },
+    {
+      "path": "client/public/images/photos/bakery.jpg",
+      "size": 485407,
+      "sha256": "9c1a316c02e990345e0d40889f66ad51517832804e617a30dc1fdf03d803d7d0"
+    },
+    {
+      "path": "client/public/images/photos/bistro.jpg",
+      "size": 411408,
+      "sha256": "1e5052233ddd005dbc73d1c0cbe34ed79de6cb493ce1efc553664584ec922c8c"
+    },
+    {
+      "path": "client/public/images/photos/burger.jpg",
+      "size": 210824,
+      "sha256": "c1b1c9a214bd82436c604550ca24751eba9afec651dd1677a012e8e435960751"
+    },
+    {
+      "path": "client/public/images/photos/coffee.jpg",
+      "size": 180414,
+      "sha256": "5902afe4b32415867babf5c5e264fb45c7764182542a8c378177d8af51a02409"
+    },
+    {
+      "path": "client/public/images/photos/curry.jpg",
+      "size": 255885,
+      "sha256": "b0b421b3b831e1c992d7148abd9296dd90d171fb0395069ce4aaa82f3b8b6ce8"
+    },
+    {
+      "path": "client/public/images/photos/dining.jpg",
+      "size": 346011,
+      "sha256": "7c9c91e2be6b8d0fae53b913deebcb49707a21b98257536ea1630e6e457ba4fa"
+    },
+    {
+      "path": "client/public/images/photos/grill.jpg",
+      "size": 240688,
+      "sha256": "36d089db26810d1711f9182a3e819d49f728cb0ffccad029bb732aae42aea003"
+    },
+    {
+      "path": "client/public/images/photos/pasta.jpg",
+      "size": 230338,
+      "sha256": "1f9558b13c6b61a2ff63f9c21f8a0c161d2f9bd9879e5f98853ce7c3a31d8eb9"
+    },
+    {
+      "path": "client/public/images/photos/pizza.jpg",
+      "size": 364000,
+      "sha256": "384698e2c7454759514c12b70ca364427dc52630c1962a78deb55d0ef39c61e7"
+    },
+    {
+      "path": "client/public/images/photos/ramen.jpg",
+      "size": 537361,
+      "sha256": "982f69f95d332c13ce871857945c0494bdc35f852ca0c350396b57aa6294e0ea"
+    },
+    {
+      "path": "client/public/images/photos/salad.jpg",
+      "size": 314982,
+      "sha256": "83199bdbbc7e77aff2efc2365bfb97bcc0b33a1a7643abccbbc13f54fbdc1b4c"
+    },
+    {
+      "path": "client/public/images/photos/sources.json",
+      "size": 16813,
+      "sha256": "a800bf993501590a2deaf120b1b2e6bee25da231f5f1ef09747d77c2ed1ddc23"
+    },
+    {
+      "path": "client/public/images/photos/sushi.jpg",
+      "size": 349989,
+      "sha256": "68dace25211f36a334c91f093c2c910833b91976f0aaf0f0d5229fa9ea35a0c8"
+    },
+    {
+      "path": "client/public/images/photos/table.jpg",
+      "size": 240306,
+      "sha256": "096e3f01dba9999c4b29814b8870ee2b8a0433d7ea34eea06a0549f8e93b8574"
+    },
+    {
+      "path": "client/public/images/photos/taco.jpg",
+      "size": 269207,
+      "sha256": "1a508be2aef0707beb25fca7e06dc85526e3d1e6503768d41decef2ece48b30a"
+    },
+    {
+      "path": "client/src/content/photo-sources.json",
+      "size": 16813,
+      "sha256": "a800bf993501590a2deaf120b1b2e6bee25da231f5f1ef09747d77c2ed1ddc23"
+    },
+    {
+      "path": "PHOTO_SOURCES.md",
+      "size": 12173,
+      "sha256": "86b53671accc744f6608046c0e9a202528da8ff40f9f56511e1243283963abce"
+    },
+    {
+      "path": "client/public/images/restaurants/kusina-ni-lola-pacing.jpg",
+      "size": 172271,
+      "sha256": "faaaf8e2250a2cedaf3f657460350d49edc86099a949fee80f7da04815800b87"
+    },
+    {
+      "path": "client/public/images/restaurants/bahay-kubo-bistro.jpg",
+      "size": 195402,
+      "sha256": "43e3255c2371a6d2deaf596a2f4fa0ce490136b03ff5621cdde89899aea50f43"
+    },
+    {
+      "path": "client/public/images/restaurants/sakura-counter.jpg",
+      "size": 162439,
+      "sha256": "cfa8eaf66eb6f71bda98db902e5e5e69b7751cb6a78b94f81d60de4c4c392437"
+    },
+    {
+      "path": "client/public/images/restaurants/ichiban-noodle-lantern.jpg",
+      "size": 266293,
+      "sha256": "d3a08b944377f3528bad49be6b3abaa3c0bf76700274cec483e7aa2226c5a43b"
+    },
+    {
+      "path": "client/public/images/restaurants/trattoria-della-nonna-rosa.jpg",
+      "size": 381591,
+      "sha256": "d3bd7c423745c53934349b5f56bc1e85664cd1673911a765cf9365996ec59c19"
+    },
+    {
+      "path": "client/public/images/restaurants/forno-azzurro.png",
+      "size": 891473,
+      "sha256": "ef70b3bab38990f1b309ba6ac92cfdec727baa6ff7a7393be7412e0f6228b997"
+    },
+    {
+      "path": "client/public/images/restaurants/la-milpa-cantina.jpg",
+      "size": 256428,
+      "sha256": "08e8fe41cae6b57cb4ad376ac7cee0574f618309fb19343e1cbd39f37fb7f2a1"
+    },
+    {
+      "path": "client/public/images/restaurants/tacos-el-faro.jpg",
+      "size": 837551,
+      "sha256": "6375c5ec02baced4bcee2080d6c01baf9acad1caa63f823731aca4ed9bc5ed0f"
+    },
+    {
+      "path": "client/public/images/restaurants/le-petit-marronnier.jpg",
+      "size": 309765,
+      "sha256": "069e94117ea38ca9883038cb6e25d3d503bc2b6e65f6f7ae2011bd9d8e134c84"
+    },
+    {
+      "path": "client/public/images/restaurants/maison-du-pain-dore.jpg",
+      "size": 321097,
+      "sha256": "5a84d4007fca3cea844c324d09953476f5c751e07858ab10b8a197903c2cfd82"
+    },
+    {
+      "path": "client/public/images/restaurants/spice-route-kitchen.jpg",
+      "size": 294850,
+      "sha256": "f6410cda3a6081417dfc884f7232a68ab6971286facea9a591808ea670b45106"
+    },
+    {
+      "path": "client/public/images/restaurants/dosa-darbar.jpg",
+      "size": 263330,
+      "sha256": "bfb71d2d53c59f67c5ffce64f314c987a39aa066e9cc4866e70b801220fdf6ca"
+    },
+    {
+      "path": "client/public/images/restaurants/baan-khao-soi.png",
+      "size": 2708989,
+      "sha256": "c0c26dba07a404f6383284860d4c8dfc3dfc79b8b318709d57997fdb18a0d4eb"
+    },
+    {
+      "path": "client/public/images/restaurants/soi-nine-street-kitchen.jpg",
+      "size": 478359,
+      "sha256": "8646ddf4eaf889dadc6d6145a032d94a0c91051bde885bb3af12fefcb2c10b75"
+    },
+    {
+      "path": "client/public/images/restaurants/five-boroughs-bagel-co.jpg",
+      "size": 244076,
+      "sha256": "325bd52118bf26e365904fc5626a34e4008011ef63b819e6d89e1026774341ab"
+    },
+    {
+      "path": "client/public/images/restaurants/corner-slice-pizzeria.jpg",
+      "size": 176790,
+      "sha256": "eb828c8fc51f4bd3dc5621de281362f735d8af87cb1baaf3fed1d24cbefdc2d9"
+    },
+    {
+      "path": "client/public/images/restaurants/sampaguita-breakfast-club.jpg",
+      "size": 146904,
+      "sha256": "7dd6e4d4d33d4c0a1d780c1fed0ab18e52dfee7fc87cd304534e4440eb30ee5d"
+    },
+    {
+      "path": "client/public/images/restaurants/green-mango-kitchen.jpg",
+      "size": 868201,
+      "sha256": "d87b8dc6bdb5fe332a564e46c04a04b11f712a9f0e581ad523307b6baf8f9e56"
+    },
+    {
+      "path": "client/public/images/restaurants/seoul-lantern-grill.jpg",
+      "size": 369776,
+      "sha256": "1f2c0664ef4ccd19c0ff123d10e5c57e6ad85c8b8b89bdcaabd7a33454f3a67e"
+    },
+    {
+      "path": "client/public/images/restaurants/pearl-wok-house.jpg",
+      "size": 97615,
+      "sha256": "26b8774c0277e3ab6fbf8b38ae25c57a3082ab2f146657d6b7679ae79cd843fb"
+    },
+    {
+      "path": "client/public/images/restaurants/cedar-bowl-kitchen.jpg",
+      "size": 151179,
+      "sha256": "07fe8329a2a6224f477e3515d0fe1a07283f145d43725b8c165cee748f81c78b"
+    },
+    {
+      "path": "client/public/images/restaurants/coastal-catch-table.jpg",
+      "size": 184086,
+      "sha256": "0c0951dd74c333cced76ce20ccf744d009e5f045546154e95882a1b340373cfb"
+    },
+    {
+      "path": "client/public/images/restaurants/copper-cup-cafe.jpg",
+      "size": 119322,
+      "sha256": "59940990f49a7f022af28b775676e2902a6f94f6cdc0d0c29e93c607d38988f9"
+    },
+    {
+      "path": "client/public/images/restaurants/garden-crust-oven.jpg",
+      "size": 195526,
+      "sha256": "17faf25ed67de4eb768f38dbc26390a6b88838fb03394e4b294728fdfa2dda11"
+    },
+    {
+      "path": "client/public/images/restaurants/maple-noodle-counter.jpg",
+      "size": 226386,
+      "sha256": "de09f5f54765edf44254a12ec6c5ca2adae951c4b404061c89c176c5483856fe"
+    },
+    {
+      "path": "client/public/images/restaurants/moon-harbor-sushi.jpg",
+      "size": 213433,
+      "sha256": "d747661910f563e7cbc1e32ec2a40ae84bba7b5c85200918481a671f4098513e"
+    },
+    {
+      "path": "client/public/images/restaurants/rice-lantern-diner.jpg",
+      "size": 410820,
+      "sha256": "b95acb0029008d694c79fd5509d3e1dd60042a369bbc6456dbfcfd5d779c9cc7"
+    },
+    {
+      "path": "client/public/images/restaurants/matcha-meadow-cafe.jpg",
+      "size": 49454,
+      "sha256": "6947d0e2511fd5b159b813dd0fa2b93a0e770a153576b738a0c5654c1c056201"
+    },
+    {
+      "path": "client/public/images/restaurants/kyoto-garden-bowls.jpg",
+      "size": 65133,
+      "sha256": "5dd7a418171d87049c50e920b02127c497df18d45ccdb5069d233faf1a1e3f22"
+    },
+    {
+      "path": "client/public/images/restaurants/ember-bento-kitchen.jpg",
+      "size": 207667,
+      "sha256": "d43fa091ef66a8b79c59743737faa0cdf79ad6aa776cdfe781993f0ae4578856"
+    },
+    {
+      "path": "client/public/images/restaurants/cloud-crumb-bakery.jpg",
+      "size": 394001,
+      "sha256": "d887c065c68ef3cfc39fee9ad544dfcae9b7c322fe36804d1f32fafd18fc5248"
+    },
+    {
+      "path": "client/public/images/restaurants/golden-curry-corner.jpg",
+      "size": 112284,
+      "sha256": "0aa994479c0d3f482c5b8df16dbe7870fcc81ee2e78fa1eb5840e162447fae2a"
+    },
+    {
+      "path": "client/public/images/restaurants/olive-courtyard-trattoria.jpg",
+      "size": 605869,
+      "sha256": "1e8f4edf789a709c3fe2f384a5e7bc091ee4479762e52fc5d74ed5fd4dd6ec21"
+    },
+    {
+      "path": "client/public/images/restaurants/basil-stone-pizzeria.jpg",
+      "size": 129771,
+      "sha256": "4b63ea264c02010cc140652bb4158386bbf45d5e7228a3b70129bf688134082a"
+    },
+    {
+      "path": "client/public/images/restaurants/citrus-grove-kitchen.png",
+      "size": 3235135,
+      "sha256": "af1b3ffab8f6f3a8b843835b843f3b02a48d74344ecedea6d4a486dcfc8b25b9"
+    },
+    {
+      "path": "client/public/images/restaurants/velvet-espresso-bar.jpg",
+      "size": 1257602,
+      "sha256": "c88f65eb0097dc8a41d5e8e6566590a91e0873c66c265f58dae69aa47c41e646"
+    },
+    {
+      "path": "client/public/images/restaurants/harvest-ribbon-pasta.jpg",
+      "size": 68228,
+      "sha256": "242e8d0ade23a1ab55cfadcf6ae74df81c5c7ab77fb3290dc64e93df46401216"
+    },
+    {
+      "path": "client/public/images/restaurants/lemon-harbor-table.jpg",
+      "size": 330357,
+      "sha256": "f955f9b4797323e46b21e527291fc237c07c13b2aa0bb66a8870d44fb7b4d0db"
+    },
+    {
+      "path": "client/public/images/restaurants/little-wheat-bakery.jpg",
+      "size": 770694,
+      "sha256": "15b097bbab75e2176cbf3ad38d425412933f118373718d4bf0a6599595c4e41c"
+    },
+    {
+      "path": "client/public/images/restaurants/copper-pan-osteria.jpg",
+      "size": 326320,
+      "sha256": "89d46c9c0e74e603a264c1f2dcbfe2f04ca6df43165929385bcb258278962d39"
+    },
+    {
+      "path": "client/public/images/restaurants/marigold-taco-patio.jpg",
+      "size": 94922,
+      "sha256": "4afefa3ec76050aec73fc11112dac1bdcaad0c83ec81f98eae2eafc8dbfef19f"
+    },
+    {
+      "path": "client/public/images/restaurants/cactus-hearth-kitchen.jpg",
+      "size": 903849,
+      "sha256": "530fd108e0f2b7bf0cac008d5f59ebfa03ddbc3d5bda865b2960d6bb318827e0"
+    },
+    {
+      "path": "client/public/images/restaurants/lime-coast-ceviche.png",
+      "size": 1085783,
+      "sha256": "b64b7c411f6b636bae34d1e8262517196fd5b235b19c6951c537e817f2ded700"
+    },
+    {
+      "path": "client/public/images/restaurants/sunrise-corn-cafe.jpg",
+      "size": 91048,
+      "sha256": "b889d5dd14c83631ec385bd87cf9d83cbb9fb6aded13e618691823cb1439b197"
+    },
+    {
+      "path": "client/public/images/restaurants/mesa-verde-bowls.jpg",
+      "size": 93181,
+      "sha256": "ced6a7f62a62acbe29a551b1f666263928282738d561a1a73042961819a2a133"
+    },
+    {
+      "path": "client/public/images/restaurants/charcoal-mercado-grill.jpg",
+      "size": 119825,
+      "sha256": "787061f585b165cd445676245f4ad42521f27884a013544f763fe72a5bb52bb9"
+    },
+    {
+      "path": "client/public/images/restaurants/cinnamon-cloud-bakery.jpg",
+      "size": 1142320,
+      "sha256": "fc33c1037829d1d7daef82f16117fe592e4d1a1dc631840518be1ec8f2045ba6"
+    },
+    {
+      "path": "client/public/images/restaurants/poblano-pantry.webp",
+      "size": 298244,
+      "sha256": "b67bf54a1ce5d9d895c3c203e22ce61a49467579194939e27d5eb51148ee2f23"
+    },
+    {
+      "path": "client/public/images/restaurants/lavender-lane-bistro.webp",
+      "size": 105484,
+      "sha256": "4580594c7ef8d196bd66424c112802f0f06354b42e35e22bc55bb4fed06b9881"
+    },
+    {
+      "path": "client/public/images/restaurants/butterleaf-bakery.jpg",
+      "size": 404344,
+      "sha256": "dce33e9f546da05cfff3e188ed5edc2926358c833e7eec6b616e2af4be862e3d"
+    },
+    {
+      "path": "client/public/images/restaurants/juniper-garden-table.jpg",
+      "size": 1957760,
+      "sha256": "07774d0ea5dc12c01b846e54dbeac8c42e79c5f76da34f45e9292f3a181d1e6f"
+    },
+    {
+      "path": "client/public/images/restaurants/amber-window-cafe.jpg",
+      "size": 55140,
+      "sha256": "bcc604863da758776eb6ae9bb44ac78a5e9f95c6f457ba1c52bff897d810c778"
+    },
+    {
+      "path": "client/public/images/restaurants/pearl-coast-brasserie.jpg",
+      "size": 716115,
+      "sha256": "93de18b6e502eb63cff9fa543be95364db5318d5f84413bc4565f69060ff0ae0"
+    },
+    {
+      "path": "client/public/images/restaurants/golden-fork-bistro.jpg",
+      "size": 356664,
+      "sha256": "e41fe1cb4021c1a035dfcd68c240b2973f2422ee22879a80383b78fe7384fce2"
+    },
+    {
+      "path": "client/public/images/restaurants/rustic-ribbon-kitchen.jpg",
+      "size": 240871,
+      "sha256": "d6b5644b48c6d91f6fb976dc4e0077aa791e77c211970285edc277cf6421565a"
+    },
+    {
+      "path": "client/public/images/restaurants/evening-ember-table.jpg",
+      "size": 53196,
+      "sha256": "1a8f41831b1ff96aaf881bc659cb5743dd04aab19cea5399911bb6c52c8e060a"
+    },
+    {
+      "path": "client/public/images/restaurants/saffron-courtyard.jpg",
+      "size": 394215,
+      "sha256": "ca4b90592f6062744199c15870443b53958ccc6b9bc6e37ed3189bd9ca960c57"
+    },
+    {
+      "path": "client/public/images/restaurants/coconut-leaf-dosa.webp",
+      "size": 203986,
+      "sha256": "63fbb9f83c3e4b1e336171e80fc6c9b8966afced3e473d0f39c64afba1f11d8a"
+    },
+    {
+      "path": "client/public/images/restaurants/mint-lantern-kitchen.jpg",
+      "size": 166616,
+      "sha256": "958ded8bc638b5cf2d5985330102cedef190c5a04f006dd1a1d55c228ff16132"
+    },
+    {
+      "path": "client/public/images/restaurants/spice-trail-grill.jpg",
+      "size": 83564,
+      "sha256": "966c26bf0a2337221a4e5b2d0572c9a9d49abbf68f1ec4803f7b95b492cf51e1"
+    },
+    {
+      "path": "client/public/images/restaurants/cardamom-cup-cafe.jpg",
+      "size": 83909,
+      "sha256": "148c969829be915037112944f032babb08366f85b50755e0095c316188251a17"
+    },
+    {
+      "path": "client/public/images/restaurants/garden-thali-house.jpg",
+      "size": 504753,
+      "sha256": "5bd1f8cd6916f637a2d00409e0f5411c81d97aedae19a8214acf1f6042899238"
+    },
+    {
+      "path": "client/public/images/restaurants/golden-roti-counter.jpg",
+      "size": 595369,
+      "sha256": "da185765d4c3116748bdda5f3403a57d1a458426a23ca50a1e143661f2c07b6b"
+    },
+    {
+      "path": "client/public/images/restaurants/mango-hearth-bakery.jpg",
+      "size": 111759,
+      "sha256": "3d2f53c9a31df4d6fc1692a77525478d3195000951191de776a883900d7eb2b6"
+    },
+    {
+      "path": "client/public/images/restaurants/lotus-wok-kitchen.png",
+      "size": 1338076,
+      "sha256": "7dd873bbb25b52cffc6957ed09b377d3f5aaf115ebcd65f6bad3c06f55827eff"
+    },
+    {
+      "path": "client/public/images/restaurants/coconut-lantern-table.webp",
+      "size": 250434,
+      "sha256": "4b86c3620dbf8e2af777f387556fa60166ea3d06c9456981f8d33dbc5f33a5d5"
+    },
+    {
+      "path": "client/public/images/restaurants/tamarind-garden-bowls.png",
+      "size": 862837,
+      "sha256": "c24ac6aab8eeb9548533868f527415e48a305138f5b179a9270080d724489c23"
+    },
+    {
+      "path": "client/public/images/restaurants/river-ember-grill.jpg",
+      "size": 387729,
+      "sha256": "959ae9a271690c5f71cc33524b0ee94d537dffc49f8172f1448ea1d2eaa722fe"
+    },
+    {
+      "path": "client/public/images/restaurants/mango-morning-cafe.jpg",
+      "size": 42517,
+      "sha256": "b00ea60f892a6a895a8b158622f477572b82c7c0b9f8010c6178dd646faa7846"
+    },
+    {
+      "path": "client/public/images/restaurants/lime-leaf-pantry.jpg",
+      "size": 170747,
+      "sha256": "341904c4ac6a62c62f9daad5d2ae6385fdbea7d1bae9152b913bdce272c318da"
+    },
+    {
+      "path": "client/public/images/restaurants/coral-coast-kitchen.jpg",
+      "size": 76156,
+      "sha256": "bf8907db424f76cc76ed2cd5062a181fcf002847c39f5d75883aa8d0aa683f23"
+    },
+    {
+      "path": "client/public/images/restaurants/soft-cloud-bakery.jpg",
+      "size": 175000,
+      "sha256": "b65b18f55339f12c40f17ba2e24045d5f8f7984b68268641eae2e51fabf08f32"
+    },
+    {
+      "path": "client/public/images/restaurants/brick-lane-burger-bar.jpg",
+      "size": 70803,
+      "sha256": "23ceceaa3a78fd8e9d5748b2faf58adff699d2fd0ee9cbab85feac157b46b7ca"
+    },
+    {
+      "path": "client/public/images/restaurants/greenhouse-bowl-counter.png",
+      "size": 538877,
+      "sha256": "e66436288819d2406ca945cb5758d9992040d5f16cad897d321a91d792f97a70"
+    },
+    {
+      "path": "client/public/images/restaurants/cornerstone-pizza-club.jpg",
+      "size": 302551,
+      "sha256": "3bfe32ea745bda8487e58764ac513bb279771ca5bdeab00aa94dc2564799257a"
+    },
+    {
+      "path": "client/public/images/restaurants/maple-morning-diner.jpg",
+      "size": 34679,
+      "sha256": "7b03023b4523ac3456c9d90d498a53e7efe90d7c4512f0bb7b52d203da613ab0"
+    },
+    {
+      "path": "client/public/images/restaurants/cedar-street-cafe.jpg",
+      "size": 137940,
+      "sha256": "2e7f8c3b683810b1ec7fae98bf7783cafac6b0ef2671c9c7a282c2606e63a383"
+    },
+    {
+      "path": "client/public/images/restaurants/smokehouse-lantern.webp",
+      "size": 152432,
+      "sha256": "2fa25e6dc11681ce4a575f303c5a6431d105c694620866e9c5aa06fac4c805f8"
+    },
+    {
+      "path": "client/public/images/restaurants/sunflower-crumb-bakery.jpg",
+      "size": 125152,
+      "sha256": "1279eb73df252a02da2f9490b90522d73835508befcc969eb76a8ffb7ae5f1ab"
+    },
+    {
+      "path": "client/public/images/restaurants/harbor-pearl-kitchen.jpg",
+      "size": 439731,
+      "sha256": "452152d658e02a0f839e921f3f68fa7f0e5bc5cd24b0cc4a075330c182ed9f37"
+    },
+    {
+      "path": "client/src/utils/restaurant-photos.js",
+      "size": 12477,
+      "sha256": "873c883a6dd64baa239ea7c1506f0b8c9090978d5a030105add15fe3dace385c"
+    }
+  ]
+}
