@@ -1,0 +1,1 @@
+Validation: 33 backend tests, 35 permission assertions, production build. Demo-account section removed. Automatic admin creation tested for verification, password preservation and refusal to promote existing non-admin users. Live deployment and visual browser testing were not performed.

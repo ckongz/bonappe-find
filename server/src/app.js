@@ -13,6 +13,8 @@ import {errorHandler} from './middleware/errorHandler.js';
 import {notFound} from './middleware/notFound.js';
 import ApiError from './utils/ApiError.js';
 export const app=express();app.disable('x-powered-by');
+// Render forwards requests through one trusted reverse-proxy hop.
+if(process.env.RENDER==='true')app.set('trust proxy',1);
 app.use(helmet({contentSecurityPolicy:{directives:{'img-src':["'self'",'data:','https:','http://localhost:5000'],'connect-src':["'self'",env.origin,'https://tile.openstreetmap.org']}}}));
 app.use(cors({origin:env.nodeEnv==='production'?env.origin:[env.origin,'http://localhost:5173','http://127.0.0.1:5173']}));app.use(express.json({limit:'2mb'}));
 app.use('/uploads',helmet({crossOriginResourcePolicy:{policy:'cross-origin'}}),express.static(uploads));

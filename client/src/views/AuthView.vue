@@ -1,7 +1,7 @@
 <script setup>
 import ResetCode from '../components/ResetCode.vue';
 import VerifyCode from '../components/VerifyCode.vue';
-import {ref,computed,watch,onMounted,nextTick} from 'vue';import {useRoute,useRouter} from 'vue-router';import {post,get,message} from '../services/api.js';import {useAuth,useSaved,useUi} from '../stores/index.js';
+import {ref,computed,watch,nextTick} from 'vue';import {useRoute,useRouter} from 'vue-router';import {post,message} from '../services/api.js';import {useAuth,useSaved,useUi} from '../stores/index.js';
 const route=useRoute(),router=useRouter(),auth=useAuth(),saved=useSaved(),ui=useUi();
 const form=ref({name:'',email:'',password:'',confirmPassword:'',businessName:'',phone:'',position:''}),busy=ref(false),error=ref(''),status=ref(''),showPassword=ref(false),showConfirm=ref(false),loginRole=ref('customer');
 const mode=computed(()=>route.meta.kind),isRegister=computed(()=>['register','owner-register'].includes(mode.value)),passwordStrength=computed(()=>[form.value.password.length>=8,/[a-z]/.test(form.value.password),/[A-Z]/.test(form.value.password),/\d/.test(form.value.password),/[^a-zA-Z0-9]/.test(form.value.password)].filter(Boolean).length);
@@ -11,9 +11,6 @@ const art=computed(()=>({login:['Welcome back','Pick up your saved list right wh
 const roles=[{role:'customer',label:'Customer',hint:'Browse freely and log in to save a personal list.'},{role:'owner',label:'Owner',hint:'Manage only the listings connected to your owner account.'},{role:'admin',label:'Admin',hint:'Authorized administrators only. Public admin sign-up is not available.'}];
 const roleHint=computed(()=>roles.find(r=>r.role===loginRole.value)?.hint);
 const switchLine=computed(()=>({login:['Don\'t have an account?','Sign up','/register'],register:['Already have an account?','Log in','/login'],'owner-register':['Already have an account?','Log in','/login'],forgot:['Remembered it?','Log in','/login'],reset:['Changed your mind?','Log in','/login'],verify:['Done here?','Log in','/login'],logout:['New here?','Sign up','/register']})[mode.value]);
-const demos=[{role:'customer',label:'Customer',email:'customer@example.test',password:'ReviewOnly123',destination:'/account'},{role:'owner',label:'Restaurant Owner',email:'owner@example.test',password:'ReviewOnly123',destination:'/owner'},{role:'admin',label:'Administrator',email:'reviewer@example.test',password:'ReviewOnly123',destination:'/admin'}];
-function useDemo(d){loginRole.value=d.role;form.value.email=d.email;form.value.password=d.password;error.value='';status.value='Demo credentials filled in. Select Log in when ready.';}
-async function loginDemo(d){useDemo(d);await submit(d.destination);}
 const touched=ref({}),shake=ref(false),mailRx=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const errs=computed(()=>{const f=form.value,e={},m=mode.value;
  if(isRegister.value&&!f.name.trim())e.name='Please tell us your name.';
@@ -25,7 +22,7 @@ const errs=computed(()=>{const f=form.value,e={},m=mode.value;
 const showErr=k=>touched.value[k]&&errs.value[k]?errs.value[k]:'';
 const touch=k=>{touched.value={...touched.value,[k]:true};};
 const ids={name:'auth-name',email:'auth-email',businessName:'owner-businessName',phone:'owner-phone',position:'owner-position',password:'auth-password',confirmPassword:'confirm-password'};
-async function submit(forcedDestination=''){error.value='';status.value='';if(!forcedDestination){const keys=Object.keys(errs.value);touched.value=Object.fromEntries(Object.keys(ids).map(k=>[k,true]));if(keys.length){shake.value=false;await nextTick();shake.value=true;setTimeout(()=>shake.value=false,500);document.getElementById(ids[keys[0]])?.focus();return;}}busy.value=true;try{const path=mode.value==='login'?'/auth/login':mode.value==='register'?'/auth/register':mode.value==='owner-register'?'/owners/register':mode.value==='forgot'?'/auth/forgot-password':'/auth/reset-password';const r=await post(path,{...form.value,token:route.params.token});if(r.data.token){auth.accept(r.data);ui.showVerification(r.data.delivery,r.data.user.email);await saved.sync();ui.toast(isRegister.value?r.data.message||'Verify your email. Tap here to verify your email address.':'Welcome back!');router.push(forcedDestination||(auth.staff?'/admin':auth.user.role==='owner'?'/owner':route.query.redirect||'/account'));}else status.value=r.data.message;}catch(e){error.value=message(e)||e.message;}finally{busy.value=false;}}
+async function submit(forcedDestination=''){if(busy.value)return;error.value='';status.value='';if(!forcedDestination){const keys=Object.keys(errs.value);touched.value=Object.fromEntries(Object.keys(ids).map(k=>[k,true]));if(keys.length){shake.value=false;await nextTick();shake.value=true;setTimeout(()=>shake.value=false,500);document.getElementById(ids[keys[0]])?.focus();return;}}busy.value=true;try{const path=mode.value==='login'?'/auth/login':mode.value==='register'?'/auth/register':mode.value==='owner-register'?'/owners/register':mode.value==='forgot'?'/auth/forgot-password':'/auth/reset-password';const r=await post(path,{...form.value,token:route.params.token});if(r.data.token){auth.accept(r.data);ui.showVerification(r.data.delivery,r.data.user.email);await saved.sync();ui.toast(isRegister.value?r.data.message||'Verify your email. Tap here to verify your email address.':'Welcome back!');router.push(auth.staff?'/admin':auth.user.role==='owner'?'/owner':route.query.redirect||'/account');}else status.value=r.data.message;}catch(e){error.value=message(e);}finally{busy.value=false;}}
 watch(()=>route.fullPath,()=>{error.value='';status.value='';touched.value={};});
 </script>
 <template>
@@ -59,8 +56,7 @@ watch(()=>route.fullPath,()=>{error.value='';status.value='';touched.value={};})
 <p class="switch">{{switchLine[0]}} <RouterLink :to="switchLine[2]">{{switchLine[1]}}</RouterLink><template v-if="mode==='register'"> · <RouterLink to="/register/owner">Own a restaurant?</RouterLink></template><template v-if="mode==='login'"> · <RouterLink to="/register/owner">Own a restaurant?</RouterLink></template></p>
 </div></section></div>
 
-<section v-if="mode==='login'" class="demo-accounts" aria-labelledby="demo-title"><div class="demo-head"><div><h2 id="demo-title">Sample accounts for checking</h2><p>Click <b>Use</b> to fill the form, or <b>Log in</b> to sign in right away. These accounts are created by <code>npm run demo</code>; the temporary demo data is erased when the demo server exits.</p></div><span class="badge">Demo only</span></div>
-<div class="demo-grid"><article v-for="d in demos" :key="d.role" class="demo-card"><h3>{{d.label}}</h3><p><b>Email:</b> {{d.email}}<br><b>Password:</b> {{d.password}}</p><div class="row"><button type="button" class="ghost-btn" :disabled="busy" @click="useDemo(d)">Use</button><button type="button" class="primary-btn" :disabled="busy" @click="loginDemo(d)">Log in</button></div></article></div></section>
+
 </div></template>
 <style scoped>
 .auth-page{--ink:#1d1b16;--acc:var(--forestry);--glow:rgba(47,61,32,.38);max-width:1060px;margin:0 auto;padding:44px 20px 88px}

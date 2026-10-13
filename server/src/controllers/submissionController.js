@@ -31,11 +31,3 @@ export async function photo(req,res){
  if(!valid){await fs.unlink(req.file.path);throw new ApiError(422,'The photo content must match its file type.');}
  ok(res,{url:'/uploads/'+req.file.filename},{},201);
 }
-
-export async function reply(req,res){
- const value=String(req.body.text||'').trim();if(!value||value.length>1000)throw new ApiError(422,'Write a reply of 1 to 1,000 characters.');
- const x=await RestaurantSuggestion.findByIdAndUpdate(id(req.params.id),{$push:{replies:{text:clean(value),author:req.user._id,createdAt:new Date()}}},{new:true,runValidators:true});
- if(!x)throw new ApiError(404,'Suggestion not found.');
- await notify(x.user,'Administrator replied to your suggestion',clean(value),'/account/suggestions');
- await audit(req,'restaurant-suggestion-reply','suggestion',x._id,null,{text:clean(value)});ok(res,x);
-}
