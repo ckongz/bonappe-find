@@ -1,7 +1,7 @@
 import axios from 'axios';
 export const api=axios.create({baseURL:import.meta.env.VITE_API_URL||'/api',timeout:20000});
-api.interceptors.request.use(c=>{const token=localStorage.getItem('bonappefind_token');if(token)c.headers.Authorization='Bearer '+token;return c;});
-api.interceptors.response.use(r=>r,e=>{if(e.response?.status===401){localStorage.removeItem('bonappefind_token');window.dispatchEvent(new Event('session-ended'));}return Promise.reject(e);});
+api.interceptors.request.use(c=>{const token=localStorage.getItem('bonappefind_token');if(token&&!['/auth/login','/auth/register','/owners/register','/auth/forgot-password','/auth/reset-password'].includes(c.url))c.headers.Authorization='Bearer '+token;return c;});
+api.interceptors.response.use(r=>r,e=>{const sent=e.config?.headers?.Authorization;const current=localStorage.getItem('bonappefind_token');if(e.response?.status===401&&current&&sent==='Bearer '+current){localStorage.removeItem('bonappefind_token');window.dispatchEvent(new Event('session-ended'));}return Promise.reject(e);});
 export const get=async(url,params)=> (await api.get(url,{params})).data;
 export const post=async(url,data)=> (await api.post(url,data)).data;
 export const put=async(url,data)=> (await api.put(url,data)).data;

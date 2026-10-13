@@ -54,3 +54,28 @@ test('registration returns a usable account when SMTP fails, then verification c
   assert.equal(retry.status,200,JSON.stringify(retry.body));assert(retry.body.data.developmentCode);
  }finally{for(const [k,v] of Object.entries(previous)){if(v===undefined)delete process.env[k];else process.env[k]=v;}}
 });
+
+test('new registration and login work despite a stale token; unverified dashboard remains accessible',async()=>{
+ const body={name:'Session regression',email:'session-regression@example.test',password:'Testing123',confirmPassword:'Testing123'};
+ const reg=await request(app).post('/api/auth/register').set('Authorization','Bearer expired-token').send(body);assert.equal(reg.status,201);
+ const login=await request(app).post('/api/auth/login').set('Authorization','Bearer expired-token').send(body);assert.equal(login.status,200);
+ const headers={Authorization:'Bearer '+login.body.data.token};
+ for(const path of ['/auth/me','/me/favorites','/me/search-history','/me/collections','/notifications'])assert.equal((await request(app).get('/api'+path).set(headers)).status,200,path);
+ assert.equal((await request(app).post('/api/auth/login').send({...body,password:'incorrect'})).status,401);
+ assert.equal((await request(app).get('/api/auth/me').set(headers)).status,200);
+});
+test('search history is isolated, replayable and clearable; suggestion replies persist and notify',async()=>{
+ const login=await request(app).post('/api/auth/login').send({email:'customer@example.test',password:'Testing123'});const headers={Authorization:'Bearer '+login.body.data.token};
+ const filters={cuisine:'Japanese',country:'Japan',field:'all'};
+ assert.equal((await request(app).post('/api/me/search-history').set(headers).send({query:'Cuisine: Japanese, Country: Japan',filters})).status,200);
+ const history=(await request(app).get('/api/me/search-history').set(headers)).body.data;assert.deepEqual(history[0].filters,filters);
+ assert.equal((await request(app).get('/api/me/search-history').set(auth('owner'))).body.data.length,0);
+ assert.equal((await request(app).delete('/api/me/search-history').set(headers)).status,200);assert.equal((await request(app).get('/api/me/search-history').set(headers)).body.data.length,0);
+ const suggestion=await request(app).post('/api/restaurant-suggestions').set(headers).send({name:'Reply regression restaurant',cuisine:'Filipino',address:'Angeles City',contact:'test@example.test',openingHours:'Mon-Sat 10-20',description:'A local restaurant recommendation.'});assert.equal(suggestion.status,201);
+ const sid=suggestion.body.data.suggestion._id,url='/api/admin/restaurant-suggestions/'+sid+'/replies';
+ assert.equal((await request(app).post(url).set(headers).send({text:'Unauthorized'})).status,403);
+ assert.equal((await request(app).post(url).set(auth('admin')).send({text:' '})).status,422);
+ assert.equal((await request(app).post(url).set(auth('admin')).send({text:'Thank you. We will check the address.'})).status,200);
+ const mine=(await request(app).get('/api/me/restaurant-suggestions').set(headers)).body.data.find(x=>x._id===sid);assert.equal(mine.replies[0].text,'Thank you. We will check the address.');
+ assert((await request(app).get('/api/notifications').set(headers)).body.data.some(x=>x.title==='Administrator replied to your suggestion'));
+});
