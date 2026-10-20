@@ -19,7 +19,7 @@ export async function issueCode(u){
  const code=String(crypto.randomInt(100000,1000000));
  const result=await sendMail(u.email,'Your BonAppé Find verification code',`Your verification code is ${code}. It expires in 10 minutes. Do not share it.`);
  const sentAt=new Date();await User.updateOne({_id:u._id},{verifyHash:hash(String(u._id)+':'+code),verifyUntil:new Date(Date.now()+600000),verifySentAt:sentAt,verifyAttempts:0});u.verifySentAt=sentAt;
- return {delivered:result.delivered,...(!result.delivered&&env.nodeEnv!=='production'?{developmentCode:code}:{}),cooldown:60,message:result.delivered?'Verification code sent to your email.':'Simulated verification: no email was sent. Your verification code is shown in the popup and server terminal.'};
+ return {delivered:result.delivered,...(!result.delivered&&(env.nodeEnv!=='production'||process.env.IN_APP_CODES==='true'||process.env.DEMO_MODE==='true')?{developmentCode:code}:{}),cooldown:60,message:result.delivered?'Verification code sent to your email.':'In-app verification: your code is displayed in the application popup (no email sent).'};
 }
 export async function verify(req,res){
  if(req.user.emailVerified)throw new ApiError(409,'This email is already verified.');
@@ -27,7 +27,7 @@ export async function verify(req,res){
  if(!u.verifyHash||!u.verifyUntil||u.verifyUntil<=new Date())throw new ApiError(400,'This code has expired or was already used. Please resend a code.');
  if(u.verifyAttempts>=5)throw new ApiError(429,'Too many incorrect attempts. Please resend a code.');
  const code=String(req.body.code||'');
- if(!/^\d{6}$/.test(code)||hash(String(u._id)+':'+code)!==u.verifyHash){await User.updateOne({_id:u._id,verifyHash:u.verifyHash,verifyAttempts:{$lt:5}},{$inc:{verifyAttempts:1}});throw new ApiError(400,'Incorrect verification code. Check the six digits in your email.');}
+ if(!/^\d{6}$/.test(code)||hash(String(u._id)+':'+code)!==u.verifyHash){await User.updateOne({_id:u._id,verifyHash:u.verifyHash,verifyAttempts:{$lt:5}},{$inc:{verifyAttempts:1}});throw new ApiError(400,'Incorrect verification code. Check the six digits shown in the app.');}
  const verified=await User.findOneAndUpdate({_id:u._id,email:u.email,emailVerified:false,verifyHash:u.verifyHash,verifyUntil:{$gt:new Date()},verifyAttempts:{$lt:5}},{$set:{emailVerified:true},$unset:{verifyHash:1,verifyUntil:1,verifyAttempts:1}},{new:true});
  if(!verified)throw new ApiError(400,'This code is expired, already used, or has too many attempts.');
  ok(res,{user:safeUser(verified),message:verified.role==='owner'?'Email verified. Your owner account is awaiting administrator approval. You can manage restaurant listings once approved.':'Email verified. You can now post reviews and suggest restaurants.'});
@@ -58,7 +58,7 @@ export async function forgot(req,res){
   try{
    const delivery=await sendMail(email,'Your BonAppé Find password reset code',`Your password reset code is ${code}. It expires in 10 minutes. Do not share it.`);
    await User.updateOne({_id:u._id},{resetHash:hash(String(u._id)+':reset:'+code),resetUntil:new Date(Date.now()+600000),resetAttempts:0});
-   if(!delivery.delivered&&env.nodeEnv!=='production'){response.developmentCode=code;response.message='Email delivery is simulated. Your reset code is shown in the popup and server terminal.';}
+   if(!delivery.delivered&&(env.nodeEnv!=='production'||process.env.IN_APP_CODES==='true'||process.env.DEMO_MODE==='true')){response.developmentCode=code;response.message='Email delivery is simulated. Your reset code is shown in the popup and server terminal.';}
   }catch(e){await User.updateOne({_id:u._id},{$unset:{resetSentAt:1}});throw e;}
  }
  ok(res,response);

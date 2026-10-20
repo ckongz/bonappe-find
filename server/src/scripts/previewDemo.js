@@ -122,14 +122,6 @@ try {
 
 
 
-  await M.User.create({
-    name: 'Local reviewer',
-    email: 'reviewer@example.test',
-    passwordHash,
-    role: 'admin',
-    emailVerified: true,
-  });
-
   const demoOwner = await M.User.create({
     name: 'Demo owner',
     email: 'owner@example.test',
@@ -182,7 +174,6 @@ try {
     console.log('Sample Accounts — For Checking');
     console.log('Customer: customer@example.test / ReviewOnly123');
     console.log('Owner:    owner@example.test / ReviewOnly123');
-    console.log('Admin:    reviewer@example.test / ReviewOnly123');
     console.log('');
     console.log('Keep this terminal open while using BonAppé Find.');
   });

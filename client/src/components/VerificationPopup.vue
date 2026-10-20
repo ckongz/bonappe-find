@@ -11,7 +11,7 @@ function close(){ui.verification=null;}
 <h2 id="code-popup-title">{{ui.verification.purpose==='reset'?'Your password reset code':'Your verification code'}}</h2>
 <p>{{ui.verification.email}}</p>
 <p class="verification-number">{{ui.verification.code}}</p>
-<p id="code-popup-help">Email delivery is simulated. {{ui.verification.purpose==='reset'?'Enter this code in the password reset form.':'Enter this code on the Verify Email page.'}} It expires in 10 minutes and can only be used once.</p>
+<p id="code-popup-help">This code is shown directly in the application; no email was sent. {{ui.verification.purpose==='reset'?'Enter this code in the password reset form.':'Enter this code on the Verify Email page.'}} It expires in 10 minutes and can only be used once.</p>
 <RouterLink :to="ui.verification.purpose==='reset'?'/forgot-password':'/verify-email'" class="btn" @click="close">{{ui.verification.purpose==='reset'?'Continue password reset':'Go to Verify Email'}}</RouterLink>
 <button type="button" class="secondary" autofocus @click="close">Close</button>
 </div>
